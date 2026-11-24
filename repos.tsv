@@ -1,0 +1,6 @@
+# name	language	url	commit   (tab separated; add your own below, see guide section 4.2)
+click	python	https://github.com/pallets/click	934813e4d421071a1b3db3973c02fe2721359a6e
+cobra	go	https://github.com/spf13/cobra	88b30ab89da2d0d0abb153818746c5a2d30eccec
+# djangox	python	https://github.com/wsvincent/djangox	14c0374eaab52dc49898229ffe9a3e8f0e0e51c2
+# gitea	go	https://github.com/go-gitea/gitea	f913d90ab664c1deccdfbe8c563abb13e897d62b
+# cal-com	typescript	https://github.com/calcom/cal.com	54343aa685ae8f33159d2f485ec4a57bad5c574a

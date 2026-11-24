@@ -1,0 +1,460 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Graph v2 vs old engine: verify the differences, find the gaps — intern guide</title>
+<style>
+  :root { --bg:#fff; --fg:#1d1d1f; --muted:#5f6368; --line:#dadce0; --card:#f6f7f9; --accent:#1a5fb4; --warn:#9a5b00; --warnbg:#fff4e0; }
+  @media (prefers-color-scheme: dark) {
+    :root { --bg:#161719; --fg:#e8eaed; --muted:#a0a4aa; --line:#3a3d42; --card:#1f2124; --accent:#8ab4f8; --warn:#f2b45a; --warnbg:#2e2412; }
+  }
+  body { background:var(--bg); color:var(--fg); font:16px/1.55 -apple-system, "Segoe UI", Roboto, sans-serif; margin:0; }
+  main { max-width:1000px; margin:0 auto; padding:32px 24px 80px; }
+  h1 { font-size:30px; margin:0 0 4px; }
+  h2 { font-size:22px; margin:44px 0 10px; padding-top:12px; border-top:1px solid var(--line); }
+  h3 { font-size:17px; margin:26px 0 8px; }
+  .sub { color:var(--muted); margin:0 0 20px; }
+  nav { background:var(--card); border:1px solid var(--line); border-radius:8px; padding:12px 18px; }
+  nav ol { margin:4px 0; padding-left:20px; columns:2; }
+  a { color:var(--accent); }
+  code { font:13.5px ui-monospace, SFMono-Regular, Menlo, monospace; background:var(--card); padding:1px 5px; border-radius:4px; }
+  pre { background:var(--card); border:1px solid var(--line); border-radius:8px; padding:12px 14px; overflow-x:auto; font:13px/1.5 ui-monospace, Menlo, monospace; }
+  pre code { background:none; padding:0; }
+  table { border-collapse:collapse; width:100%; margin:10px 0 16px; font-size:14.5px; }
+  th, td { border:1px solid var(--line); padding:7px 9px; text-align:left; vertical-align:top; }
+  th { background:var(--card); }
+  .note { background:var(--warnbg); border-left:4px solid var(--warn); padding:10px 14px; border-radius:4px; margin:14px 0; }
+  .fill { color:var(--warn); font-weight:600; }
+  .flow { display:flex; flex-wrap:wrap; gap:8px; align-items:center; margin:14px 0; }
+  .flow span { background:var(--card); border:1px solid var(--line); border-radius:6px; padding:6px 10px; font-size:14px; }
+  .flow b { color:var(--muted); }
+  li { margin:3px 0; }
+</style>
+</head>
+<body>
+<main>
+
+<h1>Graph v2 vs old engine: verify the differences, find the gaps</h1>
+<p class="sub">Intern guide, kit version 5, 23 November 2026. Runs on your laptop: no sentinel, no cloud, no model key. Coverage is out of scope (another team owns it). Items in <span class="fill">orange</span> are for the lead.</p>
+
+<nav><strong>Contents</strong>
+<ol>
+  <li><a href="#goal">Goal</a></li>
+  <li><a href="#terms">Words you need</a></li>
+  <li><a href="#setup">Set up your laptop</a></li>
+  <li><a href="#repos">Repositories, and picking more</a></li>
+  <li><a href="#run">Run</a></li>
+  <li><a href="#output">What the kit writes</a></li>
+  <li><a href="#method">How the comparison works</a></li>
+  <li><a href="#trust">Is the comparison right?</a></li>
+  <li><a href="#scores">Read the scores</a></li>
+  <li><a href="#verify">Verify the differences</a></li>
+  <li><a href="#gaps">Find the gap patterns</a></li>
+  <li><a href="#example">Worked example</a></li>
+  <li><a href="#daily">Daily report</a></li>
+  <li><a href="#issues">Issues</a></li>
+  <li><a href="#improve">Improve the method</a></li>
+  <li><a href="#faq">Common mistakes</a></li>
+</ol></nav>
+
+<h2 id="goal">1. Goal</h2>
+<p>Covlant turns a repository into a <strong>code graph</strong>: the functions and files in the code, and which function calls which. Everything else Covlant does is built on this graph. A new engine, <strong>graph v2</strong>, will replace the current one.</p>
+<p>Numbers alone do not tell us what to fix. Your job is to:</p>
+<ol>
+  <li><strong>Verify the differences</strong> between the two graphs by reading the code. A machine sorts every call into groups ("only dev gets it right", "only v2 gets it right", and so on). You check samples of each group and say whether the machine is right.</li>
+  <li><strong>Find the gaps</strong>: the calls v2 misses that the old engine gets right. Group them by cause, so each cause becomes one fix for the graph v2 team.</li>
+  <li><strong>Record speed and memory</strong> for both engines on the same repository.</li>
+  <li><strong>Question the comparison itself</strong>: say where the machine or the oracle is wrong, or what it cannot see (sections <a href="#trust">8</a> and <a href="#improve">15</a>).</li>
+  <li><strong>Send one report per repository every day</strong> (section <a href="#daily">13</a>).</li>
+</ol>
+
+<table>
+  <tr><th></th><th>Old engine ("dev")</th><th>Graph v2</th></tr>
+  <tr><td>codeparser branch</td><td><code>development</code></td><td><code>fleet/graph-v2</code> (default). It holds everything in <code>feat/graph-v2</code> plus newer work (1,474 commits ahead on 23 November 2026).</td></tr>
+</table>
+<p>To test <code>feat/graph-v2</code> instead, put <code>V2_REF=origin/feat/graph-v2</code> in front of each command.</p>
+
+<h2 id="terms">2. Words you need</h2>
+<table>
+  <tr><th>Word</th><th>Meaning</th></tr>
+  <tr><td>Oracle</td><td>The answer key: a SCIP indexer (<code>scip-python</code>, <code>scip-go</code>, <code>scip-typescript</code>) that uses the language's type checker to find every call and its target. It is independent of both engines, and it is not always right. That is why a person verifies.</td></tr>
+  <tr><td>Call (obligation)</td><td>One call the oracle found, to a function in the same repository: a file, a line, and the function(s) it reaches.</td></tr>
+  <tr><td>Edge</td><td>One "this line calls that function" claim in an engine's graph.</td></tr>
+  <tr><td>Recall</td><td>Of the calls the oracle found, the share for which the engine has a right edge.</td></tr>
+  <tr><td>Precision</td><td>Of the edges an engine made (on lines the oracle can judge), the share that are right.</td></tr>
+  <tr><td>n, interval</td><td>n is how many items a figure is based on. The 95% interval is the range in brackets.</td></tr>
+  <tr><td>Tier (v2)</td><td>How v2 resolved an edge: <code>exact</code>, <code>import</code>, <code>name</code>, <code>external</code>, or <code>unresolved</code>.</td></tr>
+  <tr><td>Reported miss (v2)</td><td>v2 did not resolve the call, but left an <code>unresolved</code> edge <strong>at that call</strong> with a reason: <code>dynamic_dispatch</code>, <code>no_candidate</code>, <code>many_candidates</code>, <code>reflection</code>, <code>external_not_indexed</code>, <code>depth_cap</code>. v2 knows it missed this call.</td></tr>
+  <tr><td>Silent miss (v2)</td><td>v2 has no edge at all at that call, so the graph gives no sign of the miss. (v2's ledger file may still hold a note; the kit does not read it yet.) Silent misses are worse than reported ones.</td></tr>
+  <tr><td>Accounting (v2)</td><td>v2's self-check: everything it read is placed in the graph or written to its ledger. <code>lost</code> must be 0.</td></tr>
+</table>
+
+<h2 id="setup">3. Set up your laptop</h2>
+<h3>3.1 Get the kit</h3>
+<p>The kit is one zip, <code>graph-v2-intern-kit.zip</code>. <span class="fill">Lead: share the zip from <code>working-notes/</code> (Drive, Slack, or email).</span> It holds:</p>
+<table>
+  <tr><th>File</th><th>What it is</th></tr>
+  <tr><td><code>guide.html</code></td><td>This guide.</td></tr>
+  <tr><td><code>graph-eval.sh</code></td><td>The one command you run.</td></tr>
+  <tr><td><code>graph_diff.py</code></td><td>Sorts every call into groups and writes the sheet you verify.</td></tr>
+  <tr><td><code>daily_report.py</code></td><td>Writes the daily report per repository, and the lead's roll-up.</td></tr>
+  <tr><td><code>repos.tsv</code></td><td>The starting list of repositories.</td></tr>
+</table>
+<pre><code>mkdir -p ~/graph-v2-qa &amp;&amp; cd ~/graph-v2-qa
+unzip ~/Downloads/graph-v2-intern-kit.zip      # the files land in ~/graph-v2-qa/kit/
+cp kit/repos.tsv .
+chmod +x kit/graph-eval.sh
+kit/graph-eval.sh setup</code></pre>
+<p>Keep the four kit files together in <code>kit/</code>. When the lead sends a new zip, unzip it over the old one. <code>setup</code> prints the kit version; check it matches the lead's.</p>
+
+<h3>3.2 Tools</h3>
+<table>
+  <tr><th>Tool</th><th>Install</th></tr>
+  <tr><td>Git with access to <code>github.com/Covlant/codeparser</code></td><td>Ask the lead.</td></tr>
+  <tr><td>Go (version in codeparser's <code>go.mod</code>), Node 20+, npm, Python 3.11+, jq</td><td>Homebrew or the official installers.</td></tr>
+  <tr><td><code>scip-python</code> 0.6.6</td><td><code>npm i -g @sourcegraph/scip-python@0.6.6</code></td></tr>
+  <tr><td><code>scip-typescript</code> 0.4.0</td><td><code>npm i -g @sourcegraph/scip-typescript@0.4.0</code></td></tr>
+  <tr><td><code>scip-go</code> 0.1.24</td><td><code>go install github.com/sourcegraph/scip-go/cmd/scip-go@v0.1.24</code></td></tr>
+</table>
+<p><code>setup</code> stops if an indexer is missing or the wrong version. Keep <strong>at least 20 GB free</strong>: the scorer stops a build when free disk falls under 8 GB, and every day's engine builds add up. <code>kit/graph-eval.sh clean</code> deletes builds older than 7 days and keeps your sheets.</p>
+
+<h3>3.3 Every morning</h3>
+<pre><code>kit/graph-eval.sh setup</code></pre>
+<p>It fetches codeparser and prints the two engine commits. The fleet branch moves several times a day. So that all interns test the same commits, the lead posts the day's pair. <span class="fill">Lead: post <code>DEV_REF=&lt;sha&gt; V2_REF=&lt;sha&gt;</code> each morning.</span> Put them in front of every command, or <code>export</code> them:</p>
+<pre><code>export DEV_REF=25ae40bf8662fb8c89c39684b1d942e235b3656a V2_REF=77d3bf5cdd57a2d98f8d1265b3fa122c897a8705 INTERN=&lt;your name&gt;</code></pre>
+
+<div class="note"><strong>The tool runs offline</strong>, so every run reads the same input. Fill the caches once, with the network on, when a step fails and names a cache:
+<ul>
+  <li><strong>Go:</strong> <code>go mod download</code> in <code>~/graph-v2-qa/work/&lt;repo&gt;/src</code> and in each <code>~/graph-v2-qa/work/engine-*</code>.</li>
+  <li><strong>TypeScript:</strong> the install for the repository's lockfile (<code>npm ci</code>, <code>pnpm install</code> or <code>yarn install</code>) in <code>~/graph-v2-qa/work/&lt;repo&gt;/src</code>. Then delete its <code>node_modules</code> and run again.</li>
+</ul></div>
+
+<h2 id="repos">4. Repositories, and picking more</h2>
+<h3>4.1 Starting list</h3>
+<p>These come from codeparser's <code>goldens/repos.toml</code>. They are a starting point; you add more yourself (4.2).</p>
+<table>
+  <tr><th>Name</th><th>Language</th><th>URL</th><th>Commit</th><th>Size</th><th>Intern</th></tr>
+  <tr><td>click</td><td>python</td><td>https://github.com/pallets/click</td><td><code>934813e4d421071a1b3db3973c02fe2721359a6e</code></td><td>18k lines; everyone's first run</td><td>everyone</td></tr>
+  <tr><td>cobra</td><td>go</td><td>https://github.com/spf13/cobra</td><td><code>88b30ab89da2d0d0abb153818746c5a2d30eccec</code></td><td>17k lines</td><td class="fill">…</td></tr>
+  <tr><td>djangox</td><td>python</td><td>https://github.com/wsvincent/djangox</td><td><code>14c0374eaab52dc49898229ffe9a3e8f0e0e51c2</code></td><td>small Django app</td><td class="fill">…</td></tr>
+  <tr><td>gitea</td><td>go</td><td>https://github.com/go-gitea/gitea</td><td><code>f913d90ab664c1deccdfbe8c563abb13e897d62b</code></td><td>large; 32 GB machine</td><td class="fill">…</td></tr>
+  <tr><td>cal-com</td><td>typescript</td><td>https://github.com/calcom/cal.com</td><td><code>54343aa685ae8f33159d2f485ec4a57bad5c574a</code></td><td>very large monorepo; lead's machine</td><td class="fill">…</td></tr>
+</table>
+<p><code>repos.tsv</code> lists them, one per line, <strong>tab</strong>-separated: <code>name language url commit</code>. Lines starting with <code>#</code> are skipped. <span class="fill">Lead: pick one small TypeScript repository with a lockfile; TypeScript has not been run end to end yet.</span></p>
+
+<h3>4.2 Picking more repositories</h3>
+<p>Add any public Python, Go or TypeScript repository you want. First write it in the shared list, so two people do not test the same one. <span class="fill">Lead: name the shared list (a sheet or a Linear document).</span></p>
+<table>
+  <tr><th>Rule</th><th>Why</th></tr>
+  <tr><td>Pin a full 40-character commit (<code>git ls-remote &lt;url&gt; HEAD</code>), not a branch.</td><td>Everyone must read the same code.</td></tr>
+  <tr><td>Prefer <strong>applications on a framework</strong> (Django, Flask, FastAPI, gin, echo, Express, NestJS, Next.js) over small libraries. Aim for a mix of languages and frameworks across the team.</td><td>Covlant's users have applications. Framework code (decorators, dependency injection, routing) is where the engines differ most.</td></tr>
+  <tr><td>Start under 100,000 lines. Above 50,000 oracle call sites the scores are samples, and the sheet counts will not match the scores exactly (<code>scores</code> prints the scoring mode).</td><td>Big repositories take hours and need 32 GB.</td></tr>
+  <tr><td><strong>Go:</strong> the repository needs a <code>go.mod</code> at its root.</td><td>The oracle and the diff read the module path from it.</td></tr>
+  <tr><td><strong>TypeScript:</strong> it needs a lockfile (<code>package-lock.json</code>, <code>pnpm-lock.yaml</code> or <code>yarn.lock</code>) and a root <code>tsconfig.json</code>. Monorepos with workspaces are untested. A <code>tsconfig</code> that extends a package (<code>fastify/demo</code> does) fails to index.</td><td>The indexer needs the dependencies' types.</td></tr>
+  <tr><td><strong>Python:</strong> dependencies are not installed. Calls into libraries are scored only as external, so this is fine for in-repo calls.</td><td>Know the limit when you read the external figures.</td></tr>
+  <tr><td>Avoid repositories that are mostly generated code, vendored copies of other code, or database migrations. If they have such folders, write that in your report.</td><td>The tool indexes every folder except <code>node_modules</code> and hidden ones, so these folders fill the sample.</td></tr>
+  <tr><td>Git submodules and LFS files are not fetched.</td><td>Code in them is missing for both engines.</td></tr>
+</table>
+
+<h2 id="run">5. Run</h2>
+<div class="flow">
+  <span>1. setup</span><b>→</b><span>2. run</span><b>→</b><span>3. scores</span><b>→</b><span>4. verify rows</span><b>→</b><span>5. group gaps by cause</span><b>→</b><span>6. report</span><b>→</b><span>7. issues</span>
+</div>
+<pre><code>cd ~/graph-v2-qa
+kit/graph-eval.sh run repos.tsv            # or: run repos.tsv &lt;tag&gt;; default tag is the date and time
+kit/graph-eval.sh scores eval/&lt;tag&gt;/out
+#   ... verify rows in eval/&lt;tag&gt;/out/&lt;repo&gt;-differences.md ...
+kit/graph-eval.sh verdicts eval/&lt;tag&gt;/out  # counts your verdicts
+kit/graph-eval.sh report eval/&lt;tag&gt;/out    # writes the daily report</code></pre>
+<p>For each repository, <code>run</code>:</p>
+<ol>
+  <li>pins the repository commit and the two engine commits in <code>eval/&lt;tag&gt;/manifest.toml</code>;</li>
+  <li>checks out the repository, and checks that nothing in it changes during the run;</li>
+  <li>builds the oracle index (cached after the first time);</li>
+  <li>builds the graph <strong>twice with each engine</strong> and measures wall time and peak memory;</li>
+  <li>scores both graphs (codeparser's <code>scripts/accuracy/scip_eval.py</code>; method in <code>docs/graph-v2/accuracy-method.md</code>);</li>
+  <li>compares the two graphs call by call, checks its counts against the scores, and writes the <strong>differences sheet</strong>. Verdicts from your newest earlier sheet are copied in (section <a href="#carry">7.6</a>).</li>
+</ol>
+<p>click and cobra take about 30 seconds each. Keep the laptop idle during a run, or the time and memory numbers are wrong. Repositories run one at a time; if one fails, the others still run. At the end, <code>FAILED: &lt;name&gt;</code> means no result, and <code>CHECK FAILED: &lt;name&gt;</code> means the scorer found a problem such as output that differs between the two builds. That is an S1 finding. In both cases the command exits with code 1.</p>
+
+<h2 id="output">6. What the kit writes (in <code>eval/&lt;tag&gt;/out</code>)</h2>
+<table>
+  <tr><th>File</th><th>What is in it</th><th>Who uses it</th></tr>
+  <tr><td><code>&lt;repo&gt;-differences.md</code></td><td><strong>Your work sheet.</strong> A Status block you fill in, the counts, how each v2 miss happened, then sampled rows of each group with empty verdict, cause and reason columns.</td><td>You</td></tr>
+  <tr><td><code>&lt;repo&gt;-rows.tsv</code></td><td>Every differing call and every wrong edge, not only the sample. Use it to size a pattern.</td><td>You</td></tr>
+  <tr><td><code>&lt;repo&gt;-diff.json</code></td><td>The counts, the machine flags, the check against the scores, and the samples.</td><td>The report</td></tr>
+  <tr><td><code>&lt;repo&gt;.json</code>, <code>summary.md</code></td><td>The scores from <code>scip_eval.py</code>: precision, recall, IMPORTS, time, memory, determinism, v2's own counters.</td><td><code>scores</code>, the report</td></tr>
+  <tr><td><code>&lt;repo&gt;-disagreements.md</code></td><td>30 rows where v2 and the oracle disagree, at the exact call site, without dev. Optional.</td><td>You, if time allows</td></tr>
+  <tr><td><code>&lt;repo&gt;-report.md</code>, <code>&lt;repo&gt;-report.json</code></td><td>The daily report (after <code>report</code>).</td><td>The lead</td></tr>
+  <tr><td><code>../manifest.toml</code>, <code>../run.log</code></td><td>What was tested (repository, engine and scorer commits), and the log.</td><td>Everyone</td></tr>
+</table>
+
+<h2 id="method">7. How the comparison works</h2>
+<p>Read this before you verify. If you find a case where these rules give the wrong answer, that is a finding (section <a href="#improve">15</a>).</p>
+
+<h3>7.1 What counts as one call</h3>
+<ol>
+  <li>The oracle lists every place where a name is used and a <code>(</code> follows it (the scorer's <code>is_call_site</code>). Each place has a byte position and the function(s) the name refers to.</li>
+  <li>The kit keeps only calls to functions <strong>inside the repository</strong>. Calls into libraries are scored separately as "external", and only for v2, because dev makes no external edges.</li>
+  <li>The old engine records only a line number for each call, not a byte position. So both engines are compared <strong>per line</strong>: one obligation is (file, line, the oracle's target set). Two identical calls on one line count as one.</li>
+</ol>
+
+<h3>7.2 When an edge is "right"</h3>
+<p>An engine's edge on a line is right for an obligation on that line when its target is the engine's node for the oracle's target. The mapping from the oracle's target to an engine node is:</p>
+<ul>
+  <li><strong>v2:</strong> the smallest v2 node with that name whose span holds the definition. A call to a class also accepts the class's constructor.</li>
+  <li><strong>dev:</strong> the dev node with that name in the same file and the same enclosing scope, at or before the definition line. A class also accepts its constructor.</li>
+  <li>If the engine has <strong>no node</strong> for the target, no edge can be right. The call stays in the count as a miss (an engine must not shrink its own denominator).</li>
+</ul>
+
+<h3>7.3 The groups (recall side: one row per call)</h3>
+<table>
+  <tr><th>Group</th><th>Rule</th><th>Counts towards</th></tr>
+  <tr><td><code>both_right</code></td><td>Both engines have a right edge on the line.</td><td>Both recalls</td></tr>
+  <tr><td><code>gap</code></td><td>dev has a right edge on the line; v2 has none.</td><td>dev recall only</td></tr>
+  <tr><td><code>v2_gain</code></td><td>v2 has a right edge; dev has none.</td><td>v2 recall only</td></tr>
+  <tr><td><code>both_miss</code></td><td>Neither has a right edge.</td><td>Neither</td></tr>
+</table>
+<p>So v2 recall = (both right + v2 gain) ÷ calls, and dev recall = (both right + gap) ÷ calls. The kit checks this against the published scores on every run and prints <code>check OK</code> or <code>MISMATCH</code>.</p>
+
+<h3>7.4 How v2 missed (the "notes" column)</h3>
+<p>For a gap or both-miss call, the kit looks at v2's edges <strong>at the exact byte position of the call</strong>, not the whole line, and gives one type:</p>
+<table>
+  <tr><th>v2 miss</th><th>Rule, in this order</th></tr>
+  <tr><td><code>no_node</code></td><td>v2 has no node for the oracle's target.</td></tr>
+  <tr><td><code>wrong_target</code></td><td>v2 has a resolved in-repo edge at this call, to another function.</td></tr>
+  <tr><td><code>external</code></td><td>v2 has an external edge at this call: it thinks the function is in a library.</td></tr>
+  <tr><td><code>reported (reason)</code></td><td>v2 has only <code>unresolved</code> edges at this call. The reason is v2's.</td></tr>
+  <tr><td><code>silent</code></td><td>v2 has no edge at this call at all.</td></tr>
+</table>
+<p>The notes column also carries flags:</p>
+<ul>
+  <li><code>oracle reads a definition as a call</code>: the line defines a function with the same name as the oracle's target, for example a second <code>def getchar</code> for another platform, or the real <code>def main(</code> after its <code>@overload</code> stubs. The oracle took the definition for a call to the earlier one. Expect the verdict <code>oracle wrong</code>.</li>
+  <li><code>dev has N targets on this line</code>: dev was right, but it emitted several functions on the line and one of them matched. dev may have guessed by name. Judge whether dev really knew.</li>
+  <li><code>dev has no node for the target</code>: dev could not be right.</li>
+</ul>
+
+<h3>7.5 Wrong edges (precision side: one row per edge)</h3>
+<table>
+  <tr><th>Group</th><th>Rule</th></tr>
+  <tr><td><code>v2_wrong</code></td><td>A v2 in-repo edge on a line where the oracle has at least one call it can map, whose target is <strong>none</strong> of that line's targets. <code>at call site: no</code> means the edge sits on no call the oracle saw, for example a decorator line.</td></tr>
+  <tr><td><code>dev_wrong</code></td><td>The same, for dev.</td></tr>
+  <tr><td><code>v2_unscored</code>, <code>dev_unscored</code></td><td>Edges on lines where the oracle has no call it can map. No score uses them. They can be calls the oracle missed, or plain wrong edges. A small sample is in the sheet.</td></tr>
+</table>
+<p>Line precision = right ÷ (right + wrong). Each engine is judged on its own edges, so the two engines are judged on different lines. Also look at v2's precision <strong>at exact call sites</strong>, which the scorer computes from byte positions (dev has no byte positions).</p>
+
+<h3>7.6 Samples, and keeping your work</h3>
+<ul>
+  <li>Each group gets up to 25 rows (wrong dev edges 15; unscored and both-right 10). The draw is seeded, so the same input gives the same rows.</li>
+  <li>The draw is <strong>stratified</strong>: one row per kind in turn (by miss type and reason, or at-site yes/no), so one big pattern cannot fill the whole sheet. So the sample share of a kind is <em>not</em> its share of the repository. Use the counts table and <code>rows.tsv</code> for sizes.</li>
+  <li id="carry">Each run copies your verdicts, causes and Status block from your newest earlier sheet of that repository, for every row whose file, line, oracle, dev and v2 text are unchanged. Rows you already judged are drawn first. When an engine changes a row, the row comes back empty: judge it again.</li>
+  <li>25 rows tell you a rate to about ±20 percentage points. Do not read small differences in the sample.</li>
+</ul>
+
+<h3>7.7 A small example</h3>
+<pre><code>src/click/core.py:1552    commands = self.list_commands(ctx)
+  oracle:  src/click/core.py:1764 MultiCommand#list_commands().
+  dev:     method::src/click/core.py::CommandCollection::list_commands; ...::Group::list_commands; ...::MultiCommand::list_commands
+  v2:      unresolved (dynamic_dispatch) at this call
+  group:   gap    (dev has a right edge on the line, v2 has none)
+  notes:   reported (dynamic_dispatch); dev has 3 targets on this line</code></pre>
+<p>Here dev "wins" because it emitted every <code>list_commands</code> it knew, and one was right; its other two edges appear as wrong dev edges. v2 gave up and said why. Your verdict says whether that is really a v2 gap, and the cause names the code shape (<code>method on self, defined in the class</code>).</p>
+
+<h2 id="trust">8. Is the comparison right?</h2>
+<p>Do these checks on every new repository, and write what you find in the report's Status block or as an S4 issue.</p>
+<table>
+  <tr><th>Check</th><th>How</th><th>Bad sign</th></tr>
+  <tr><td>Counts match the scores</td><td>The sheet's Counts block says <code>Check against the published scores: OK</code>.</td><td><code>MISMATCH</code>: stop and tell the lead.</td></tr>
+  <tr><td>"Both right" is really right</td><td>Verify the 10 both-right rows.</td><td>Any wrong row means every score is too high.</td></tr>
+  <tr><td>The oracle is right</td><td>Count <code>oracle wrong</code> in each group. See the <code>def_line_*</code> flag count.</td><td>Over 20% <code>oracle wrong</code> in a group: the scores there are not trustworthy.</td></tr>
+  <tr><td>dev's "right" is real</td><td>The <code>dev_multi_*</code> flag count, and the gap rows flagged <code>dev has N targets</code>.</td><td>Many: dev's recall is inflated by guessing, and those gaps matter less.</td></tr>
+  <tr><td>What no score sees</td><td>Verify the unscored rows.</td><td>Many v2 unscored edges that are right: the oracle misses a kind of call, and v2's recall is under-counted.</td></tr>
+  <tr><td>Scorer notes</td><td>The <code>Scorer notes</code> line. Today it shows dev calls from module-level code (outside any function), which the scorer never scores (16 in click).</td><td>A large number: dev is under-counted.</td></tr>
+  <tr><td>Scoring mode</td><td><code>scores</code> prints <code>scoring mode</code>.</td><td>Not <code>all</code>: the scores are samples.</td></tr>
+  <tr><td>IMPORTS and externals</td><td>These are not in the sheet. Read them in <code>scores</code>. dev makes no external edges, so its external figures are 0 by design.</td><td>A figure with n under 30: do not trust it (cobra's v2 in-repo IMPORTS precision is 8.3% with n=12; check it by hand).</td></tr>
+  <tr><td>What the oracle cannot know</td><td>Calls through reflection, <code>getattr</code>, dependency injection, or registries usually have no oracle target. Neither engine can be scored on them.</td><td>A framework repository with few oracle calls: much of the real call graph is invisible to the score.</td></tr>
+</table>
+
+<h2 id="scores">9. Read the scores</h2>
+<p><code>kit/graph-eval.sh scores eval/&lt;tag&gt;/out</code> prints, per repository:</p>
+<table>
+  <tr><th>Line</th><th>What to note</th></tr>
+  <tr><td>CALLS in-repo recall</td><td>The main accuracy figure. v2 should be higher.</td></tr>
+  <tr><td>CALLS in-repo precision (line)</td><td>Both engines. Do <strong>not</strong> rank the engines on this alone: it counts v2 edges on decorator lines as wrong, and judges each engine on different lines (7.5).</td></tr>
+  <tr><td>CALLS precision at exact call site</td><td>v2 only. Read it beside the line figure. A large gap between the two means v2's wrong edges sit off the oracle's calls.</td></tr>
+  <tr><td>edges not scored</td><td>How many edges no score judges. Large numbers: verify the unscored rows.</td></tr>
+  <tr><td>IMPORTS precision / recall</td><td>Same idea for imports. Distrust any figure with n under 30.</td></tr>
+  <tr><td>wall time, peak memory (run 1, run 2)</td><td>Use run 2 (warm caches). Wall time is rounded to 0.5 s; peak memory is the largest single process, not the sum. v2 always builds first. On repositories under 50,000 lines, start-up cost dominates, so record the numbers but do not file on them. Above that, file when v2 is more than 3 times dev, or above 10 minutes or 8 GB per million lines.</td></tr>
+  <tr><td>same output on both runs</td><td>Must be <code>true</code> for v2. <code>false</code> is an S1 finding.</td></tr>
+  <tr><td>v2 line precision by tier</td><td>A tier far below the others points at one cause. Find its rows in the sheet.</td></tr>
+  <tr><td>v2 files parsed / failed</td><td><code>failed</code> above 0 is a finding.</td></tr>
+  <tr><td>v2 accounting</td><td><code>ok=true</code> and <code>lost: 0</code>. Anything else is S1.</td></tr>
+  <tr><td>v2 unresolved share, reasons</td><td>Record them. Section 11 uses them.</td></tr>
+</table>
+
+<h2 id="verify">10. Verify the differences</h2>
+<h3>10.1 Each row</h3>
+<table>
+  <tr><th>Column</th><th>Meaning</th></tr>
+  <tr><td>file:line, source</td><td>The call or the edge. Open it in <code>~/graph-v2-qa/work/&lt;repo&gt;/src</code>.</td></tr>
+  <tr><td>oracle</td><td>Where the oracle says the call goes: <code>file:line Symbol</code>.</td></tr>
+  <tr><td>dev</td><td>dev's edges on that line (node ids such as <code>method::src/click/core.py::Command::invoke</code>), or <code>no edge</code>.</td></tr>
+  <tr><td>v2</td><td>v2's edges at the call (or on the line), with their tier.</td></tr>
+  <tr><td>notes</td><td>The v2 miss type and the flags (7.4).</td></tr>
+  <tr><td>verdict, cause, reason true</td><td>You fill them in.</td></tr>
+</table>
+
+<h3>10.2 How to verify one row</h3>
+<ol>
+  <li>Open the line. Find what the call is on: a module function, <code>self.x()</code>, <code>super().x()</code>, a method on a parameter or field, a decorator, an element of a list.</li>
+  <li>Find where it really goes: follow the import, the class of the object, its base classes, or the type annotation. "Go to definition" in your editor is only a hint; it is the same kind of tool as the oracle.</li>
+  <li>Fill in <strong>verdict</strong>:
+    <table>
+      <tr><th>Verdict</th><th>Use when</th></tr>
+      <tr><td><code>confirmed</code></td><td>The row is what its group says. Gap: the oracle and dev are right, v2 is wrong. v2 gain: the oracle and v2 are right, dev is wrong. Both miss: the oracle is right and both engines are wrong. Wrong edge: the edge really goes nowhere the code goes. Both right: both are right.</td></tr>
+      <tr><td><code>oracle wrong</code></td><td>The oracle's target is wrong, so the row is not a real difference.</td></tr>
+      <tr><td><code>dev wrong</code></td><td>dev's edge points somewhere else after all.</td></tr>
+      <tr><td><code>v2 right after all</code></td><td>v2's edge is right or acceptable (for example, a call that can reach either target at run time).</td></tr>
+      <tr><td><code>?</code></td><td>You cannot decide in 10 minutes. Ask the lead at the end of the day.</td></tr>
+    </table></li>
+  <li>For a <code>confirmed</code> gap, both miss or wrong v2 edge, fill in <strong>cause</strong>: a short phrase that fits every call with the same problem. For example: <code>self method inherited from base class</code>, <code>method on element of named slice type</code>, <code>decorator application edge</code>. Reuse the same phrase for the same cause; the report groups by it.</li>
+  <li>For a <code>reported</code> v2 miss, fill in <strong>reason true</strong>: <code>yes</code> if the reason fits (for example <code>dynamic_dispatch</code> on a method of a parameter with no type), <code>no</code> if it does not (for example <code>dynamic_dispatch</code> on <code>self.method()</code> whose class is plain to see).</li>
+</ol>
+<p>Order of work: gaps, then wrong v2 edges, then both right (the spot check), then v2 gains, then the rest.</p>
+
+<h3>10.3 Count</h3>
+<pre><code>kit/graph-eval.sh verdicts eval/&lt;tag&gt;/out</code></pre>
+<p>It counts each verdict per group and per sheet.</p>
+
+<h2 id="gaps">11. Find the gap patterns</h2>
+<p>A gap pattern is one cause of v2 misses that the graph v2 team can fix once. To find them:</p>
+<ol>
+  <li>Sort your <code>confirmed</code> gap and wrong-edge rows by the <strong>cause</strong> column. The daily report does this for you.</li>
+  <li>Size each cause in the whole repository with <code>rows.tsv</code>, not the sample:
+<pre><code>awk -F'\t' '$1=="gap" &amp;&amp; $4 ~ /dynamic_dispatch/' eval/&lt;tag&gt;/out/&lt;repo&gt;-rows.tsv | wc -l     # gaps v2 reports as dynamic_dispatch
+awk -F'\t' '$1=="gap" &amp;&amp; $8 ~ /self\.fail\(/'   eval/&lt;tag&gt;/out/&lt;repo&gt;-rows.tsv | wc -l     # gaps on one code shape</code></pre></li>
+  <li>Mark each pattern <strong>reported</strong> or <strong>silent</strong>. Silent patterns come first: v2 does not know about them, so nothing downstream can warn about them either.</li>
+  <li>Check that the pattern is general, not one odd line. You need at least 3 rows, ideally in different files.</li>
+  <li>Check the same pattern in a second repository of the same language if you have one.</li>
+</ol>
+
+<h3>11.1 Severity</h3>
+<table>
+  <tr><th>Level</th><th>Rule</th></tr>
+  <tr><td>S1</td><td>Not deterministic; accounting <code>lost</code> above 0; the build fails; files fail to parse; the counts check says <code>MISMATCH</code>.</td></tr>
+  <tr><td>S2</td><td>A confirmed gap pattern covering 20 or more calls, or a <strong>silent</strong> one with 3 or more confirmed rows. A wrong-edge pattern covering 20 or more edges.</td></tr>
+  <tr><td>S3</td><td>A smaller gap or wrong-edge pattern. A false v2 reason. A both-miss pattern.</td></tr>
+  <tr><td>S4</td><td>A report, tool or scorer problem, or an oracle problem (many <code>oracle wrong</code>).</td></tr>
+</table>
+
+<h2 id="example">12. Worked example</h2>
+<p>Real run, 23 November 2026: old engine <code>development@25ae40bf8662</code>, graph v2 <code>fleet/graph-v2@77d3bf5cdd57</code>.</p>
+
+<h3>12.1 Scores</h3>
+<table>
+  <tr><th></th><th colspan="2">click (Python)</th><th colspan="2">cobra (Go)</th></tr>
+  <tr><th></th><th>dev</th><th>v2</th><th>dev</th><th>v2</th></tr>
+  <tr><td>CALLS in-repo recall</td><td>49.8%</td><td>82.0%</td><td>68.5%</td><td>99.9%</td></tr>
+  <tr><td>CALLS precision, line</td><td>94.3% (n=1678)</td><td>79.6% (n=2787)</td><td>100% (n=1502)</td><td>100% (n=2202)</td></tr>
+  <tr><td>CALLS precision, v2 at exact call site</td><td>-</td><td>99.8%</td><td>-</td><td>100%</td></tr>
+  <tr><td>Wall time, run 2</td><td>1.0 s</td><td>2.0 s</td><td>0.5 s</td><td>1.5 s</td></tr>
+  <tr><td>Peak memory, run 2</td><td>102 MiB</td><td>215 MiB</td><td>286 MiB</td><td>160 MiB</td></tr>
+  <tr><td>Same output both runs</td><td>yes</td><td>yes</td><td>yes</td><td>yes</td></tr>
+</table>
+
+<h3>12.2 Differences</h3>
+<table>
+  <tr><th></th><th>Calls</th><th>Both right</th><th>Gap</th><th>v2 gain</th><th>Both miss</th><th>Wrong v2 edges</th><th>Wrong dev edges</th></tr>
+  <tr><td>click</td><td>2,283</td><td>990</td><td>147</td><td>883</td><td>263</td><td>568</td><td>96</td></tr>
+  <tr><td>cobra</td><td>2,192</td><td>1,500</td><td>2</td><td>690</td><td>0</td><td>0</td><td>0</td></tr>
+</table>
+<p>These match the scores: in click, v2 gets 990 + 883 = 1,873 of 2,283 calls (82.0%) and dev 990 + 147 = 1,137 (49.8%); v2 has 2,787 − 568 = 2,219 right edges (79.6%).</p>
+<p>Machine flags in click: in 35 of the 263 both-miss calls the oracle reads a definition as a call (overload stubs and per-platform re-definitions), so they are likely oracle mistakes. In 36 of the 147 gaps, dev had several targets on the line.</p>
+
+<h3>12.3 Patterns this run already shows (not yet verified)</h3>
+<table>
+  <tr><th>Repo</th><th>Rows</th><th>Likely cause</th><th>v2 says</th></tr>
+  <tr><td>click</td><td><code>src/click/core.py:1552</code> <code>self.list_commands(ctx)</code>, <code>:1626</code> <code>self.get_command(ctx, subcommand)</code>, <code>:1567</code> <code>super().collect_usage_pieces(ctx)</code></td><td>Method on <code>self</code> or <code>super()</code> defined in the class or a base class</td><td>reported, <code>dynamic_dispatch</code>: 134 of the 147 gaps. Is the reason true? The class of <code>self</code> is known.</td></tr>
+  <tr><td>click</td><td><code>src/click/types.py:391</code>, <code>:611</code> <code>self.fail(…)</code></td><td><code>self.fail</code> inherited from <code>ParamType</code> in subclasses</td><td><strong>silent</strong>: 10 of the 147 gaps</td></tr>
+  <tr><td>cobra</td><td><code>command.go:1329</code> <code>c[i].Name()</code>, <code>doc/util.go:52</code> <code>s[i].Name()</code></td><td>Method on an element of a named slice type (<code>type commandSorterByName []*Command</code>)</td><td><strong>silent</strong>: the only 2 gaps in cobra</td></tr>
+  <tr><td>click</td><td>Most wrong v2 edges, for example <code>examples/aliases/aliases.py:113</code> <code>@cli.command()</code></td><td>On a decorator line, v2 makes an <code>exact</code> edge from the decorator to the function it decorates. The oracle's call on that line is <code>cli.command</code>.</td><td>All 286 of v2's <code>exact</code> edges in click are of this kind. Almost all wrong v2 edges sit off the oracle's calls (<code>at call site: no</code>); at exact call sites v2 is 99.8% right.</td></tr>
+</table>
+<div class="note"><strong>Read the decorator rows carefully.</strong> Whether "decorator applied to a function" should be a CALLS edge is a modelling question for the graph v2 team, not a parse bug. Report it as one pattern and mark it "question". Do not count it as 286 bugs.</div>
+
+<h2 id="daily">13. Daily report</h2>
+<p>Every day, for <strong>each repository</strong> you worked on:</p>
+<ol>
+  <li>Fill in the <strong>Status</strong> block at the top of <code>&lt;repo&gt;-differences.md</code>:
+<pre><code>- intern: asha
+- stage: verifying        (not started | verifying | grouping patterns | done)
+- language version: (auto)   write a value here to correct the detected one
+- framework: (auto)          for example: django 5.1, celery 5.4
+- next: finish the gap rows, then wrong v2 edges
+- blocked by: nothing
+- issues filed: COV-123, COV-130</code></pre></li>
+  <li>Run <code>kit/graph-eval.sh report eval/&lt;tag&gt;/out</code>.</li>
+  <li>Send <code>&lt;repo&gt;-report.md</code> and <code>&lt;repo&gt;-report.json</code> for each repository. <span class="fill">Lead: name where they go (a shared folder or a channel).</span></li>
+</ol>
+<table>
+  <tr><th>The report gives</th><th>From</th></tr>
+  <tr><td>Repository, commit, lines of code</td><td>The manifest and the checkout</td></tr>
+  <tr><td>Language version</td><td>The <strong>declared</strong> version range, not the one installed. Detected: <code>requires-python</code>, <code>python_requires</code>, <code>.python-version</code>; the <code>go</code> line of <code>go.mod</code>; <code>engines.node</code> and the <code>typescript</code> version. Your Status value wins.</td></tr>
+  <tr><td>Framework version</td><td>Detected from <code>pyproject.toml</code>, <code>requirements*.txt</code>, <code>poetry.lock</code>/<code>uv.lock</code>; <code>go.mod</code>; <code>package.json</code> and the lockfile. A library repository says so (<code>the repo itself: click 8.1.8</code>). Check it; your Status value wins.</td></tr>
+  <tr><td>Which engine is more accurate</td><td>Recall and line precision side by side with 95% intervals, marked <code>clear</code> when the intervals do not overlap, plus v2's call-site precision and the net (v2 gain − gap), led by one bold decision line. Estimated real gaps and gains appear once you have judged 10 rows of a group, covering the kinds that hold 80% of it. Each kind is weighted by its size, because the sample is stratified.</td></tr>
+  <tr><td>The gaps</td><td>How v2 missed the gap calls (machine counts), and the patterns you confirmed, grouped by cause.</td></tr>
+  <tr><td>How many rows people verified</td><td>Per group: rows in the repository, sampled, verified (not counting <code>?</code>), each verdict, and misspelt verdicts. Spell verdicts exactly as in 10.2.</td></tr>
+  <tr><td>Where we are</td><td>Stage, next step, blocker and issues, from your Status block.</td></tr>
+  <tr><td>Speed and memory</td><td>Run 2 for both engines, determinism, v2 accounting.</td></tr>
+</table>
+<p><strong>Lead:</strong> put every intern's <code>*-report.json</code> in one folder and run <code>kit/graph-eval.sh rollup &lt;folder&gt;</code>. It writes <code>rollup.md</code> (one row per repository and intern, plus the confirmed patterns across repositories) and <code>rollup.csv</code> for a spreadsheet.</p>
+
+<h2 id="issues">14. Issues</h2>
+<p>One Linear issue in team Covlant for each verified pattern. <span class="fill">Lead: name the project and label (for example <code>graph-v2-qa</code>).</span> Search first. If the pattern is already filed, add your repository and rows as a comment.</p>
+<p>Title: <code>[graph-v2][S2][gap][silent] python: self method inherited from base class not resolved (click, ~10 calls)</code></p>
+<pre><code>Engines:     old engine development@&lt;sha&gt;   graph v2 fleet/graph-v2@&lt;sha&gt;   (from manifest.toml)
+Repository:  &lt;name&gt; (&lt;language&gt; &lt;version&gt;, &lt;framework&gt;) @ &lt;full commit&gt;, &lt;lines&gt; lines
+Group:       gap | wrong v2 edge | both miss | v2 gain
+v2 miss:     no_node | wrong_target | external | reported (&lt;reason&gt;; reason true yes/no) | silent
+Severity:    S1-S4
+Size:        &lt;n&gt; calls in this repository (the rows.tsv filter you used)
+
+Pattern:     one sentence: which code shape v2 gets wrong
+Rows (3 or more):
+  file:line | source | oracle | dev | v2 | why the oracle/dev is right
+Also in:     other repositories where you saw it
+
+Reproduce:   DEV_REF=&lt;sha&gt; V2_REF=&lt;sha&gt; kit/graph-eval.sh run repos.tsv
+Attach:      manifest.toml, &lt;repo&gt;-differences.md with your verdicts</code></pre>
+
+<h2 id="improve">15. Improve the method</h2>
+<p>The comparison has known weak points. Note any case you see in your report under "blocked by" or as an S4 issue with the label <span class="fill">(Lead: label, for example <code>graph-v2-method</code>)</span>, so we can improve the kit and the scorer.</p>
+<table>
+  <tr><th>Known weak point</th><th>Effect</th><th>What to collect</th></tr>
+  <tr><td>Calls are matched per line, because dev has only line numbers.</td><td>With two calls on one line, an engine is "right" for a call if its right edge belongs to the other call with the same target.</td><td>Rows where this changes the group.</td></tr>
+  <tr><td>Decorator lines: v2's edge from decorator to function counts as wrong.</td><td>v2's line precision drops (click: from about 88.6% to 79.6%).</td><td>Do decorated functions need this edge? Examples from frameworks (Flask routes, click commands, pytest fixtures).</td></tr>
+  <tr><td>The oracle reads some definitions as calls.</td><td>Both engines' recall is lower than it should be.</td><td><code>oracle wrong</code> rows flagged <code>oracle reads a definition as a call</code>, and any other shape the oracle gets wrong.</td></tr>
+  <tr><td>dev is "right" if any of its several targets matches.</td><td>dev's recall is inflated where it guesses by name.</td><td>Gaps flagged <code>dev has N targets</code>: did dev know, or guess?</td></tr>
+  <tr><td>The scorer drops dev calls from module-level code (<code>file::</code> sources).</td><td>dev's recall is slightly lower than it should be (16 calls in click).</td><td>The count per repository (Scorer notes line).</td></tr>
+  <tr><td>Calls the oracle cannot see (reflection, dependency injection, registries) are not scored at all.</td><td>Both engines' real behaviour on framework code is unmeasured.</td><td>Verified unscored rows where v2 or dev is right.</td></tr>
+  <tr><td>Python dependencies are not installed for the oracle.</td><td>External figures are weak for Python.</td><td>Nothing for now; note it when you read external figures.</td></tr>
+</table>
+
+<h2 id="faq">16. Common mistakes</h2>
+<ul>
+  <li><strong>Different engines.</strong> Use the lead's commit pair. Re-check a pattern on today's commits before you file it.</li>
+  <li><strong>One issue per row.</strong> Group rows by cause. 134 rows with one cause are one issue.</li>
+  <li><strong>Trusting the oracle.</strong> It is a strong tool, not the truth. The code is the truth.</li>
+  <li><strong>Ranking on line precision.</strong> Read it with the call-site figure and the wrong-edge rows.</li>
+  <li><strong>Sizing a pattern from the sample.</strong> The sample is stratified. Use <code>rows.tsv</code>.</li>
+  <li><strong>A cause that names a line.</strong> "<code>core.py:1552</code> broken" is not a cause. "method on <code>self</code> defined in a base class" is.</li>
+  <li><strong>Small n.</strong> Look at n before the percentage.</li>
+  <li><strong>Busy laptop.</strong> Other work during a run spoils the time and memory numbers.</li>
+  <li><strong>A failed repository.</strong> It still gets a report marked FAILED, with the reason. Send it, so the lead sees it.</li>
+  <li><strong>Editing the sheet's machine columns.</strong> Only fill in verdict, cause, reason true and the Status block; the next run matches rows on the other columns.</li>
+  <li><strong>Coverage.</strong> Out of scope here.</li>
+</ul>
+
+</main>
+</body>
+</html>
