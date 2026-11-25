@@ -1,0 +1,1656 @@
+{
+  "check": {
+    "mismatches": {},
+    "mode": "full",
+    "ok": true,
+    "v2_site_precision": {
+      "ci95": [
+        0.99,
+        0.993
+      ],
+      "k": 14579,
+      "n": 14702,
+      "population": 14702,
+      "value": 0.9916
+    }
+  },
+  "commit": "8ab6a4e3b5f6fbbfcbf108a6449011f07b7308aa",
+  "counts": {
+    "both_miss": 651,
+    "both_right": 4415,
+    "dev_unscored": 2079,
+    "dev_wrong": 388,
+    "gap": 480,
+    "v2_gain": 7027,
+    "v2_unscored": 149,
+    "v2_wrong": 716
+  },
+  "engines": {
+    "legacy": "25ae40bf8662fb8c89c39684b1d942e235b3656a",
+    "v2": "4e50b002a213e772404cec51b305f2329c6f8aa6"
+  },
+  "flags": {
+    "def_line_both_miss": 9,
+    "dev_multi_both_right": 523,
+    "dev_multi_gap": 70
+  },
+  "fractions": {
+    "dev_precision": [
+      5097,
+      5485
+    ],
+    "dev_recall": [
+      4895,
+      12573
+    ],
+    "v2_precision": [
+      11627,
+      12343
+    ],
+    "v2_recall": [
+      11442,
+      12573
+    ]
+  },
+  "language": "python",
+  "obligations": 12573,
+  "rates": {
+    "dev_precision": 0.9293,
+    "dev_recall": 0.3893,
+    "v2_precision": 0.942,
+    "v2_recall": 0.91
+  },
+  "relation": "calls",
+  "repo": "taiga-back",
+  "rows": {
+    "both_miss": 651,
+    "both_right": 4415,
+    "dev_unscored": 2062,
+    "dev_wrong": 388,
+    "gap": 480,
+    "v2_gain": 7027,
+    "v2_unscored": 147,
+    "v2_wrong": 716
+  },
+  "samples": {
+    "both_miss": [
+      {
+        "dev": "no edge",
+        "file": "taiga/auth/backends.py",
+        "line": 94,
+        "miss": "reported (many_candidates)",
+        "oracle": "taiga/auth/utils.py:59 format_lazy().",
+        "source": "raise TokenBackendError(format_lazy(_(\"You must have cryptography installed to use {}.\"), algorithm))",
+        "stratum": "reported (many_candidates)",
+        "v2": "unresolved unresolved::python::format_lazy"
+      },
+      {
+        "dev": "no edge",
+        "file": "taiga/base/api/request.py",
+        "line": 257,
+        "miss": "silent; oracle reads a definition as a call",
+        "oracle": "taiga/base/api/request.py:247 Request#user().",
+        "source": "def user(self, value):",
+        "stratum": "silent",
+        "v2": "no edge"
+      },
+      {
+        "dev": "no edge",
+        "file": "taiga/base/exceptions.py",
+        "line": 187,
+        "miss": "silent",
+        "oracle": "taiga/base/exceptions.py:76 NotAuthenticated#",
+        "source": "class NotAuthenticated(NotAuthenticated):",
+        "stratum": "silent",
+        "v2": "no edge"
+      },
+      {
+        "dev": "no edge",
+        "file": "taiga/base/middleware/cors.py",
+        "line": 32,
+        "miss": "no_node; dev has no node for the target",
+        "oracle": "taiga/base/middleware/cors.py:28 CorsMiddleware#get_response.",
+        "source": "response = self.get_response(request)",
+        "stratum": "no_node",
+        "v2": "unresolved unresolved::python::self.get_response"
+      },
+      {
+        "dev": "no edge",
+        "file": "taiga/events/middleware.py",
+        "line": 44,
+        "miss": "no_node; dev has no node for the target",
+        "oracle": "taiga/events/middleware.py:40 SessionIDMiddleware#get_response.",
+        "source": "response = self.get_response(request)",
+        "stratum": "no_node",
+        "v2": "unresolved unresolved::python::self.get_response"
+      },
+      {
+        "dev": "no edge",
+        "file": "taiga/export_import/validators/validators.py",
+        "line": 426,
+        "miss": "wrong_target",
+        "oracle": "taiga/base/api/fields.py:276 WritableField#",
+        "source": "default_us_status = serializers.SlugRelatedField(slug_field=\"name\", required=False)",
+        "stratum": "wrong_target",
+        "v2": "import python::.::taiga/base/api/relations.py::taiga/base/api/relations/SlugRelatedField#"
+      },
+      {
+        "dev": "no edge",
+        "file": "taiga/external_apps/api.py",
+        "line": 32,
+        "miss": "reported (many_candidates)",
+        "oracle": "taiga/base/exceptions.py:76 NotAuthenticated#",
+        "source": "raise exc.NotAuthenticated(_(\"Authentication required\"))",
+        "stratum": "reported (many_candidates)",
+        "v2": "unresolved unresolved::python::exc.NotAuthenticated"
+      },
+      {
+        "dev": "no edge",
+        "file": "taiga/importers/jira/normal.py",
+        "line": 30,
+        "miss": "reported (dynamic_dispatch)",
+        "oracle": "taiga/importers/jira/common.py:104 JiraClient#get().",
+        "source": "\"importer_type\": \"normal\"} for project in self._client.get('/project', {\"expand\": \"description\"})]",
+        "stratum": "reported (dynamic_dispatch)",
+        "v2": "unresolved unresolved::python::self._client.get"
+      },
+      {
+        "dev": "no edge",
+        "file": "taiga/projects/api.py",
+        "line": 403,
+        "miss": "reported (dynamic_dispatch)",
+        "oracle": "taiga/base/api/generics.py:199 GenericAPIView#get_object().",
+        "source": "project = self.get_object()",
+        "stratum": "reported (dynamic_dispatch)",
+        "v2": "unresolved unresolved::python::self.get_object"
+      },
+      {
+        "dev": "no edge",
+        "file": "taiga/projects/issues/api.py",
+        "line": 169,
+        "miss": "reported (many_candidates)",
+        "oracle": "taiga/base/exceptions.py:81 PermissionDenied#",
+        "source": "raise exc.PermissionDenied(_(\"You don't have permissions to set this severity \"",
+        "stratum": "reported (many_candidates)",
+        "v2": "unresolved unresolved::python::exc.PermissionDenied"
+      },
+      {
+        "dev": "no edge",
+        "file": "taiga/projects/references/validators.py",
+        "line": 17,
+        "miss": "wrong_target",
+        "oracle": "taiga/base/api/fields.py:495 CharField#",
+        "source": "us = serializers.IntegerField(required=False)",
+        "stratum": "wrong_target",
+        "v2": "import python::.::taiga/base/api/fields.py::taiga/base/api/fields/IntegerField#"
+      },
+      {
+        "dev": "no edge",
+        "file": "taiga/projects/settings/serializers.py",
+        "line": 16,
+        "miss": "wrong_target",
+        "oracle": "taiga/base/api/fields.py:495 CharField#",
+        "source": "project_name = serializers.SerializerMethodField(\"get_project_name\")",
+        "stratum": "wrong_target",
+        "v2": "import python::.::taiga/base/api/fields.py::taiga/base/api/fields/SerializerMethodField#"
+      },
+      {
+        "dev": "no edge",
+        "file": "taiga/projects/tasks/validators.py",
+        "line": 155,
+        "miss": "wrong_target",
+        "oracle": "taiga/base/api/fields.py:495 CharField#",
+        "source": "project_id = serializers.IntegerField()",
+        "stratum": "wrong_target",
+        "v2": "import python::.::taiga/base/api/fields.py::taiga/base/api/fields/IntegerField#"
+      },
+      {
+        "dev": "no edge",
+        "file": "taiga/projects/userstories/api.py",
+        "line": 194,
+        "miss": "reported (many_candidates)",
+        "oracle": "taiga/base/exceptions.py:81 PermissionDenied#",
+        "source": "raise exc.PermissionDenied(_(\"You don't have permissions to set this status \"",
+        "stratum": "reported (many_candidates)",
+        "v2": "unresolved unresolved::python::exc.PermissionDenied"
+      },
+      {
+        "dev": "no edge",
+        "file": "taiga/projects/userstories/api.py",
+        "line": 482,
+        "miss": "reported (many_candidates)",
+        "oracle": "taiga/base/exceptions.py:81 PermissionDenied#",
+        "source": "raise exc.PermissionDenied(_(\"Archived project\"))",
+        "stratum": "reported (many_candidates)",
+        "v2": "unresolved unresolved::python::exc.PermissionDenied"
+      },
+      {
+        "dev": "no edge",
+        "file": "taiga/projects/userstories/filters.py",
+        "line": 108,
+        "miss": "reported (no_candidate)",
+        "oracle": "taiga/base/filters.py:102 OrderByFilterMixin#filter_queryset().",
+        "source": "return filters.FilterBackend.filter_queryset(self, request, queryset, view)",
+        "stratum": "reported (no_candidate)",
+        "v2": "unresolved unresolved::python::filters.FilterBackend.filter_queryset"
+      },
+      {
+        "dev": "no edge",
+        "file": "taiga/routers.py",
+        "line": 104,
+        "miss": "reported (dynamic_dispatch)",
+        "oracle": "taiga/base/routers.py:353 NestedRouterMixin#register().",
+        "source": "router.register(r\"epic-custom-attributes\", EpicCustomAttributeViewSet,",
+        "stratum": "reported (dynamic_dispatch)",
+        "v2": "unresolved unresolved::python::router.register"
+      },
+      {
+        "dev": "no edge",
+        "file": "taiga/routers.py",
+        "line": 113,
+        "miss": "reported (dynamic_dispatch)",
+        "oracle": "taiga/base/routers.py:353 NestedRouterMixin#register().",
+        "source": "router.register(r\"epics/custom-attributes-values\", EpicCustomAttributesValuesViewSet,",
+        "stratum": "reported (dynamic_dispatch)",
+        "v2": "unresolved unresolved::python::router.register"
+      },
+      {
+        "dev": "no edge",
+        "file": "taiga/timeline/serializers.py",
+        "line": 24,
+        "miss": "wrong_target",
+        "oracle": "taiga/base/api/fields.py:495 CharField#",
+        "source": "data = serializers.SerializerMethodField(\"get_data\")",
+        "stratum": "wrong_target",
+        "v2": "import python::.::taiga/base/api/fields.py::taiga/base/api/fields/SerializerMethodField#"
+      },
+      {
+        "dev": "no edge",
+        "file": "tests/integration/test_hooks_gitlab.py",
+        "line": 1098,
+        "miss": "silent; oracle reads a definition as a call",
+        "oracle": "tests/integration/test_hooks_gitlab.py:1032 test_issues_event_updated_issue_without_connection().",
+        "source": "def test_issues_event_updated_issue_without_connection(client):",
+        "stratum": "silent",
+        "v2": "no edge"
+      },
+      {
+        "dev": "no edge",
+        "file": "tests/integration/test_userstories_update_backlog_order.py",
+        "line": 638,
+        "miss": "silent; oracle reads a definition as a call",
+        "oracle": "tests/integration/test_userstories_update_backlog_order.py:554 test_api_update_orders_in_bulk_invalid_after_us_because_milestone().",
+        "source": "def test_api_update_orders_in_bulk_invalid_after_us_because_milestone(client):",
+        "stratum": "silent",
+        "v2": "no edge"
+      },
+      {
+        "dev": "no edge",
+        "file": "tests/unit/auth/test_authentication.py",
+        "line": 71,
+        "miss": "reported (dynamic_dispatch)",
+        "oracle": "taiga/auth/authentication.py:80 JWTAuthentication#get_header().",
+        "source": "assert backend.get_header(request) == fake_header",
+        "stratum": "reported (dynamic_dispatch)",
+        "v2": "unresolved unresolved::python::backend.get_header"
+      },
+      {
+        "dev": "no edge",
+        "file": "tests/unit/auth/test_token_denylist.py",
+        "line": 151,
+        "miss": "reported (no_candidate)",
+        "oracle": "taiga/auth/tokens.py:247 DenylistMixin#for_user().",
+        "source": "not_expired_2 = RefreshToken.for_user(user)",
+        "stratum": "reported (no_candidate)",
+        "v2": "unresolved unresolved::python::RefreshToken.for_user"
+      },
+      {
+        "dev": "no edge",
+        "file": "tests/unit/auth/test_token_denylist.py",
+        "line": 171,
+        "miss": "reported (no_candidate)",
+        "oracle": "taiga/auth/tokens.py:247 DenylistMixin#for_user().",
+        "source": "not_expired_4 = RefreshToken.for_user(user)",
+        "stratum": "reported (no_candidate)",
+        "v2": "unresolved unresolved::python::RefreshToken.for_user"
+      },
+      {
+        "dev": "no edge",
+        "file": "tests/unit/auth/test_tokens.py",
+        "line": 350,
+        "miss": "reported (no_candidate)",
+        "oracle": "taiga/auth/tokens.py:185 Token#for_user().",
+        "source": "token = MyToken.for_user(user)",
+        "stratum": "reported (no_candidate)",
+        "v2": "unresolved unresolved::python::MyToken.for_user"
+      }
+    ],
+    "both_right": [
+      {
+        "dev": "class::taiga/export_import/validators/fields.py::UserRelatedField; method::taiga/export_import/validators/fields.py::UserRelatedField::from_native",
+        "file": "taiga/export_import/validators/fields.py",
+        "line": 160,
+        "miss": "dev has 2 targets on this line",
+        "oracle": "taiga/export_import/validators/fields.py:91 UserRelatedField#",
+        "source": "user = UserRelatedField().from_native(data[0])",
+        "stratum": "-",
+        "v2": "name python::.::taiga/export_import/validators/fields.py::taiga/export_import/validators/field\u2026"
+      },
+      {
+        "dev": "function::taiga/base/filters.py::get_filter_expression_can_view_projects",
+        "file": "taiga/projects/api.py",
+        "line": 141,
+        "miss": "",
+        "oracle": "taiga/base/filters.py:24 get_filter_expression_can_view_projects().",
+        "source": "flt = filters.get_filter_expression_can_view_projects(request.user)",
+        "stratum": "-",
+        "v2": "import python::.::taiga/base/filters.py::taiga/base/filters/get_filter_expression_can_view_proje\u2026"
+      },
+      {
+        "dev": "class::taiga/base/fields.py::JSONField",
+        "file": "taiga/projects/custom_attributes/validators.py",
+        "line": 83,
+        "miss": "",
+        "oracle": "taiga/base/fields.py:22 JSONField#",
+        "source": "attributes_values = JSONField(source=\"attributes_values\", label=\"attributes values\")",
+        "stratum": "-",
+        "v2": "import python::.::taiga/base/fields.py::taiga/base/fields/JSONField#"
+      },
+      {
+        "dev": "function::taiga/mdrender/service.py::render",
+        "file": "taiga/projects/epics/serializers.py",
+        "line": 67,
+        "miss": "",
+        "oracle": "taiga/mdrender/service.py:129 render().",
+        "source": "return mdrender(obj.project, obj.description)",
+        "stratum": "-",
+        "v2": "import python::.::taiga/mdrender/service.py::taiga/mdrender/service/render().#0b082246"
+      },
+      {
+        "dev": "function::taiga/timeline/service.py::get_user_timeline",
+        "file": "taiga/timeline/api.py",
+        "line": 102,
+        "miss": "",
+        "oracle": "taiga/timeline/service.py:235 get_user_timeline().",
+        "source": "return service.get_user_timeline(user, accessing_user=self.request.user)",
+        "stratum": "-",
+        "v2": "import python::.::taiga/timeline/service.py::taiga/timeline/service/get_user_timeline().#81cdbfce"
+      },
+      {
+        "dev": "function::taiga/base/utils/thumbnails.py::get_thumbnail_url",
+        "file": "taiga/timeline/serializers.py",
+        "line": 83,
+        "miss": "",
+        "oracle": "taiga/base/utils/thumbnails.py:80 get_thumbnail_url().",
+        "source": "thumb_url = get_thumbnail_url(attached_file,",
+        "stratum": "-",
+        "v2": "import python::.::taiga/base/utils/thumbnails.py::taiga/base/utils/thumbnails/get_thumbnail_url(\u2026"
+      },
+      {
+        "dev": "function::taiga/timeline/service.py::register_timeline_implementation",
+        "file": "taiga/timeline/timeline_implementations.py",
+        "line": 105,
+        "miss": "",
+        "oracle": "taiga/timeline/service.py:252 register_timeline_implementation().",
+        "source": "@register_timeline_implementation(\"wiki.wikipage\", \"create\")",
+        "stratum": "-",
+        "v2": "import python::.::taiga/timeline/service.py::taiga/timeline/service/register_timeline_implementa\u2026"
+      },
+      {
+        "dev": "function::taiga/timeline/service.py::register_timeline_implementation; method::taiga/auth/models.py::TokenUser::id",
+        "file": "tests/integration/test_timeline.py",
+        "line": 600,
+        "miss": "dev has 2 targets on this line",
+        "oracle": "taiga/timeline/service.py:252 register_timeline_implementation().",
+        "source": "service.register_timeline_implementation(\"epics.relateduserstory\", \"test\", lambda x, extra_data=None: id(x))",
+        "stratum": "-",
+        "v2": "import python::.::taiga/timeline/service.py::taiga/timeline/service/register_timeline_implementa\u2026"
+      },
+      {
+        "dev": "function::taiga/base/utils/json.py::dumps",
+        "file": "tests/integration/test_userstories_update_backlog_order.py",
+        "line": 522,
+        "miss": "",
+        "oracle": "taiga/base/utils/json.py:15 dumps().",
+        "source": "response = client.json.post(url, json.dumps(data))",
+        "stratum": "-",
+        "v2": "import python::.::taiga/base/utils/json.py::taiga/base/utils/json/dumps().#35deb74e"
+      },
+      {
+        "dev": "function::tests/factories.py::create_userstory",
+        "file": "tests/integration/test_watch_userstories.py",
+        "line": 71,
+        "miss": "",
+        "oracle": "tests/factories.py:708 create_userstory().",
+        "source": "user_story = f.create_userstory(owner=user, status=None)",
+        "stratum": "-",
+        "v2": "import python::.::tests/factories.py::tests/factories/create_userstory().#4c205102"
+      }
+    ],
+    "dev_unscored": [
+      {
+        "dev": "class::taiga/projects/api.py::TaskDueDateViewSet",
+        "file": "file::taiga/routers.py",
+        "line": 85,
+        "miss": "",
+        "oracle": "no oracle call with a target",
+        "source": "(file not in the checkout)",
+        "stratum": "-",
+        "v2": "no edge"
+      },
+      {
+        "dev": "method::taiga/base/api/request.py::Request::stream",
+        "file": "taiga/base/api/request.py",
+        "line": 379,
+        "miss": "",
+        "oracle": "no oracle call with a target",
+        "source": "stream = self.stream",
+        "stratum": "-",
+        "v2": "no edge"
+      },
+      {
+        "dev": "class::taiga/base/fields.py::I18NJSONField",
+        "file": "taiga/base/fields.py",
+        "line": 161,
+        "miss": "",
+        "oracle": "no oracle call with a target",
+        "source": "super(I18NJSONField, self).__init__(*args, **kwargs)",
+        "stratum": "-",
+        "v2": "no edge"
+      },
+      {
+        "dev": "class::taiga/users/models.py::User \u00d72",
+        "file": "taiga/importers/jira/common.py",
+        "line": 169,
+        "miss": "",
+        "oracle": "no oracle call with a target",
+        "source": "if isinstance(user_id, User):",
+        "stratum": "-",
+        "v2": "no edge"
+      },
+      {
+        "dev": "function::tests/integration/test_userstories.py::test_api_filters_data_respects_archived_\u2026",
+        "file": "taiga/importers/services.py",
+        "line": 36,
+        "miss": "",
+        "oracle": "no oracle call with a target",
+        "source": "if Membership.objects.filter(project=project, user=user).count() > 0:",
+        "stratum": "-",
+        "v2": "no edge"
+      },
+      {
+        "dev": "function::tests/integration/test_userstories.py::test_api_filters_data_respects_archived_\u2026",
+        "file": "taiga/projects/milestones/api.py",
+        "line": 116,
+        "miss": "",
+        "oracle": "no oracle call with a target",
+        "source": "'total_userstories': milestone.cached_user_stories.count(),",
+        "stratum": "-",
+        "v2": "no edge"
+      },
+      {
+        "dev": "class::taiga/projects/notifications/serializers.py::WatcherSerializer",
+        "file": "taiga/projects/milestones/api.py",
+        "line": 205,
+        "miss": "",
+        "oracle": "no oracle call with a target",
+        "source": "class MilestoneWatchersViewSet(WatchersViewSetMixin, ModelListViewSet):",
+        "stratum": "-",
+        "v2": "no edge"
+      },
+      {
+        "dev": "class::taiga/projects/tasks/models.py::Task",
+        "file": "taiga/projects/notifications/services.py",
+        "line": 147,
+        "miss": "",
+        "oracle": "no oracle call with a target",
+        "source": "elif isinstance(obj, Task):",
+        "stratum": "-",
+        "v2": "no edge"
+      },
+      {
+        "dev": "function::tests/integration/test_userstories.py::test_api_filters_data_respects_archived_\u2026",
+        "file": "taiga/projects/services/bulk_update_order.py",
+        "line": 270,
+        "miss": "",
+        "oracle": "no oracle call with a target",
+        "source": "'swimlane_id': [s_id] * s.user_stories.count()",
+        "stratum": "-",
+        "v2": "no edge"
+      },
+      {
+        "dev": "function::tests/integration/test_userstories.py::test_api_filters_data_respects_archived_\u2026",
+        "file": "tests/integration/test_history.py",
+        "line": 68,
+        "miss": "",
+        "oracle": "no oracle call with a target",
+        "source": "assert qs_all.count() == 0",
+        "stratum": "-",
+        "v2": "no edge"
+      }
+    ],
+    "dev_wrong": [
+      {
+        "dev": "method::taiga/base/api/relations.py::PrimaryKeyRelatedField::to_native",
+        "file": "taiga/base/api/fields.py",
+        "line": 223,
+        "miss": "",
+        "oracle": "taiga/base/api/fields.py:235 Field#to_native().",
+        "source": "return self.to_native(obj)",
+        "stratum": "-",
+        "v2": "no edge"
+      },
+      {
+        "dev": "method::taiga/base/api/relations.py::SlugRelatedField::from_native",
+        "file": "taiga/base/api/fields.py",
+        "line": 395,
+        "miss": "",
+        "oracle": "taiga/base/api/fields.py:404 WritableField#from_native().",
+        "source": "value = self.from_native(native)",
+        "stratum": "-",
+        "v2": "no edge"
+      },
+      {
+        "dev": "method::taiga/base/api/fields.py::ModelField::validate",
+        "file": "taiga/base/api/fields.py",
+        "line": 400,
+        "miss": "",
+        "oracle": "taiga/base/api/fields.py:341 WritableField#validate().",
+        "source": "self.validate(value)",
+        "stratum": "-",
+        "v2": "no edge"
+      },
+      {
+        "dev": "method::taiga/base/api/fields.py::ChoiceField::validate",
+        "file": "taiga/base/api/fields.py",
+        "line": 400,
+        "miss": "",
+        "oracle": "taiga/base/api/fields.py:341 WritableField#validate().",
+        "source": "self.validate(value)",
+        "stratum": "-",
+        "v2": "no edge"
+      },
+      {
+        "dev": "method::taiga/base/api/serializers.py::HyperlinkedModelSerializer::get_pk_field",
+        "file": "taiga/base/api/serializers.py",
+        "line": 751,
+        "miss": "",
+        "oracle": "taiga/base/api/serializers.py:881 ModelSerializer#get_pk_field().",
+        "source": "field = self.get_pk_field(pk_field)",
+        "stratum": "-",
+        "v2": "no edge"
+      },
+      {
+        "dev": "class::taiga/base/api/fields.py::ChoiceField",
+        "file": "taiga/base/api/serializers.py",
+        "line": 948,
+        "miss": "",
+        "oracle": "taiga/base/api/fields.py:495 CharField#",
+        "source": "return ChoiceField(**kwargs)",
+        "stratum": "-",
+        "v2": "python::.::taiga/base/api/fields.py::taiga/base/api/fields/ChoiceField#; python::.::taiga/base/api/fields.py::taiga/base/api/fields/ChoiceField#__init__().#6f79be\u2026"
+      },
+      {
+        "dev": "method::taiga/projects/filters.py::CanViewProjectObjFilterBackend::filter_queryset",
+        "file": "taiga/base/filters.py",
+        "line": 646,
+        "miss": "",
+        "oracle": "taiga/base/filters.py:102 OrderByFilterMixin#filter_queryset().",
+        "source": "return FilterBackend.filter_queryset(self, request, queryset, view)",
+        "stratum": "-",
+        "v2": "no edge"
+      },
+      {
+        "dev": "class::taiga/projects/models.py::Project",
+        "file": "taiga/projects/migrations/0013_auto_20141210_1040.py",
+        "line": 30,
+        "miss": "",
+        "oracle": "taiga/projects/migrations/0013_auto_20141210_1040.py:17 _fix_tags_model().",
+        "source": "_fix_tags_model(Project)",
+        "stratum": "-",
+        "v2": "python::.::taiga/projects/migrations/0013_auto_20141210_1040.py::taiga/projects/migration\u2026"
+      },
+      {
+        "dev": "class::taiga/projects/milestones/models.py::Milestone",
+        "file": "taiga/projects/userstories/api.py",
+        "line": 445,
+        "miss": "",
+        "oracle": "taiga/base/api/utils/__init__.py:51 get_object_or_error().",
+        "source": "milestone = get_object_or_error(Milestone, request.user, pk=milestone_id, project=project)",
+        "stratum": "-",
+        "v2": "python::.::taiga/base/api/utils/__init__.py::taiga/base/api/utils/get_object_or_error().#\u2026"
+      },
+      {
+        "dev": "method::taiga/base/api/serializers.py::LightSerializer::__init__",
+        "file": "tests/integration/resources_permissions/test_epics_resources.py",
+        "line": 364,
+        "miss": "",
+        "oracle": "taiga/projects/epics/serializers.py:54 EpicSerializer#",
+        "source": "epic_data = EpicSerializer(data.public_epic).data",
+        "stratum": "-",
+        "v2": "python::.::taiga/projects/epics/serializers.py::taiga/projects/epics/serializers/EpicSeri\u2026"
+      },
+      {
+        "dev": "method::taiga/auth/backends.py::TokenBackend::decode",
+        "file": "tests/integration/resources_permissions/test_projects_choices_resources.py",
+        "line": 1735,
+        "miss": "",
+        "oracle": "taiga/base/utils/json.py:19 loads().",
+        "source": "projects_data = json.loads(response.content.decode('utf-8'))",
+        "stratum": "-",
+        "v2": "python::.::taiga/base/utils/json.py::taiga/base/utils/json/loads().#ff92409d"
+      },
+      {
+        "dev": "class::taiga/userstorage/models.py::StorageEntry",
+        "file": "tests/integration/resources_permissions/test_storage_resources.py",
+        "line": 113,
+        "miss": "",
+        "oracle": "tests/utils.py:54 helper_test_http_method().",
+        "source": "results = helper_test_http_method(client, 'post', url, create_data, users, lambda: StorageEntry.objects.all().delete())",
+        "stratum": "-",
+        "v2": "python::.::tests/utils.py::tests/utils/helper_test_http_method().#19a11830"
+      },
+      {
+        "dev": "function::tests/integration/test_userstories.py::test_api_filters_data_respects_archived_\u2026",
+        "file": "tests/integration/test_hooks_bitbucket.py",
+        "line": 810,
+        "miss": "",
+        "oracle": "taiga/projects/history/services.py:441 get_history_queryset_by_model_instance().",
+        "source": "assert get_history_queryset_by_model_instance(issue).count() == 0",
+        "stratum": "-",
+        "v2": "python::.::taiga/projects/history/services.py::taiga/projects/history/services/get_histor\u2026"
+      },
+      {
+        "dev": "method::taiga/auth/models.py::TokenUser::id",
+        "file": "tests/integration/test_timeline.py",
+        "line": 82,
+        "miss": "",
+        "oracle": "taiga/timeline/service.py:252 register_timeline_implementation().",
+        "source": "service.register_timeline_implementation(\"tasks.task\", \"test\", lambda x, extra_data=None: id(x))",
+        "stratum": "-",
+        "v2": "python::.::taiga/timeline/service.py::taiga/timeline/service/register_timeline_implementa\u2026"
+      },
+      {
+        "dev": "method::taiga/auth/tokens.py::Token::__init__",
+        "file": "tests/unit/auth/test_tokens.py",
+        "line": 414,
+        "miss": "",
+        "oracle": "taiga/auth/tokens.py:306 AccessToken#",
+        "source": "access_token = AccessToken()",
+        "stratum": "-",
+        "v2": "python::.::taiga/auth/tokens.py::taiga/auth/tokens/AccessToken#; python::.::taiga/auth/tokens.py::taiga/auth/tokens/Token#__init__().#7bc8abd7"
+      }
+    ],
+    "gap": [
+      {
+        "dev": "class::taiga/auth/exceptions.py::TokenBackendError; function::taiga/auth/utils.py::format_lazy",
+        "file": "taiga/auth/backends.py",
+        "line": 91,
+        "miss": "reported (many_candidates); dev has 2 targets on this line",
+        "oracle": "taiga/auth/utils.py:59 format_lazy().",
+        "source": "raise TokenBackendError(format_lazy(_(\"Unrecognized algorithm type '{}'\"), algorithm))",
+        "stratum": "reported (many_candidates)",
+        "v2": "unresolved unresolved::python::format_lazy"
+      },
+      {
+        "dev": "class::taiga/auth/exceptions.py::TokenError; function::taiga/auth/utils.py::format_lazy",
+        "file": "taiga/auth/tokens.py",
+        "line": 178,
+        "miss": "reported (many_candidates); dev has 2 targets on this line",
+        "oracle": "taiga/auth/utils.py:59 format_lazy().",
+        "source": "raise TokenError(format_lazy(_(\"Token has no '{}' claim\"), claim))",
+        "stratum": "reported (many_candidates)",
+        "v2": "unresolved unresolved::python::format_lazy"
+      },
+      {
+        "dev": "class::taiga/base/api/fields.py::IntegerField; method::taiga/base/api/fields.py::WritableField::__init__",
+        "file": "taiga/base/api/fields.py",
+        "line": 876,
+        "miss": "reported (dynamic_dispatch); dev has 2 targets on this line",
+        "oracle": "taiga/base/api/fields.py:289 WritableField#__init__().",
+        "source": "super(IntegerField, self).__init__(*args, **kwargs)",
+        "stratum": "reported (dynamic_dispatch)",
+        "v2": "unresolved unresolved::python::super().__init__"
+      },
+      {
+        "dev": "class::taiga/base/api/renderers.py::JSONPRenderer; method::taiga/base/api/renderers.py::JSONRenderer::render",
+        "file": "taiga/base/api/renderers.py",
+        "line": 172,
+        "miss": "reported (dynamic_dispatch); dev has 2 targets on this line",
+        "oracle": "taiga/base/api/renderers.py:102 JSONRenderer#render().",
+        "source": "json = super(JSONPRenderer, self).render(data, accepted_media_type,",
+        "stratum": "reported (dynamic_dispatch)",
+        "v2": "unresolved unresolved::python::super().render"
+      },
+      {
+        "dev": "function::taiga/base/api/utils/formatting.py::apply_markdown",
+        "file": "taiga/base/api/utils/formatting.py",
+        "line": 106,
+        "miss": "reported (many_candidates)",
+        "oracle": "taiga/base/api/utils/formatting.py:49 apply_markdown().",
+        "source": "description = apply_markdown(description)",
+        "stratum": "reported (many_candidates)",
+        "v2": "unresolved unresolved::python::apply_markdown"
+      },
+      {
+        "dev": "method::taiga/base/api/views.py::APIView::get_renderer_context",
+        "file": "taiga/base/api/views.py",
+        "line": 391,
+        "miss": "reported (dynamic_dispatch)",
+        "oracle": "taiga/base/api/views.py:209 APIView#get_renderer_context().",
+        "source": "response.renderer_context = self.get_renderer_context()",
+        "stratum": "reported (dynamic_dispatch)",
+        "v2": "unresolved unresolved::python::self.get_renderer_context"
+      },
+      {
+        "dev": "method::taiga/base/filters.py::BaseCompareFilter::filter_queryset; method::taiga/base/filters.py::BaseRelatedFieldsFilter::filter_queryset; method::taiga/base/filters.py::IsProjectAdminFilterBackend::filter_queryset; method::taiga/base/filters.py::IsProjectAdminFromWebhookLogFilterBackend::filter_queryset; method::taiga/base/filters.py::MembersFilterBackend::filter_queryset; method::taiga/base/filters.py::OrderByFilterMixin::filter_queryset; method::taiga/base/filters.py::PermissionBasedAttachmentFilterBackend::filter_queryset; method::taiga/base/filters.py::PermissionBasedFilterBackend::filter_queryset; method::taiga/base/filters.py::QFilter::filter_queryset; method::taiga/base/filters.py::TagsFilter::filter_queryset; method::taiga/base/filters.py::WatchersFilter::filter_queryset; method::taiga/projects/filters.py::CanViewProjectObjFilterBackend::filter_queryset; method::taiga/projects/filters.py::DiscoverModeFilterBackend::filter_queryset; method::taiga/projects/filters.py::QFilterBackend::filter_queryset; method::taiga/projects/filters.py::UserOrderFilterBackend::filter_queryset; method::taiga/projects/userstories/filters.py::DashboardFilter::filter_queryset; method::taiga/projects/userstories/filters.py::UserStoriesRoleFilter::filter_queryset; method::taiga/projects/userstories/filters.py::UserStoryStatusesFilter::filter_queryset; method::taiga/users/filters.py::ContactsFilterBackend::filter_queryset; method::taiga/userstorage/filters.py::StorageEntriesFilterBackend::filter_queryset",
+        "file": "taiga/base/filters.py",
+        "line": 646,
+        "miss": "reported (no_candidate); dev has 20 targets on this line",
+        "oracle": "taiga/base/filters.py:102 OrderByFilterMixin#filter_queryset().",
+        "source": "return FilterBackend.filter_queryset(self, request, queryset, view)",
+        "stratum": "reported (no_candidate)",
+        "v2": "unresolved unresolved::python::FilterBackend.filter_queryset"
+      },
+      {
+        "dev": "function::taiga/base/neighbors.py::get_neighbors",
+        "file": "taiga/base/neighbors.py",
+        "line": 97,
+        "miss": "wrong_target",
+        "oracle": "taiga/base/neighbors.py:19 get_neighbors().",
+        "source": "left, right = get_neighbors(obj, results_set=queryset)",
+        "stratum": "wrong_target",
+        "v2": "name python::.::taiga/base/neighbors.py::taiga/base/neighbors/NeighborsSerializerMixin#get_nei\u2026"
+      },
+      {
+        "dev": "method::taiga/base/api/views.py::APIView::as_view",
+        "file": "taiga/base/routers.py",
+        "line": 288,
+        "miss": "reported (no_candidate)",
+        "oracle": "taiga/base/api/views.py:139 APIView#as_view().",
+        "source": "return APIRoot.as_view()",
+        "stratum": "reported (no_candidate)",
+        "v2": "unresolved unresolved::python::APIRoot.as_view"
+      },
+      {
+        "dev": "class::taiga/export_import/serializers/fields.py::UserRelatedField; method::taiga/export_import/serializers/fields.py::UserRelatedField::to_value",
+        "file": "taiga/export_import/serializers/fields.py",
+        "line": 86,
+        "miss": "reported (dynamic_dispatch); dev has 2 targets on this line",
+        "oracle": "taiga/export_import/serializers/fields.py:52 UserRelatedField#to_value().",
+        "source": "return (UserRelatedField().to_value(user), obj['name'])",
+        "stratum": "reported (dynamic_dispatch)",
+        "v2": "unresolved unresolved::python::UserRelatedField().to_value"
+      },
+      {
+        "dev": "method::taiga/hooks/event_hooks.py::BaseEventHook::ignore",
+        "file": "taiga/hooks/event_hooks.py",
+        "line": 82,
+        "miss": "reported (dynamic_dispatch)",
+        "oracle": "taiga/hooks/event_hooks.py:46 BaseEventHook#ignore().",
+        "source": "if self.ignore():",
+        "stratum": "reported (dynamic_dispatch)",
+        "v2": "unresolved unresolved::python::self.ignore"
+      },
+      {
+        "dev": "method::taiga/importers/jira/common.py::JiraImporterCommon::get_auth_url",
+        "file": "taiga/importers/management/commands/import_from_jira.py",
+        "line": 51,
+        "miss": "reported (no_candidate)",
+        "oracle": "taiga/importers/jira/common.py:727 JiraImporterCommon#get_auth_url().",
+        "source": "(rtoken, rtoken_secret, url) = JiraNormalImporter.get_auth_url(",
+        "stratum": "reported (no_candidate)",
+        "v2": "unresolved unresolved::python::JiraNormalImporter.get_auth_url"
+      },
+      {
+        "dev": "method::taiga/base/api/generics.py::GenericAPIView::get_serializer",
+        "file": "taiga/projects/api.py",
+        "line": 200,
+        "miss": "reported (dynamic_dispatch)",
+        "oracle": "taiga/base/api/generics.py:92 GenericAPIView#get_serializer().",
+        "source": "serializer = self.get_serializer(self.object)",
+        "stratum": "reported (dynamic_dispatch)",
+        "v2": "unresolved unresolved::python::self.get_serializer"
+      },
+      {
+        "dev": "function::taiga/base/decorators.py::detail_route",
+        "file": "taiga/projects/api.py",
+        "line": 322,
+        "miss": "silent",
+        "oracle": "taiga/base/decorators.py:11 detail_route().",
+        "source": "@detail_route(methods=[\"POST\"])",
+        "stratum": "silent",
+        "v2": "import python::.::taiga/base/decorators.py::taiga/base/decorators/detail_route().decorator().#ff\u2026"
+      },
+      {
+        "dev": "function::taiga/base/decorators.py::detail_route",
+        "file": "taiga/projects/api.py",
+        "line": 424,
+        "miss": "silent",
+        "oracle": "taiga/base/decorators.py:11 detail_route().",
+        "source": "@detail_route(methods=[\"POST\"])",
+        "stratum": "silent",
+        "v2": "import python::.::taiga/base/decorators.py::taiga/base/decorators/detail_route().decorator().#ff\u2026"
+      },
+      {
+        "dev": "function::taiga/base/decorators.py::list_route",
+        "file": "taiga/projects/api.py",
+        "line": 1047,
+        "miss": "silent",
+        "oracle": "taiga/base/decorators.py:24 list_route().",
+        "source": "@list_route(methods=[\"POST\"])",
+        "stratum": "silent",
+        "v2": "import python::.::taiga/base/decorators.py::taiga/base/decorators/list_route().decorator().#ff92\u2026"
+      },
+      {
+        "dev": "function::taiga/base/decorators.py::detail_route",
+        "file": "taiga/projects/history/api.py",
+        "line": 156,
+        "miss": "silent",
+        "oracle": "taiga/base/decorators.py:11 detail_route().",
+        "source": "@detail_route(methods=['post'])",
+        "stratum": "silent",
+        "v2": "import python::.::taiga/base/decorators.py::taiga/base/decorators/detail_route().decorator().#ff\u2026"
+      },
+      {
+        "dev": "function::taiga/base/decorators.py::list_route",
+        "file": "taiga/users/api.py",
+        "line": 317,
+        "miss": "silent",
+        "oracle": "taiga/base/decorators.py:24 list_route().",
+        "source": "@list_route(methods=[\"GET\"])",
+        "stratum": "silent",
+        "v2": "import python::.::taiga/base/decorators.py::taiga/base/decorators/list_route().decorator().#ff92\u2026"
+      },
+      {
+        "dev": "function::taiga/base/utils/json.py::dumps",
+        "file": "tests/integration/test_importers_trello_api.py",
+        "line": 181,
+        "miss": "reported (dynamic_dispatch)",
+        "oracle": "taiga/base/utils/json.py:15 dumps().",
+        "source": "response = client.post(url, content_type=\"application/json\", data=json.dumps({\"token\": \"token\"}))",
+        "stratum": "reported (dynamic_dispatch)",
+        "v2": "unresolved unresolved::python::json.dumps"
+      },
+      {
+        "dev": "method::taiga/auth/tokens.py::Token::for_user",
+        "file": "tests/integration/test_users.py",
+        "line": 655,
+        "miss": "reported (no_candidate)",
+        "oracle": "taiga/auth/tokens.py:185 Token#for_user().",
+        "source": "cancel_token = CancelToken.for_user(user)",
+        "stratum": "reported (no_candidate)",
+        "v2": "unresolved unresolved::python::CancelToken.for_user"
+      },
+      {
+        "dev": "method::taiga/auth/tokens.py::Token::for_user",
+        "file": "tests/unit/auth/test_token_denylist.py",
+        "line": 75,
+        "miss": "reported (no_candidate)",
+        "oracle": "taiga/auth/tokens.py:185 Token#for_user().",
+        "source": "AccessToken.for_user(user)",
+        "stratum": "reported (no_candidate)",
+        "v2": "unresolved unresolved::python::AccessToken.for_user"
+      },
+      {
+        "dev": "method::taiga/auth/tokens.py::DenylistMixin::for_user",
+        "file": "tests/unit/auth/test_token_denylist.py",
+        "line": 87,
+        "miss": "reported (no_candidate)",
+        "oracle": "taiga/auth/tokens.py:247 DenylistMixin#for_user().",
+        "source": "token = RefreshToken.for_user(user)",
+        "stratum": "reported (no_candidate)",
+        "v2": "unresolved unresolved::python::RefreshToken.for_user"
+      },
+      {
+        "dev": "method::taiga/auth/tokens.py::DenylistMixin::for_user",
+        "file": "tests/unit/auth/test_token_denylist.py",
+        "line": 150,
+        "miss": "reported (no_candidate)",
+        "oracle": "taiga/auth/tokens.py:247 DenylistMixin#for_user().",
+        "source": "not_expired_1 = RefreshToken.for_user(user)",
+        "stratum": "reported (no_candidate)",
+        "v2": "unresolved unresolved::python::RefreshToken.for_user"
+      },
+      {
+        "dev": "function::tests/unit/test_notifications_squashing.py::assert_",
+        "file": "tests/unit/test_notifications_squashing.py",
+        "line": 36,
+        "miss": "silent",
+        "oracle": "tests/unit/test_notifications_squashing.py:11 assert_().",
+        "source": "assert_(history_entries, squashed)",
+        "stratum": "silent",
+        "v2": "no edge"
+      },
+      {
+        "dev": "function::tests/unit/test_notifications_squashing.py::assert_",
+        "file": "tests/unit/test_notifications_squashing.py",
+        "line": 106,
+        "miss": "silent",
+        "oracle": "tests/unit/test_notifications_squashing.py:11 assert_().",
+        "source": "assert_(expected, squashed, ordered=False)",
+        "stratum": "silent",
+        "v2": "no edge"
+      }
+    ],
+    "v2_gain": [
+      {
+        "dev": "no edge",
+        "file": "taiga/export_import/services/store.py",
+        "line": 144,
+        "miss": "",
+        "oracle": "taiga/base/api/serializers.py:1097 ModelSerializer#save().",
+        "source": "validator.save()",
+        "stratum": "dev no edge",
+        "v2": "import python::.::taiga/base/api/serializers.py::taiga/base/api/serializers/ModelSerializer#save\u2026"
+      },
+      {
+        "dev": "no edge",
+        "file": "taiga/mdrender/service.py",
+        "line": 172,
+        "miss": "dev has no node for the target",
+        "oracle": "taiga/mdrender/service.py:142 DiffMatchPatch#_sanitize_text().",
+        "source": "text = _sanitize_text(data)",
+        "stratum": "dev no node",
+        "v2": "name python::.::taiga/mdrender/service.py::taiga/mdrender/service/DiffMatchPatch#diff_pretty_h\u2026"
+      },
+      {
+        "dev": "function::taiga/mdrender/service.py::DiffMatchPatch.diff_pretty_html.<locals>._split_long\u2026",
+        "file": "taiga/mdrender/service.py",
+        "line": 175,
+        "miss": "dev has no node for the target",
+        "oracle": "taiga/mdrender/service.py:146 DiffMatchPatch#_split_long_text().",
+        "source": "text = _split_long_text(_sanitize_text(data), idx, size)",
+        "stratum": "dev no node",
+        "v2": "name python::.::taiga/mdrender/service.py::taiga/mdrender/service/DiffMatchPatch#diff_pretty_h\u2026"
+      },
+      {
+        "dev": "function::taiga/projects/services/stats.py::get_member_stats_for_project",
+        "file": "taiga/projects/api.py",
+        "line": 378,
+        "miss": "",
+        "oracle": "taiga/base/response.py:120 Ok#",
+        "source": "return response.Ok(services.get_member_stats_for_project(project))",
+        "stratum": "dev wrong edge",
+        "v2": "import python::.::taiga/base/response.py::taiga/base/response/Ok#"
+      },
+      {
+        "dev": "class::taiga/projects/attachments/permissions.py::CommentAttachmentPerm",
+        "file": "taiga/projects/attachments/permissions.py",
+        "line": 27,
+        "miss": "",
+        "oracle": "taiga/base/api/permissions.py:163 HasProjectPerm#",
+        "source": "create_perms = HasProjectPerm('modify_epic') | (CommentAttachmentPerm() & HasProjectPerm('comment_epic'))",
+        "stratum": "dev wrong edge",
+        "v2": "import python::.::taiga/base/api/permissions.py::taiga/base/api/permissions/HasProjectPerm#"
+      },
+      {
+        "dev": "class::taiga/projects/attachments/permissions.py::CommentAttachmentPerm",
+        "file": "taiga/projects/attachments/permissions.py",
+        "line": 67,
+        "miss": "",
+        "oracle": "taiga/base/api/permissions.py:163 HasProjectPerm#",
+        "source": "create_perms = HasProjectPerm('modify_wiki_page') | (CommentAttachmentPerm() & HasProjectPerm('comment_wiki_page'))",
+        "stratum": "dev wrong edge",
+        "v2": "import python::.::taiga/base/api/permissions.py::taiga/base/api/permissions/HasProjectPerm#"
+      },
+      {
+        "dev": "class::taiga/projects/attachments/permissions.py::UserStoryAttachmentPermission",
+        "file": "taiga/projects/attachments/permissions.py",
+        "line": 81,
+        "miss": "",
+        "oracle": "taiga/base/api/permissions.py:39 ResourcePermission#check_permissions().",
+        "source": "return UserStoryAttachmentPermission(request, view).check_permissions('retrieve', obj) or is_owner",
+        "stratum": "dev wrong edge",
+        "v2": "name python::.::taiga/base/api/permissions.py::taiga/base/api/permissions/ResourcePermission#c\u2026"
+      },
+      {
+        "dev": "no edge",
+        "file": "taiga/projects/epics/serializers.py",
+        "line": 41,
+        "miss": "",
+        "oracle": "taiga/base/fields.py:142 Field#",
+        "source": "is_blocked = Field()",
+        "stratum": "dev no edge",
+        "v2": "import python::.::taiga/base/fields.py::taiga/base/fields/Field#"
+      },
+      {
+        "dev": "no edge",
+        "file": "taiga/projects/epics/services.py",
+        "line": 246,
+        "miss": "",
+        "oracle": "taiga/base/utils/text.py:22 sanitize_csv_text_value().",
+        "source": "epic_data[custom_attr.name] = text.sanitize_csv_text_value(value)",
+        "stratum": "dev no edge",
+        "v2": "import python::.::taiga/base/utils/text.py::taiga/base/utils/text/sanitize_csv_text_value().#ff9\u2026"
+      },
+      {
+        "dev": "no edge",
+        "file": "taiga/projects/history/models.py",
+        "line": 174,
+        "miss": "dev has no node for the target",
+        "oracle": "taiga/projects/history/models.py:152 HistoryEntry#resolve_value().",
+        "source": "users_list = [resolve_value(\"users\", x) for x in diff_in if x]",
+        "stratum": "dev no node",
+        "v2": "name python::.::taiga/projects/history/models.py::taiga/projects/history/models/HistoryEntry#v\u2026"
+      },
+      {
+        "dev": "no edge",
+        "file": "taiga/projects/history/models.py",
+        "line": 196,
+        "miss": "dev has no node for the target",
+        "oracle": "taiga/projects/history/models.py:152 HistoryEntry#resolve_value().",
+        "source": "points[role_name] = [resolve_value(\"points\", oldpoint_id),",
+        "stratum": "dev no node",
+        "v2": "name python::.::taiga/projects/history/models.py::taiga/projects/history/models/HistoryEntry#v\u2026"
+      },
+      {
+        "dev": "class::taiga/projects/milestones/models.py::Milestone",
+        "file": "taiga/projects/issues/api.py",
+        "line": 258,
+        "miss": "",
+        "oracle": "taiga/base/api/utils/__init__.py:51 get_object_or_error().",
+        "source": "milestone = get_object_or_error(Milestone, request.user, pk=data[\"milestone_id\"])",
+        "stratum": "dev wrong edge",
+        "v2": "import python::.::taiga/base/api/utils/__init__.py::taiga/base/api/utils/get_object_or_error().#\u2026"
+      },
+      {
+        "dev": "class::taiga/projects/models.py::Project",
+        "file": "taiga/projects/milestones/api.py",
+        "line": 152,
+        "miss": "",
+        "oracle": "taiga/base/api/utils/__init__.py:51 get_object_or_error().",
+        "source": "project = get_object_or_error(Project, request.user, pk=data[\"project_id\"])",
+        "stratum": "dev wrong edge",
+        "v2": "import python::.::taiga/base/api/utils/__init__.py::taiga/base/api/utils/get_object_or_error().#\u2026"
+      },
+      {
+        "dev": "class::taiga/projects/models.py::Project",
+        "file": "taiga/projects/milestones/api.py",
+        "line": 194,
+        "miss": "",
+        "oracle": "taiga/base/api/utils/__init__.py:51 get_object_or_error().",
+        "source": "project = get_object_or_error(Project, request.user, pk=data[\"project_id\"])",
+        "stratum": "dev wrong edge",
+        "v2": "import python::.::taiga/base/api/utils/__init__.py::taiga/base/api/utils/get_object_or_error().#\u2026"
+      },
+      {
+        "dev": "class::taiga/base/api/permissions.py::IsAuthenticated",
+        "file": "taiga/projects/milestones/permissions.py",
+        "line": 23,
+        "miss": "",
+        "oracle": "taiga/base/api/permissions.py:163 HasProjectPerm#",
+        "source": "watch_perms = IsAuthenticated() & HasProjectPerm('view_milestones')",
+        "stratum": "dev wrong edge",
+        "v2": "import python::.::taiga/base/api/permissions.py::taiga/base/api/permissions/HasProjectPerm#"
+      },
+      {
+        "dev": "no edge",
+        "file": "taiga/projects/userstories/api.py",
+        "line": 393,
+        "miss": "",
+        "oracle": "taiga/base/exceptions.py:195 Blocked#",
+        "source": "raise exc.Blocked(_(\"Blocked element\"))",
+        "stratum": "dev no edge",
+        "v2": "import python::.::taiga/base/exceptions.py::taiga/base/exceptions/Blocked#"
+      },
+      {
+        "dev": "no edge",
+        "file": "tests/integration/resources_permissions/test_attachment_resources.py",
+        "line": 181,
+        "miss": "",
+        "oracle": "tests/factories.py:179 WikiAttachmentFactory#",
+        "source": "m.blocked_wiki_attachment = f.WikiAttachmentFactory(project=data.blocked_project, content_object=m.blocked_wiki)",
+        "stratum": "dev no edge",
+        "v2": "import python::.::tests/factories.py::tests/factories/WikiAttachmentFactory#"
+      },
+      {
+        "dev": "no edge",
+        "file": "tests/integration/resources_permissions/test_auth_resources.py",
+        "line": 24,
+        "miss": "dev has no node for the target",
+        "oracle": "tests/utils.py:28 reconnect_signals.",
+        "source": "reconnect_signals()",
+        "stratum": "dev no node",
+        "v2": "import python::.::tests/utils.py::tests/utils/reconnect_signals."
+      },
+      {
+        "dev": "no edge",
+        "file": "tests/integration/resources_permissions/test_tasks_resources.py",
+        "line": 696,
+        "miss": "",
+        "oracle": "tests/utils.py:54 helper_test_http_method().",
+        "source": "results = helper_test_http_method(client, 'post', private_url1, \"\", users)",
+        "stratum": "dev no edge",
+        "v2": "import python::.::tests/utils.py::tests/utils/helper_test_http_method().#19a11830"
+      },
+      {
+        "dev": "no edge",
+        "file": "tests/integration/resources_permissions/test_users_resources.py",
+        "line": 31,
+        "miss": "dev has no node for the target",
+        "oracle": "tests/utils.py:28 reconnect_signals.",
+        "source": "reconnect_signals()",
+        "stratum": "dev no node",
+        "v2": "import python::.::tests/utils.py::tests/utils/reconnect_signals."
+      },
+      {
+        "dev": "no edge",
+        "file": "tests/integration/resources_permissions/test_userstories_resources.py",
+        "line": 370,
+        "miss": "",
+        "oracle": "tests/utils.py:54 helper_test_http_method().",
+        "source": "results = helper_test_http_method(client, 'put', private_url2, user_story_data, users)",
+        "stratum": "dev no edge",
+        "v2": "import python::.::tests/utils.py::tests/utils/helper_test_http_method().#19a11830"
+      },
+      {
+        "dev": "no edge",
+        "file": "tests/integration/test_memberships.py",
+        "line": 38,
+        "miss": "",
+        "oracle": "tests/factories.py:203 MembershipFactory#",
+        "source": "f.MembershipFactory(project=project, user=john, is_admin=True)",
+        "stratum": "dev no edge",
+        "v2": "import python::.::tests/factories.py::tests/factories/MembershipFactory#"
+      },
+      {
+        "dev": "no edge",
+        "file": "tests/integration/test_sitemaps.py",
+        "line": 24,
+        "miss": "dev has no node for the target",
+        "oracle": "tests/utils.py:28 reconnect_signals.",
+        "source": "reconnect_signals()",
+        "stratum": "dev no node",
+        "v2": "import python::.::tests/utils.py::tests/utils/reconnect_signals."
+      },
+      {
+        "dev": "no edge",
+        "file": "tests/integration/test_stats.py",
+        "line": 20,
+        "miss": "dev has no node for the target",
+        "oracle": "tests/utils.py:28 disconnect_signals.",
+        "source": "disconnect_signals()",
+        "stratum": "dev no node",
+        "v2": "import python::.::tests/utils.py::tests/utils/disconnect_signals."
+      },
+      {
+        "dev": "no edge",
+        "file": "tests/integration/test_timeline.py",
+        "line": 232,
+        "miss": "",
+        "oracle": "taiga/projects/history/services.py:368 take_snapshot().",
+        "source": "history_services.take_snapshot(project, user=project.owner)",
+        "stratum": "dev no edge",
+        "v2": "import python::.::taiga/projects/history/services.py::taiga/projects/history/services/take_snaps\u2026"
+      }
+    ],
+    "v2_unscored": [
+      {
+        "dev": "no edge",
+        "file": "taiga/base/api/generics.py",
+        "line": 317,
+        "miss": "",
+        "oracle": "no oracle call with a target",
+        "source": "return self.list(request, *args, **kwargs)",
+        "stratum": "at call site: yes)",
+        "v2": "name python::.::taiga/base/api/mixins.py::taiga/base/api/mixins/ListModelMixin#list().#ef8b748c (at call site: yes)"
+      },
+      {
+        "dev": "no edge",
+        "file": "taiga/base/fields.py",
+        "line": 133,
+        "miss": "",
+        "oracle": "no oracle call with a target",
+        "source": "raise ValidationError(self.error_messages['invalid_type'],",
+        "stratum": "at call site: yes)",
+        "v2": "name python::.::taiga/base/exceptions.py::taiga/base/exceptions/ValidationError. (at call site: yes)"
+      },
+      {
+        "dev": "class::taiga/base/response.py::NotImplemented; method::taiga/base/response.py::Response::__init__",
+        "file": "taiga/base/routers.py",
+        "line": 66,
+        "miss": "",
+        "oracle": "no oracle call with a target",
+        "source": "raise NotImplemented('get_urls must be overridden')",
+        "stratum": "at call site: yes)",
+        "v2": "name python::.::taiga/base/response.py::taiga/base/response/NotImplemented# (at call site: yes)"
+      },
+      {
+        "dev": "method::taiga/export_import/api.py::ProjectImporterViewSet::task",
+        "file": "taiga/importers/pivotal/tasks.py",
+        "line": 21,
+        "miss": "",
+        "oracle": "no oracle call with a target",
+        "source": "@app.task(bind=True)",
+        "stratum": "at call site: no)",
+        "v2": "exact python::.::taiga/importers/pivotal/tasks.py::taiga/importers/pivotal/tasks/import_project\u2026 (at call site: no)"
+      },
+      {
+        "dev": "method::taiga/export_import/api.py::ProjectImporterViewSet::task",
+        "file": "taiga/importers/trello/tasks.py",
+        "line": 21,
+        "miss": "",
+        "oracle": "no oracle call with a target",
+        "source": "@app.task(bind=True)",
+        "stratum": "at call site: no)",
+        "v2": "exact python::.::taiga/importers/trello/tasks.py::taiga/importers/trello/tasks/import_project()\u2026 (at call site: no)"
+      },
+      {
+        "dev": "function::taiga/projects/services/projects.py::delete_project",
+        "file": "taiga/projects/api.py",
+        "line": 550,
+        "miss": "",
+        "oracle": "no oracle call with a target",
+        "source": "services.delete_project(obj.id)",
+        "stratum": "at call site: yes)",
+        "v2": "import python::.::taiga/projects/services/projects.py::taiga/projects/services/projects/delete_p\u2026 (at call site: yes)"
+      },
+      {
+        "dev": "method::taiga/export_import/api.py::ProjectImporterViewSet::task",
+        "file": "taiga/projects/notifications/tasks.py",
+        "line": 13,
+        "miss": "",
+        "oracle": "no oracle call with a target",
+        "source": "@app.task()",
+        "stratum": "at call site: no)",
+        "v2": "exact python::.::taiga/projects/notifications/tasks.py::taiga/projects/notifications/tasks/send\u2026 (at call site: no)"
+      },
+      {
+        "dev": "class::taiga/projects/models.py::SwimlaneUserStoryStatus",
+        "file": "taiga/projects/signals.py",
+        "line": 92,
+        "miss": "",
+        "oracle": "no oracle call with a target",
+        "source": "SwimlaneUserStoryStatus(",
+        "stratum": "at call site: yes)",
+        "v2": "name python::.::taiga/projects/models.py::taiga/projects/models/SwimlaneUserStoryStatus# (at call site: yes)"
+      },
+      {
+        "dev": "no edge",
+        "file": "taiga/users/api.py",
+        "line": 292,
+        "miss": "",
+        "oracle": "no oracle call with a target",
+        "source": "\"didn't use it before?\"))",
+        "stratum": "at call site: no)",
+        "v2": "name python::.::taiga/base/exceptions.py::taiga/base/exceptions/BaseException#__init__().#7c91\u2026 (at call site: no)"
+      },
+      {
+        "dev": "no edge",
+        "file": "tests/integration/resources_permissions/test_projects_choices_resources.py",
+        "line": 23,
+        "miss": "",
+        "oracle": "no oracle call with a target",
+        "source": "@pytest.fixture",
+        "stratum": "at call site: no)",
+        "v2": "exact python::.::tests/integration/resources_permissions/test_projects_choices_resources.py::te\u2026 (at call site: no)"
+      }
+    ],
+    "v2_wrong": [
+      {
+        "dev": "class::taiga/base/api/fields.py::ModelField; method::taiga/base/api/fields.py::ModelField::__init__",
+        "file": "taiga/base/api/serializers.py",
+        "line": 977,
+        "miss": "",
+        "oracle": "taiga/base/api/fields.py:495 CharField#",
+        "source": "return ModelField(model_field=model_field, **kwargs)",
+        "stratum": "at call site: no)",
+        "v2": "import python::.::taiga/base/api/fields.py::taiga/base/api/fields/ModelField#__init__().#5a0c25fb (at call site: no)"
+      },
+      {
+        "dev": "no edge",
+        "file": "taiga/export_import/validators/validators.py",
+        "line": 127,
+        "miss": "",
+        "oracle": "taiga/base/api/fields.py:495 CharField#",
+        "source": "modified_date = serializers.DateTimeField(required=False)",
+        "stratum": "at call site: yes)",
+        "v2": "import python::.::taiga/base/api/fields.py::taiga/base/api/fields/DateTimeField# (at call site: yes)"
+      },
+      {
+        "dev": "no edge",
+        "file": "taiga/export_import/validators/validators.py",
+        "line": 251,
+        "miss": "",
+        "oracle": "taiga/base/api/fields.py:495 CharField#",
+        "source": "modified_date = serializers.DateTimeField(required=False)",
+        "stratum": "at call site: yes)",
+        "v2": "import python::.::taiga/base/api/fields.py::taiga/base/api/fields/DateTimeField# (at call site: yes)"
+      },
+      {
+        "dev": "no edge",
+        "file": "taiga/export_import/validators/validators.py",
+        "line": 321,
+        "miss": "",
+        "oracle": "taiga/base/api/fields.py:495 CharField#",
+        "source": "modified_date = serializers.DateTimeField(required=False)",
+        "stratum": "at call site: yes)",
+        "v2": "import python::.::taiga/base/api/fields.py::taiga/base/api/fields/DateTimeField# (at call site: yes)"
+      },
+      {
+        "dev": "no edge",
+        "file": "taiga/export_import/validators/validators.py",
+        "line": 370,
+        "miss": "",
+        "oracle": "taiga/base/api/fields.py:495 CharField#",
+        "source": "due_date = serializers.DateTimeField(required=False)",
+        "stratum": "at call site: no)",
+        "v2": "import python::.::taiga/base/api/fields.py::taiga/base/api/fields/DateTimeField#__init__().#9bbf\u2026 (at call site: no)"
+      },
+      {
+        "dev": "no edge",
+        "file": "taiga/export_import/validators/validators.py",
+        "line": 385,
+        "miss": "",
+        "oracle": "taiga/base/api/fields.py:495 CharField#",
+        "source": "modified_date = serializers.DateTimeField(required=False)",
+        "stratum": "at call site: yes)",
+        "v2": "import python::.::taiga/base/api/fields.py::taiga/base/api/fields/DateTimeField# (at call site: yes)"
+      },
+      {
+        "dev": "no edge",
+        "file": "taiga/export_import/validators/validators.py",
+        "line": 431,
+        "miss": "",
+        "oracle": "taiga/base/api/fields.py:276 WritableField#",
+        "source": "default_issue_type = serializers.SlugRelatedField(slug_field=\"name\", required=False)",
+        "stratum": "at call site: yes)",
+        "v2": "import python::.::taiga/base/api/relations.py::taiga/base/api/relations/SlugRelatedField# (at call site: yes)"
+      },
+      {
+        "dev": "function::taiga/base/decorators.py::list_route",
+        "file": "taiga/projects/epics/api.py",
+        "line": 180,
+        "miss": "",
+        "oracle": "taiga/base/decorators.py:24 list_route().",
+        "source": "@list_route(methods=[\"POST\"])",
+        "stratum": "at call site: no)",
+        "v2": "import python::.::taiga/base/decorators.py::taiga/base/decorators/list_route().decorator().#ff92\u2026 (at call site: no)"
+      },
+      {
+        "dev": "function::taiga/base/decorators.py::list_route",
+        "file": "taiga/projects/issues/api.py",
+        "line": 224,
+        "miss": "",
+        "oracle": "taiga/base/decorators.py:24 list_route().",
+        "source": "@list_route(methods=[\"POST\"])",
+        "stratum": "at call site: no)",
+        "v2": "import python::.::taiga/base/decorators.py::taiga/base/decorators/list_route().decorator().#ff92\u2026 (at call site: no)"
+      },
+      {
+        "dev": "no edge",
+        "file": "taiga/projects/issues/validators.py",
+        "line": 49,
+        "miss": "",
+        "oracle": "taiga/base/api/fields.py:495 CharField#",
+        "source": "project_id = serializers.IntegerField()",
+        "stratum": "at call site: yes)",
+        "v2": "import python::.::taiga/base/api/fields.py::taiga/base/api/fields/IntegerField# (at call site: yes)"
+      },
+      {
+        "dev": "function::taiga/base/decorators.py::detail_route",
+        "file": "taiga/projects/milestones/api.py",
+        "line": 183,
+        "miss": "",
+        "oracle": "taiga/base/decorators.py:11 detail_route().",
+        "source": "@detail_route(methods=[\"POST\"])",
+        "stratum": "at call site: no)",
+        "v2": "import python::.::taiga/base/decorators.py::taiga/base/decorators/detail_route().decorator().#ff\u2026 (at call site: no)"
+      },
+      {
+        "dev": "no edge",
+        "file": "taiga/projects/tagging/api.py",
+        "line": 30,
+        "miss": "",
+        "oracle": "taiga/projects/tagging/validators.py:29 CreateTagValidator#",
+        "source": "validator = validators.CreateTagValidator(data=request.DATA, project=project)",
+        "stratum": "at call site: no)",
+        "v2": "name python::.::taiga/projects/tagging/validators.py::taiga/projects/tagging/validators/Projec\u2026 (at call site: no)"
+      },
+      {
+        "dev": "no edge",
+        "file": "taiga/projects/tasks/api.py",
+        "line": 255,
+        "miss": "",
+        "oracle": "taiga/base/exceptions.py:195 Blocked#",
+        "source": "raise exc.Blocked(_(\"Blocked element\"))",
+        "stratum": "at call site: no)",
+        "v2": "name python::.::taiga/base/exceptions.py::taiga/base/exceptions/APIException#__init__().#7c91f\u2026 (at call site: no)"
+      },
+      {
+        "dev": "no edge",
+        "file": "taiga/projects/tasks/api.py",
+        "line": 297,
+        "miss": "",
+        "oracle": "taiga/base/exceptions.py:195 Blocked#",
+        "source": "raise exc.Blocked(_(\"Blocked element\"))",
+        "stratum": "at call site: no)",
+        "v2": "name python::.::taiga/base/exceptions.py::taiga/base/exceptions/APIException#__init__().#7c91f\u2026 (at call site: no)"
+      },
+      {
+        "dev": "no edge",
+        "file": "taiga/projects/tasks/validators.py",
+        "line": 37,
+        "miss": "",
+        "oracle": "taiga/base/api/fields.py:495 CharField#",
+        "source": "project_id = serializers.IntegerField()",
+        "stratum": "at call site: yes)",
+        "v2": "import python::.::taiga/base/api/fields.py::taiga/base/api/fields/IntegerField# (at call site: yes)"
+      },
+      {
+        "dev": "no edge",
+        "file": "taiga/projects/tasks/validators.py",
+        "line": 82,
+        "miss": "",
+        "oracle": "taiga/base/api/fields.py:495 CharField#",
+        "source": "task_id = serializers.IntegerField()",
+        "stratum": "at call site: yes)",
+        "v2": "import python::.::taiga/base/api/fields.py::taiga/base/api/fields/IntegerField# (at call site: yes)"
+      },
+      {
+        "dev": "no edge",
+        "file": "taiga/projects/tasks/validators.py",
+        "line": 90,
+        "miss": "",
+        "oracle": "taiga/base/api/fields.py:495 CharField#",
+        "source": "milestone_id = serializers.IntegerField(required=False)",
+        "stratum": "at call site: yes)",
+        "v2": "import python::.::taiga/base/api/fields.py::taiga/base/api/fields/IntegerField# (at call site: yes)"
+      },
+      {
+        "dev": "no edge",
+        "file": "taiga/projects/tasks/validators.py",
+        "line": 156,
+        "miss": "",
+        "oracle": "taiga/base/api/fields.py:495 CharField#",
+        "source": "milestone_id = serializers.IntegerField()",
+        "stratum": "at call site: yes)",
+        "v2": "import python::.::taiga/base/api/fields.py::taiga/base/api/fields/IntegerField# (at call site: yes)"
+      },
+      {
+        "dev": "function::taiga/base/decorators.py::list_route",
+        "file": "taiga/projects/userstories/api.py",
+        "line": 385,
+        "miss": "",
+        "oracle": "taiga/base/decorators.py:24 list_route().",
+        "source": "@list_route(methods=[\"POST\"])",
+        "stratum": "at call site: no)",
+        "v2": "import python::.::taiga/base/decorators.py::taiga/base/decorators/list_route().decorator().#ff92\u2026 (at call site: no)"
+      },
+      {
+        "dev": "no edge",
+        "file": "taiga/projects/userstories/validators.py",
+        "line": 171,
+        "miss": "",
+        "oracle": "taiga/base/api/fields.py:495 CharField#",
+        "source": "status_id = serializers.IntegerField()",
+        "stratum": "at call site: yes)",
+        "v2": "import python::.::taiga/base/api/fields.py::taiga/base/api/fields/IntegerField# (at call site: yes)"
+      },
+      {
+        "dev": "no edge",
+        "file": "taiga/projects/userstories/validators.py",
+        "line": 259,
+        "miss": "",
+        "oracle": "taiga/base/api/fields.py:495 CharField#",
+        "source": "us_id = serializers.IntegerField()",
+        "stratum": "at call site: yes)",
+        "v2": "import python::.::taiga/base/api/fields.py::taiga/base/api/fields/IntegerField# (at call site: yes)"
+      },
+      {
+        "dev": "function::taiga/base/decorators.py::list_route",
+        "file": "taiga/users/api.py",
+        "line": 157,
+        "miss": "",
+        "oracle": "taiga/base/decorators.py:24 list_route().",
+        "source": "@list_route(methods=[\"POST\"])",
+        "stratum": "at call site: no)",
+        "v2": "import python::.::taiga/base/decorators.py::taiga/base/decorators/list_route().decorator().#ff92\u2026 (at call site: no)"
+      },
+      {
+        "dev": "no edge",
+        "file": "tests/integration/test_hooks_bitbucket.py",
+        "line": 385,
+        "miss": "",
+        "oracle": "taiga/hooks/bitbucket/event_hooks.py:64 PushEventHook#",
+        "source": "ev_hook = event_hooks.PushEventHook(issue.project, payload)",
+        "stratum": "at call site: no)",
+        "v2": "name python::.::taiga/hooks/event_hooks.py::taiga/hooks/event_hooks/BaseEventHook#__init__().#\u2026 (at call site: no)"
+      },
+      {
+        "dev": "no edge",
+        "file": "tests/integration/test_hooks_bitbucket.py",
+        "line": 814,
+        "miss": "",
+        "oracle": "taiga/hooks/bitbucket/event_hooks.py:46 IssueCommentEventHook#",
+        "source": "ev_hook = event_hooks.IssueCommentEventHook(issue.project, payload)",
+        "stratum": "at call site: no)",
+        "v2": "name python::.::taiga/hooks/event_hooks.py::taiga/hooks/event_hooks/BaseEventHook#__init__().#\u2026 (at call site: no)"
+      },
+      {
+        "dev": "no edge",
+        "file": "tests/integration/test_hooks_github.py",
+        "line": 169,
+        "miss": "",
+        "oracle": "taiga/hooks/github/event_hooks.py:83 PushEventHook#",
+        "source": "ev_hook = event_hooks.PushEventHook(task.project, payload)",
+        "stratum": "at call site: no)",
+        "v2": "name python::.::taiga/hooks/event_hooks.py::taiga/hooks/event_hooks/BaseEventHook#__init__().#\u2026 (at call site: no)"
+      }
+    ]
+  },
+  "scorer_notes": {
+    "dev_calls_without_site_line": 0,
+    "dev_edges_with_file_source_never_scored": 131
+  },
+  "strata": {
+    "both_miss": {
+      "no_node": 2,
+      "reported (dynamic_dispatch)": 510,
+      "reported (many_candidates)": 23,
+      "reported (no_candidate)": 5,
+      "silent": 11,
+      "wrong_target": 100
+    },
+    "both_right": {
+      "-": 4415
+    },
+    "dev_unscored": {
+      "-": 2062
+    },
+    "dev_wrong": {
+      "-": 388
+    },
+    "gap": {
+      "reported (dynamic_dispatch)": 313,
+      "reported (many_candidates)": 3,
+      "reported (no_candidate)": 18,
+      "silent": 145,
+      "wrong_target": 1
+    },
+    "v2_gain": {
+      "dev no edge": 6904,
+      "dev no node": 65,
+      "dev wrong edge": 58
+    },
+    "v2_unscored": {
+      "at call site: no)": 131,
+      "at call site: yes)": 16
+    },
+    "v2_wrong": {
+      "at call site: no)": 614,
+      "at call site: yes)": 102
+    }
+  },
+  "url": "https://github.com/taigaio/taiga-back",
+  "v2_misses": [
+    [
+      "both_miss",
+      "reported",
+      "dynamic_dispatch",
+      510
+    ],
+    [
+      "gap",
+      "reported",
+      "dynamic_dispatch",
+      313
+    ],
+    [
+      "gap",
+      "silent",
+      "-",
+      145
+    ],
+    [
+      "both_miss",
+      "wrong_target",
+      "-",
+      100
+    ],
+    [
+      "both_miss",
+      "reported",
+      "many_candidates",
+      23
+    ],
+    [
+      "gap",
+      "reported",
+      "no_candidate",
+      18
+    ],
+    [
+      "both_miss",
+      "silent",
+      "-",
+      11
+    ],
+    [
+      "both_miss",
+      "reported",
+      "no_candidate",
+      5
+    ],
+    [
+      "gap",
+      "reported",
+      "many_candidates",
+      3
+    ],
+    [
+      "both_miss",
+      "no_node",
+      "-",
+      2
+    ],
+    [
+      "gap",
+      "wrong_target",
+      "-",
+      1
+    ]
+  ],
+  "verdicts_carried": 0
+}

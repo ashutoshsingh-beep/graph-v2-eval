@@ -1,0 +1,1627 @@
+{
+  "check": {
+    "mismatches": {},
+    "mode": "full",
+    "ok": true,
+    "v2_site_precision": {
+      "ci95": [
+        0.996,
+        0.9994
+      ],
+      "k": 2549,
+      "n": 2553,
+      "population": 2553,
+      "value": 0.9984
+    }
+  },
+  "commit": "934813e4d421071a1b3db3973c02fe2721359a6e",
+  "counts": {
+    "both_miss": 263,
+    "both_right": 990,
+    "dev_unscored": 418,
+    "dev_wrong": 96,
+    "gap": 147,
+    "v2_gain": 883,
+    "v2_unscored": 644,
+    "v2_wrong": 568
+  },
+  "engines": {
+    "legacy": "25ae40bf8662fb8c89c39684b1d942e235b3656a",
+    "v2": "b3cd5e698314f2c67de5f1f64b5df4a61d5a5ab2"
+  },
+  "flags": {
+    "def_line_both_miss": 35,
+    "dev_multi_both_right": 183,
+    "dev_multi_gap": 36
+  },
+  "fractions": {
+    "dev_precision": [
+      1582,
+      1678
+    ],
+    "dev_recall": [
+      1137,
+      2283
+    ],
+    "v2_precision": [
+      2219,
+      2787
+    ],
+    "v2_recall": [
+      1873,
+      2283
+    ]
+  },
+  "language": "python",
+  "obligations": 2283,
+  "rates": {
+    "dev_precision": 0.9428,
+    "dev_recall": 0.498,
+    "v2_precision": 0.7962,
+    "v2_recall": 0.8204
+  },
+  "repo": "click",
+  "rows": {
+    "both_miss": 263,
+    "both_right": 990,
+    "dev_unscored": 383,
+    "dev_wrong": 88,
+    "gap": 147,
+    "v2_gain": 883,
+    "v2_unscored": 644,
+    "v2_wrong": 568
+  },
+  "samples": {
+    "both_miss": [
+      {
+        "dev": "no edge",
+        "file": "examples/imagepipe/imagepipe.py",
+        "line": 250,
+        "miss": "reported (dynamic_dispatch)",
+        "oracle": "src/click/core.py:1855 Group#command().",
+        "source": "@cli.command(\"sharpen\")",
+        "stratum": "reported (dynamic_dispatch)",
+        "v2": "unresolved unresolved::python::cli.command"
+      },
+      {
+        "dev": "no edge",
+        "file": "examples/termui/termui.py",
+        "line": 117,
+        "miss": "reported (dynamic_dispatch)",
+        "oracle": "src/click/core.py:1855 Group#command().",
+        "source": "@cli.command()",
+        "stratum": "reported (dynamic_dispatch)",
+        "v2": "unresolved unresolved::python::cli.command"
+      },
+      {
+        "dev": "no edge",
+        "file": "examples/termui/termui.py",
+        "line": 144,
+        "miss": "reported (dynamic_dispatch)",
+        "oracle": "src/click/core.py:1855 Group#command().",
+        "source": "@cli.command()",
+        "stratum": "reported (dynamic_dispatch)",
+        "v2": "unresolved unresolved::python::cli.command"
+      },
+      {
+        "dev": "function::tests/test_termui.py::test_progressbar_format_progress_line_with_show_func.<loc\u2026",
+        "file": "src/click/_termui_impl.py",
+        "line": 217,
+        "miss": "no_node; dev has no node for the target",
+        "oracle": "src/click/_termui_impl.py:65 ProgressBar#item_show_func.",
+        "source": "item_info = self.item_show_func(self.current_item)",
+        "stratum": "no_node",
+        "v2": "unresolved unresolved::python::self.item_show_func"
+      },
+      {
+        "dev": "no edge",
+        "file": "src/click/_termui_impl.py",
+        "line": 754,
+        "miss": "silent; oracle reads a definition as a call",
+        "oracle": "src/click/_termui_impl.py:699 raw_terminal().",
+        "source": "def raw_terminal() -> t.Iterator[int]:",
+        "stratum": "silent",
+        "v2": "no edge"
+      },
+      {
+        "dev": "no edge",
+        "file": "src/click/core.py",
+        "line": 1743,
+        "miss": "no_node; dev has no node for the target",
+        "oracle": "src/click/core.py:395 Context#token_normalize_func.",
+        "source": "cmd_name = ctx.token_normalize_func(cmd_name)",
+        "stratum": "no_node",
+        "v2": "unresolved unresolved::python::ctx.token_normalize_func"
+      },
+      {
+        "dev": "no edge",
+        "file": "src/click/core.py",
+        "line": 2238,
+        "miss": "silent; oracle reads a definition as a call",
+        "oracle": "src/click/core.py:2233 Parameter#get_default().",
+        "source": "def get_default(",
+        "stratum": "silent",
+        "v2": "no edge"
+      },
+      {
+        "dev": "function::src/click/core.py::Parameter.type_cast_value.<locals>.convert",
+        "file": "src/click/core.py",
+        "line": 2345,
+        "miss": "reported (many_candidates); dev has no node for the target",
+        "oracle": "src/click/core.py:2318 Parameter#convert().",
+        "source": "return tuple(convert(x) for x in check_iter(value))",
+        "stratum": "reported (many_candidates)",
+        "v2": "unresolved unresolved::python::convert"
+      },
+      {
+        "dev": "no edge",
+        "file": "src/click/core.py",
+        "line": 2347,
+        "miss": "reported (many_candidates); dev has no node for the target",
+        "oracle": "src/click/core.py:2318 Parameter#convert().",
+        "source": "return convert(value)",
+        "stratum": "reported (many_candidates)",
+        "v2": "unresolved unresolved::python::convert"
+      },
+      {
+        "dev": "no edge",
+        "file": "src/click/core.py",
+        "line": 2365,
+        "miss": "no_node; dev has no node for the target",
+        "oracle": "src/click/core.py:2130 Parameter#callback.",
+        "source": "value = self.callback(ctx, self, value)",
+        "stratum": "no_node",
+        "v2": "unresolved unresolved::python::self.callback"
+      },
+      {
+        "dev": "no edge",
+        "file": "src/click/core.py",
+        "line": 2440,
+        "miss": "no_node; dev has no node for the target",
+        "oracle": "src/click/core.py:2138 Parameter#_custom_shell_complete.",
+        "source": "results = self._custom_shell_complete(ctx, self, incomplete)",
+        "stratum": "no_node",
+        "v2": "unresolved unresolved::python::self._custom_shell_complete"
+      },
+      {
+        "dev": "no edge",
+        "file": "src/click/core.py",
+        "line": 2449,
+        "miss": "reported (dynamic_dispatch)",
+        "oracle": "src/click/types.py:139 ParamType#shell_complete().",
+        "source": "return self.type.shell_complete(ctx, self, incomplete)",
+        "stratum": "reported (dynamic_dispatch)",
+        "v2": "unresolved unresolved::python::self.type.shell_complete"
+      },
+      {
+        "dev": "no edge",
+        "file": "src/click/decorators.py",
+        "line": 167,
+        "miss": "silent; oracle reads a definition as a call",
+        "oracle": "src/click/decorators.py:137 command().",
+        "source": "def command(",
+        "stratum": "silent",
+        "v2": "no edge"
+      },
+      {
+        "dev": "no edge",
+        "file": "src/click/decorators.py",
+        "line": 260,
+        "miss": "silent; oracle reads a definition as a call",
+        "oracle": "src/click/decorators.py:254 group().",
+        "source": "def group(",
+        "stratum": "silent",
+        "v2": "no edge"
+      },
+      {
+        "dev": "no edge",
+        "file": "src/click/exceptions.py",
+        "line": 88,
+        "miss": "reported (dynamic_dispatch)",
+        "oracle": "src/click/exceptions.py:38 ClickException#format_message().",
+        "source": "_(\"Error: {message}\").format(message=self.format_message()),",
+        "stratum": "reported (dynamic_dispatch)",
+        "v2": "unresolved unresolved::python::self.format_message"
+      },
+      {
+        "dev": "no edge",
+        "file": "src/click/exceptions.py",
+        "line": 176,
+        "miss": "reported (dynamic_dispatch)",
+        "oracle": "src/click/types.py:89 ParamType#get_missing_message().",
+        "source": "msg_extra = self.param.type.get_missing_message(self.param)",
+        "stratum": "reported (dynamic_dispatch)",
+        "v2": "unresolved unresolved::python::self.param.type.get_missing_message"
+      },
+      {
+        "dev": "no edge",
+        "file": "src/click/parser.py",
+        "line": 124,
+        "miss": "no_node; dev has no node for the target",
+        "oracle": "src/click/core.py:395 Context#token_normalize_func.",
+        "source": "return f\"{prefix}{ctx.token_normalize_func(opt)}\"",
+        "stratum": "no_node",
+        "v2": "unresolved unresolved::python::ctx.token_normalize_func"
+      },
+      {
+        "dev": "function::src/click/_compat.py::_make_cached_stream_func.<locals>.func",
+        "file": "src/click/types.py",
+        "line": 179,
+        "miss": "no_node; dev has no node for the target",
+        "oracle": "src/click/types.py:168 FuncParamType#func.",
+        "source": "return self.func(value)",
+        "stratum": "no_node",
+        "v2": "unresolved unresolved::python::self.func"
+      },
+      {
+        "dev": "no edge",
+        "file": "src/click/types.py",
+        "line": 282,
+        "miss": "no_node; dev has no node for the target",
+        "oracle": "src/click/core.py:395 Context#token_normalize_func.",
+        "source": "ctx.token_normalize_func(normed_choice): original",
+        "stratum": "no_node",
+        "v2": "unresolved unresolved::python::ctx.token_normalize_func"
+      },
+      {
+        "dev": "no edge",
+        "file": "src/click/types.py",
+        "line": 897,
+        "miss": "silent",
+        "oracle": "src/click/types.py:130 ParamType#fail().",
+        "source": "self.fail(",
+        "stratum": "silent",
+        "v2": "no edge"
+      },
+      {
+        "dev": "no edge",
+        "file": "tests/test_context.py",
+        "line": 317,
+        "miss": "silent; oracle reads a definition as a call",
+        "oracle": "tests/test_context.py:310 test_exit_not_standalone().cli().",
+        "source": "def cli(ctx):",
+        "stratum": "silent",
+        "v2": "no edge"
+      },
+      {
+        "dev": "no edge",
+        "file": "tests/test_context.py",
+        "line": 320,
+        "miss": "reported (many_candidates)",
+        "oracle": "src/click/core.py:995 BaseCommand#main().",
+        "source": "assert cli.main([], \"test_exit_not_standalone\", standalone_mode=False) == 0",
+        "stratum": "reported (many_candidates)",
+        "v2": "unresolved unresolved::python::cli.main"
+      },
+      {
+        "dev": "no edge",
+        "file": "tests/test_options.py",
+        "line": 386,
+        "miss": "silent; oracle reads a definition as a call",
+        "oracle": "tests/test_options.py:375 test_nargs_envvar().cmd().",
+        "source": "def cmd(arg):",
+        "stratum": "silent",
+        "v2": "no edge"
+      },
+      {
+        "dev": "no edge",
+        "file": "tests/typing/typing_aliased_group.py",
+        "line": 26,
+        "miss": "reported (dynamic_dispatch)",
+        "oracle": "src/click/core.py:1731 MultiCommand#resolve_command().",
+        "source": "_, cmd, args = super().resolve_command(ctx, args)",
+        "stratum": "reported (dynamic_dispatch)",
+        "v2": "unresolved unresolved::python::super().resolve_command"
+      },
+      {
+        "dev": "no edge",
+        "file": "tests/typing/typing_aliased_group.py",
+        "line": 44,
+        "miss": "reported (dynamic_dispatch)",
+        "oracle": "src/click/core.py:1855 Group#command().",
+        "source": "@cli.command()",
+        "stratum": "reported (dynamic_dispatch)",
+        "v2": "unresolved unresolved::python::cli.command"
+      }
+    ],
+    "both_right": [
+      {
+        "dev": "method::src/click/_termui_impl.py::ProgressBar::generator",
+        "file": "src/click/_termui_impl.py",
+        "line": 126,
+        "miss": "",
+        "oracle": "src/click/_termui_impl.py:328 ProgressBar#generator().",
+        "source": "return self.generator()",
+        "stratum": "-",
+        "v2": "name python::.::src/click/_termui_impl.py::src/click/_termui_impl/ProgressBar#generator().#f90\u2026"
+      },
+      {
+        "dev": "method::src/click/_termui_impl.py::ProgressBar::update",
+        "file": "src/click/_termui_impl.py",
+        "line": 356,
+        "miss": "",
+        "oracle": "src/click/_termui_impl.py:297 ProgressBar#update().",
+        "source": "self.update(1)",
+        "stratum": "-",
+        "v2": "name python::.::src/click/_termui_impl.py::src/click/_termui_impl/ProgressBar#update().#ba323d\u2026"
+      },
+      {
+        "dev": "function::src/click/_compat.py::get_text_stderr",
+        "file": "src/click/exceptions.py",
+        "line": 73,
+        "miss": "",
+        "oracle": "src/click/_compat.py:351 get_text_stderr().",
+        "source": "file = get_text_stderr()",
+        "stratum": "-",
+        "v2": "import python::.::src/click/_compat.py::src/click/_compat/get_text_stderr().#bad01aa7"
+      },
+      {
+        "dev": "function::src/click/decorators.py::argument",
+        "file": "tests/test_arguments.py",
+        "line": 203,
+        "miss": "",
+        "oracle": "src/click/decorators.py:315 argument().",
+        "source": "@click.argument(\"arg\", envvar=\"X\", nargs=-1)",
+        "stratum": "-",
+        "v2": "import python::.::src/click/decorators.py::src/click/decorators/argument().#34329f1c"
+      },
+      {
+        "dev": "function::src/click/decorators.py::option",
+        "file": "tests/test_basic.py",
+        "line": 211,
+        "miss": "",
+        "oracle": "src/click/decorators.py:343 option().",
+        "source": "@click.option(\"--on/--off\", default=default)",
+        "stratum": "-",
+        "v2": "import python::.::src/click/decorators.py::src/click/decorators/option().#448c9f20"
+      },
+      {
+        "dev": "function::src/click/decorators.py::option",
+        "file": "tests/test_commands.py",
+        "line": 500,
+        "miss": "",
+        "oracle": "src/click/decorators.py:343 option().",
+        "source": "@click.option(\"!e\", is_flag=True)",
+        "stratum": "-",
+        "v2": "import python::.::src/click/decorators.py::src/click/decorators/option().#448c9f20"
+      },
+      {
+        "dev": "method::src/click/core.py::BaseCommand::make_context",
+        "file": "tests/test_custom_classes.py",
+        "line": 16,
+        "miss": "",
+        "oracle": "src/click/core.py:910 BaseCommand#make_context().",
+        "source": "context = command.make_context(\"test\", [])",
+        "stratum": "-",
+        "v2": "name python::.::src/click/core.py::src/click/core/BaseCommand#make_context().#465c52b6"
+      },
+      {
+        "dev": "function::src/click/decorators.py::option",
+        "file": "tests/test_options.py",
+        "line": 206,
+        "miss": "",
+        "oracle": "src/click/decorators.py:343 option().",
+        "source": "@click.option(\"--shout/--no-shout\", envvar=\"SHOUT\")",
+        "stratum": "-",
+        "v2": "import python::.::src/click/decorators.py::src/click/decorators/option().#448c9f20"
+      },
+      {
+        "dev": "function::src/click/decorators.py::option",
+        "file": "tests/test_options.py",
+        "line": 275,
+        "miss": "",
+        "oracle": "src/click/decorators.py:343 option().",
+        "source": "@click.option(",
+        "stratum": "-",
+        "v2": "import python::.::src/click/decorators.py::src/click/decorators/option().#448c9f20"
+      },
+      {
+        "dev": "function::src/click/decorators.py::option",
+        "file": "tests/test_options.py",
+        "line": 714,
+        "miss": "",
+        "oracle": "src/click/decorators.py:343 option().",
+        "source": "@click.option(*option_args, is_flag=True)",
+        "stratum": "-",
+        "v2": "import python::.::src/click/decorators.py::src/click/decorators/option().#448c9f20"
+      }
+    ],
+    "dev_unscored": [
+      {
+        "dev": "function::src/click/core.py::Option.get_help_record.<locals>._write_opts",
+        "file": "src/click/core.py",
+        "line": 2758,
+        "miss": "",
+        "oracle": "no oracle call with a target",
+        "source": "rv = [_write_opts(self.opts)]",
+        "stratum": "-",
+        "v2": "python::.::src/click/core.py::src/click/core/Option#get_help_record()._write_opts().#7d9f\u2026"
+      },
+      {
+        "dev": "method::src/click/testing.py::EchoingStdin::read \u00d72",
+        "file": "src/click/testing.py",
+        "line": 294,
+        "miss": "",
+        "oracle": "no oracle call with a target",
+        "source": "char = sys.stdin.read(1)",
+        "stratum": "-",
+        "v2": "no edge"
+      },
+      {
+        "dev": "function::tests/test_basic.py::test_path_option.<locals>.exists",
+        "file": "src/click/utils.py",
+        "line": 556,
+        "miss": "",
+        "oracle": "no oracle call with a target",
+        "source": "and not os.path.exists(path)",
+        "stratum": "-",
+        "v2": "no edge"
+      },
+      {
+        "dev": "method::src/click/testing.py::CliRunner::invoke",
+        "file": "tests/test_basic.py",
+        "line": 250,
+        "miss": "",
+        "oracle": "no oracle call with a target",
+        "source": "result = runner.invoke(cli, [\"--flag\", value])",
+        "stratum": "-",
+        "v2": "python::.::src/click/testing.py::src/click/testing/CliRunner#invoke().#19d1892b"
+      },
+      {
+        "dev": "method::src/click/testing.py::CliRunner::invoke",
+        "file": "tests/test_command_decorators.py",
+        "line": 70,
+        "miss": "",
+        "oracle": "no oracle call with a target",
+        "source": "result = runner.invoke(cli, [\"1\", \"2\"])",
+        "stratum": "-",
+        "v2": "python::.::src/click/testing.py::src/click/testing/CliRunner#invoke().#19d1892b"
+      },
+      {
+        "dev": "method::src/click/core.py::Context::get_parameter_source \u00d72",
+        "file": "tests/test_context.py",
+        "line": 364,
+        "miss": "",
+        "oracle": "no oracle call with a target",
+        "source": "return ctx.get_parameter_source(\"option\")",
+        "stratum": "-",
+        "v2": "no edge"
+      },
+      {
+        "dev": "method::src/click/testing.py::CliRunner::invoke",
+        "file": "tests/test_defaults.py",
+        "line": 76,
+        "miss": "",
+        "oracle": "no oracle call with a target",
+        "source": "result = runner.invoke(cli, [\"foo\"])",
+        "stratum": "-",
+        "v2": "python::.::src/click/testing.py::src/click/testing/CliRunner#invoke().#19d1892b"
+      },
+      {
+        "dev": "method::src/click/testing.py::CliRunner::invoke",
+        "file": "tests/test_formatting.py",
+        "line": 106,
+        "miss": "",
+        "oracle": "no oracle call with a target",
+        "source": "result = runner.invoke(",
+        "stratum": "-",
+        "v2": "python::.::src/click/testing.py::src/click/testing/CliRunner#invoke().#19d1892b"
+      },
+      {
+        "dev": "method::src/click/core.py::Context::exit \u00d72",
+        "file": "tests/test_testing.py",
+        "line": 239,
+        "miss": "",
+        "oracle": "no oracle call with a target",
+        "source": "sys.exit(\"error\")",
+        "stratum": "-",
+        "v2": "no edge"
+      },
+      {
+        "dev": "method::src/click/core.py::Context::exit",
+        "file": "tests/test_testing.py",
+        "line": 256,
+        "miss": "",
+        "oracle": "no oracle call with a target",
+        "source": "ctx.exit(1)",
+        "stratum": "-",
+        "v2": "no edge"
+      }
+    ],
+    "dev_wrong": [
+      {
+        "dev": "method::examples/complex/complex/cli.py::Environment::log",
+        "file": "examples/complex/complex/commands/cmd_init.py",
+        "line": 13,
+        "miss": "",
+        "oracle": "src/click/utils.py:404 format_filename().",
+        "source": "ctx.log(f\"Initialized the repository in {click.format_filename(path)}\")",
+        "stratum": "-",
+        "v2": "python::.::src/click/utils.py::src/click/utils/format_filename().#20f87597"
+      },
+      {
+        "dev": "function::examples/termui/termui.py::progress.<locals>.filter",
+        "file": "examples/imagepipe/imagepipe.py",
+        "line": 247,
+        "miss": "",
+        "oracle": "examples/imagepipe/imagepipe.py:69 copy_filename().",
+        "source": "yield copy_filename(image.filter(ImageFilter.EMBOSS), image)",
+        "stratum": "-",
+        "v2": "python::.::examples/imagepipe/imagepipe.py::examples/imagepipe/imagepipe/copy_filename().\u2026"
+      },
+      {
+        "dev": "method::src/click/core.py::MultiCommand::parse_args",
+        "file": "src/click/core.py",
+        "line": 949,
+        "miss": "",
+        "oracle": "src/click/core.py:952 BaseCommand#parse_args().",
+        "source": "self.parse_args(ctx, args)",
+        "stratum": "-",
+        "v2": "no edge"
+      },
+      {
+        "dev": "method::src/click/core.py::MultiCommand::format_options",
+        "file": "src/click/core.py",
+        "line": 1367,
+        "miss": "",
+        "oracle": "src/click/core.py:1387 Command#format_options().",
+        "source": "self.format_options(ctx, formatter)",
+        "stratum": "-",
+        "v2": "no edge"
+      },
+      {
+        "dev": "method::src/click/core.py::Group::get_command",
+        "file": "src/click/core.py",
+        "line": 1553,
+        "miss": "",
+        "oracle": "src/click/core.py:1758 MultiCommand#get_command().",
+        "source": "command = self.get_command(ctx, name)",
+        "stratum": "-",
+        "v2": "no edge"
+      },
+      {
+        "dev": "method::src/click/core.py::CommandCollection::get_command",
+        "file": "src/click/core.py",
+        "line": 1553,
+        "miss": "",
+        "oracle": "src/click/core.py:1758 MultiCommand#get_command().",
+        "source": "command = self.get_command(ctx, name)",
+        "stratum": "-",
+        "v2": "no edge"
+      },
+      {
+        "dev": "method::src/click/core.py::CommandCollection::get_command",
+        "file": "src/click/core.py",
+        "line": 1738,
+        "miss": "",
+        "oracle": "src/click/core.py:1758 MultiCommand#get_command().",
+        "source": "cmd = self.get_command(ctx, cmd_name)",
+        "stratum": "-",
+        "v2": "no edge"
+      },
+      {
+        "dev": "function::tests/test_utils.py::test_prompts_abort.<locals>.f \u00d72",
+        "file": "src/click/decorators.py",
+        "line": 45,
+        "miss": "",
+        "oracle": "src/click/globals.py:13 get_current_context().",
+        "source": "return f(get_current_context().obj, *args, **kwargs)",
+        "stratum": "-",
+        "v2": "python::.::src/click/globals.py::src/click/globals/get_current_context().#8071d4f9"
+      },
+      {
+        "dev": "method::src/click/shell_completion.py::BashComplete::get_completion_args",
+        "file": "src/click/shell_completion.py",
+        "line": 292,
+        "miss": "",
+        "oracle": "src/click/shell_completion.py:256 ShellComplete#get_completion_args().",
+        "source": "args, incomplete = self.get_completion_args()",
+        "stratum": "-",
+        "v2": "no edge"
+      },
+      {
+        "dev": "method::src/click/shell_completion.py::ZshComplete::get_completion_args",
+        "file": "src/click/shell_completion.py",
+        "line": 292,
+        "miss": "",
+        "oracle": "src/click/shell_completion.py:256 ShellComplete#get_completion_args().",
+        "source": "args, incomplete = self.get_completion_args()",
+        "stratum": "-",
+        "v2": "no edge"
+      },
+      {
+        "dev": "method::src/click/shell_completion.py::BashComplete::format_completion",
+        "file": "src/click/shell_completion.py",
+        "line": 294,
+        "miss": "",
+        "oracle": "src/click/shell_completion.py:277 ShellComplete#format_completion().",
+        "source": "out = [self.format_completion(item) for item in completions]",
+        "stratum": "-",
+        "v2": "no edge"
+      },
+      {
+        "dev": "method::src/click/types.py::FloatRange::_clamp",
+        "file": "src/click/types.py",
+        "line": 464,
+        "miss": "",
+        "oracle": "src/click/types.py:480 _NumberRangeBase#_clamp().",
+        "source": "return self._clamp(self.min, 1, self.min_open)  # type: ignore",
+        "stratum": "-",
+        "v2": "no edge"
+      },
+      {
+        "dev": "class::tests/test_context.py::test_ensure_context_objects.<locals>.Foo",
+        "file": "tests/test_context.py",
+        "line": 42,
+        "miss": "",
+        "oracle": "tests/test_context.py:33 test_get_context_objects().Foo#",
+        "source": "ctx.obj = Foo()",
+        "stratum": "-",
+        "v2": "python::.::tests/test_context.py::tests/test_context/test_get_context_objects().Foo#; python::.::tests/test_context.py::tests/test_context/test_get_context_objects().Foo#__ini\u2026"
+      },
+      {
+        "dev": "class::tests/test_context.py::test_ensure_context_objects.<locals>.Foo",
+        "file": "tests/test_context.py",
+        "line": 270,
+        "miss": "",
+        "oracle": "tests/test_context.py:262 test_make_pass_decorator_args().Foo#",
+        "source": "ctx.obj = Foo()",
+        "stratum": "-",
+        "v2": "python::.::tests/test_context.py::tests/test_context/test_make_pass_decorator_args().Foo#"
+      },
+      {
+        "dev": "method::tests/test_termui.py::test_progressbar_length_hint.<locals>.Hinted::__init__ \u00d72",
+        "file": "tests/test_termui.py",
+        "line": 65,
+        "miss": "",
+        "oracle": "src/click/termui.py:283 progressbar().; tests/test_termui.py:45 test_progressbar_length_hint().Hinted#",
+        "source": "with click.progressbar(Hinted(10), label=\"test\") as progress:",
+        "stratum": "-",
+        "v2": "python::.::src/click/_termui_impl.py::src/click/_termui_impl/ProgressBar#__enter__().#f90\u2026; python::.::src/click/_termui_impl.py::src/click/_termui_impl/ProgressBar#__exit__().#0699\u2026; python::.::src/click/termui.py::src/click/termui/progressbar().#56cfc6c5; python::.::tests/test_termui.py::tests/test_termui/test_progressbar_length_hint().Hinted#; python::.::tests/test_termui.py::tests/test_termui/test_progressbar_length_hint().Hinted#\u2026"
+      }
+    ],
+    "gap": [
+      {
+        "dev": "function::src/click/_termui_impl.py::raw_terminal",
+        "file": "src/click/_termui_impl.py",
+        "line": 781,
+        "miss": "reported (many_candidates)",
+        "oracle": "src/click/_termui_impl.py:699 raw_terminal().",
+        "source": "with raw_terminal() as fd:",
+        "stratum": "reported (many_candidates)",
+        "v2": "unresolved unresolved::python::raw_terminal"
+      },
+      {
+        "dev": "method::src/click/core.py::BaseCommand::__init__",
+        "file": "src/click/core.py",
+        "line": 1221,
+        "miss": "reported (dynamic_dispatch)",
+        "oracle": "src/click/core.py:870 BaseCommand#__init__().",
+        "source": "super().__init__(name, context_settings)",
+        "stratum": "reported (dynamic_dispatch)",
+        "v2": "unresolved unresolved::python::super().__init__"
+      },
+      {
+        "dev": "method::src/click/core.py::BaseCommand::shell_complete",
+        "file": "src/click/core.py",
+        "line": 1477,
+        "miss": "reported (dynamic_dispatch)",
+        "oracle": "src/click/core.py:965 BaseCommand#shell_complete().",
+        "source": "results.extend(super().shell_complete(ctx, incomplete))",
+        "stratum": "reported (dynamic_dispatch)",
+        "v2": "unresolved unresolved::python::super().shell_complete"
+      },
+      {
+        "dev": "method::src/click/core.py::Command::__init__",
+        "file": "src/click/core.py",
+        "line": 1520,
+        "miss": "reported (dynamic_dispatch)",
+        "oracle": "src/click/core.py:1206 Command#__init__().",
+        "source": "super().__init__(name, **attrs)",
+        "stratum": "reported (dynamic_dispatch)",
+        "v2": "unresolved unresolved::python::super().__init__"
+      },
+      {
+        "dev": "method::src/click/formatting.py::HelpFormatter::write",
+        "file": "src/click/formatting.py",
+        "line": 187,
+        "miss": "reported (dynamic_dispatch)",
+        "oracle": "src/click/formatting.py:133 HelpFormatter#write().",
+        "source": "self.write(f\"{'':>{self.current_indent}}{heading}:\\n\")",
+        "stratum": "reported (dynamic_dispatch)",
+        "v2": "unresolved unresolved::python::self.write"
+      },
+      {
+        "dev": "method::src/click/formatting.py::HelpFormatter::write",
+        "file": "src/click/formatting.py",
+        "line": 192,
+        "miss": "reported (dynamic_dispatch)",
+        "oracle": "src/click/formatting.py:133 HelpFormatter#write().",
+        "source": "self.write(\"\\n\")",
+        "stratum": "reported (dynamic_dispatch)",
+        "v2": "unresolved unresolved::python::self.write"
+      },
+      {
+        "dev": "method::src/click/formatting.py::HelpFormatter::write_heading",
+        "file": "src/click/formatting.py",
+        "line": 262,
+        "miss": "reported (dynamic_dispatch)",
+        "oracle": "src/click/formatting.py:185 HelpFormatter#write_heading().",
+        "source": "self.write_heading(name)",
+        "stratum": "reported (dynamic_dispatch)",
+        "v2": "unresolved unresolved::python::self.write_heading"
+      },
+      {
+        "dev": "method::src/click/types.py::ParamType::fail",
+        "file": "src/click/types.py",
+        "line": 186,
+        "miss": "silent",
+        "oracle": "src/click/types.py:130 ParamType#fail().",
+        "source": "self.fail(value, param, ctx)",
+        "stratum": "silent",
+        "v2": "no edge"
+      },
+      {
+        "dev": "function::src/click/_compat.py::_get_argv_encoding",
+        "file": "src/click/types.py",
+        "line": 208,
+        "miss": "reported (many_candidates)",
+        "oracle": "src/click/_compat.py:512 _get_argv_encoding().",
+        "source": "enc = _get_argv_encoding()",
+        "stratum": "reported (many_candidates)",
+        "v2": "unresolved unresolved::python::_get_argv_encoding"
+      },
+      {
+        "dev": "method::src/click/types.py::ParamType::fail",
+        "file": "src/click/types.py",
+        "line": 297,
+        "miss": "silent",
+        "oracle": "src/click/types.py:130 ParamType#fail().",
+        "source": "self.fail(",
+        "stratum": "silent",
+        "v2": "no edge"
+      },
+      {
+        "dev": "method::src/click/types.py::ParamType::fail",
+        "file": "src/click/types.py",
+        "line": 391,
+        "miss": "silent",
+        "oracle": "src/click/types.py:130 ParamType#fail().",
+        "source": "self.fail(",
+        "stratum": "silent",
+        "v2": "no edge"
+      },
+      {
+        "dev": "method::src/click/types.py::ParamType::fail",
+        "file": "src/click/types.py",
+        "line": 414,
+        "miss": "silent",
+        "oracle": "src/click/types.py:130 ParamType#fail().",
+        "source": "self.fail(",
+        "stratum": "silent",
+        "v2": "no edge"
+      },
+      {
+        "dev": "method::src/click/types.py::ParamType::fail",
+        "file": "src/click/types.py",
+        "line": 470,
+        "miss": "silent",
+        "oracle": "src/click/types.py:130 ParamType#fail().",
+        "source": "self.fail(",
+        "stratum": "silent",
+        "v2": "no edge"
+      },
+      {
+        "dev": "method::src/click/types.py::ParamType::fail",
+        "file": "src/click/types.py",
+        "line": 611,
+        "miss": "silent",
+        "oracle": "src/click/types.py:130 ParamType#fail().",
+        "source": "self.fail(",
+        "stratum": "silent",
+        "v2": "no edge"
+      },
+      {
+        "dev": "method::src/click/types.py::ParamType::fail",
+        "file": "src/click/types.py",
+        "line": 635,
+        "miss": "silent",
+        "oracle": "src/click/types.py:130 ParamType#fail().",
+        "source": "self.fail(",
+        "stratum": "silent",
+        "v2": "no edge"
+      },
+      {
+        "dev": "function::src/click/utils.py::format_filename; method::src/click/types.py::ParamType::fail",
+        "file": "src/click/types.py",
+        "line": 745,
+        "miss": "silent; dev has 2 targets on this line",
+        "oracle": "src/click/types.py:130 ParamType#fail().",
+        "source": "self.fail(f\"'{format_filename(value)}': {e.strerror}\", param, ctx)",
+        "stratum": "silent",
+        "v2": "import python::.::src/click/utils.py::src/click/utils/format_filename().#20f87597"
+      },
+      {
+        "dev": "method::src/click/types.py::ParamType::fail",
+        "file": "src/click/types.py",
+        "line": 880,
+        "miss": "silent",
+        "oracle": "src/click/types.py:130 ParamType#fail().",
+        "source": "self.fail(",
+        "stratum": "silent",
+        "v2": "no edge"
+      },
+      {
+        "dev": "method::src/click/types.py::ParamType::fail",
+        "file": "src/click/types.py",
+        "line": 990,
+        "miss": "silent",
+        "oracle": "src/click/types.py:130 ParamType#fail().",
+        "source": "self.fail(",
+        "stratum": "silent",
+        "v2": "no edge"
+      },
+      {
+        "dev": "function::src/click/_compat.py::should_strip_ansi",
+        "file": "src/click/utils.py",
+        "line": 310,
+        "miss": "reported (dynamic_dispatch)",
+        "oracle": "src/click/_compat.py:496 should_strip_ansi().",
+        "source": "if should_strip_ansi(file, color):",
+        "stratum": "reported (dynamic_dispatch)",
+        "v2": "unresolved unresolved::python::should_strip_ansi"
+      },
+      {
+        "dev": "method::src/click/core.py::BaseCommand::main",
+        "file": "tests/test_context.py",
+        "line": 313,
+        "miss": "reported (many_candidates)",
+        "oracle": "src/click/core.py:995 BaseCommand#main().",
+        "source": "assert cli.main([], \"test_exit_not_standalone\", standalone_mode=False) == 1",
+        "stratum": "reported (many_candidates)",
+        "v2": "unresolved unresolved::python::cli.main"
+      },
+      {
+        "dev": "function::src/click/utils.py::format_filename",
+        "file": "tests/test_utils.py",
+        "line": 104,
+        "miss": "reported (dynamic_dispatch)",
+        "oracle": "src/click/utils.py:404 format_filename().",
+        "source": "assert click.format_filename(b\"foo.txt\") == \"foo.txt\"",
+        "stratum": "reported (dynamic_dispatch)",
+        "v2": "unresolved unresolved::python::click.format_filename"
+      },
+      {
+        "dev": "function::src/click/termui.py::style",
+        "file": "tests/test_utils.py",
+        "line": 214,
+        "miss": "reported (dynamic_dispatch)",
+        "oracle": "src/click/termui.py:462 style().",
+        "source": "styled_text = click.style(text, fg=\"red\")",
+        "stratum": "reported (dynamic_dispatch)",
+        "v2": "unresolved unresolved::python::click.style"
+      },
+      {
+        "dev": "function::src/click/termui.py::prompt",
+        "file": "tests/test_utils.py",
+        "line": 267,
+        "miss": "reported (dynamic_dispatch)",
+        "oracle": "src/click/termui.py:79 prompt().",
+        "source": "click.prompt(\"Prompt to stdin\")",
+        "stratum": "reported (dynamic_dispatch)",
+        "v2": "unresolved unresolved::python::click.prompt"
+      },
+      {
+        "dev": "function::src/click/utils.py::open_file",
+        "file": "tests/test_utils.py",
+        "line": 352,
+        "miss": "reported (dynamic_dispatch)",
+        "oracle": "src/click/utils.py:355 open_file().",
+        "source": "with click.open_file(filename, errors=\"ignore\") as f:",
+        "stratum": "reported (dynamic_dispatch)",
+        "v2": "unresolved unresolved::python::click.open_file"
+      },
+      {
+        "dev": "function::src/click/utils.py::_expand_args",
+        "file": "tests/test_utils.py",
+        "line": 467,
+        "miss": "reported (dynamic_dispatch)",
+        "oracle": "src/click/utils.py:575 _expand_args().",
+        "source": "assert user in click.utils._expand_args([\"~\"])",
+        "stratum": "reported (dynamic_dispatch)",
+        "v2": "unresolved unresolved::python::click.utils._expand_args"
+      }
+    ],
+    "v2_gain": [
+      {
+        "dev": "no edge",
+        "file": "examples/termui/termui.py",
+        "line": 162,
+        "miss": "",
+        "oracle": "src/click/utils.py:219 echo().",
+        "source": "click.echo(\"  b: back\")",
+        "stratum": "dev no edge",
+        "v2": "import python::.::src/click/utils.py::src/click/utils/echo().#e6dcab7f"
+      },
+      {
+        "dev": "no edge",
+        "file": "src/click/core.py",
+        "line": 1697,
+        "miss": "dev has no node for the target",
+        "oracle": "src/click/core.py:1664 MultiCommand#_process_result().",
+        "source": "return _process_result(sub_ctx.command.invoke(sub_ctx))",
+        "stratum": "dev no node",
+        "v2": "name python::.::src/click/core.py::src/click/core/MultiCommand#invoke()._process_result().#eb0\u2026"
+      },
+      {
+        "dev": "no edge",
+        "file": "src/click/core.py",
+        "line": 1729,
+        "miss": "dev has no node for the target",
+        "oracle": "src/click/core.py:1664 MultiCommand#_process_result().",
+        "source": "return _process_result(rv)",
+        "stratum": "dev no node",
+        "v2": "name python::.::src/click/core.py::src/click/core/MultiCommand#invoke()._process_result().#eb0\u2026"
+      },
+      {
+        "dev": "function::src/click/core.py::Group.group.<locals>.decorator",
+        "file": "src/click/core.py",
+        "line": 1899,
+        "miss": "dev has no node for the target",
+        "oracle": "src/click/core.py:1893 Group#decorator().; src/click/core.py:1945 Group#decorator().",
+        "source": "return decorator(func)",
+        "stratum": "dev no node",
+        "v2": "name python::.::src/click/core.py::src/click/core/Group#command().decorator().#940ed7fa"
+      },
+      {
+        "dev": "function::src/click/core.py::Group.group.<locals>.decorator",
+        "file": "src/click/core.py",
+        "line": 1951,
+        "miss": "dev has no node for the target",
+        "oracle": "src/click/core.py:1893 Group#decorator().; src/click/core.py:1945 Group#decorator().",
+        "source": "return decorator(func)",
+        "stratum": "dev no node",
+        "v2": "name python::.::src/click/core.py::src/click/core/Group#group().decorator().#940ed7fa"
+      },
+      {
+        "dev": "function::src/click/core.py::Parameter.type_cast_value.<locals>.check_iter",
+        "file": "src/click/core.py",
+        "line": 2324,
+        "miss": "dev has no node for the target",
+        "oracle": "src/click/core.py:2305 Parameter#check_iter().",
+        "source": "return tuple(self.type(x, self, ctx) for x in check_iter(value))",
+        "stratum": "dev no node",
+        "v2": "name python::.::src/click/core.py::src/click/core/Parameter#type_cast_value().check_iter().#eb\u2026"
+      },
+      {
+        "dev": "no edge",
+        "file": "src/click/core.py",
+        "line": 2329,
+        "miss": "dev has no node for the target",
+        "oracle": "src/click/core.py:2305 Parameter#check_iter().",
+        "source": "value = tuple(check_iter(value))",
+        "stratum": "dev no node",
+        "v2": "name python::.::src/click/core.py::src/click/core/Parameter#type_cast_value().check_iter().#eb\u2026"
+      },
+      {
+        "dev": "function::src/click/core.py::Parameter.type_cast_value.<locals>.convert",
+        "file": "src/click/core.py",
+        "line": 2345,
+        "miss": "dev has no node for the target",
+        "oracle": "src/click/core.py:2305 Parameter#check_iter().",
+        "source": "return tuple(convert(x) for x in check_iter(value))",
+        "stratum": "dev no node",
+        "v2": "name python::.::src/click/core.py::src/click/core/Parameter#type_cast_value().check_iter().#eb\u2026"
+      },
+      {
+        "dev": "function::src/click/core.py::Option.get_help_record.<locals>._write_opts",
+        "file": "src/click/core.py",
+        "line": 2758,
+        "miss": "dev has no node for the target",
+        "oracle": "src/click/core.py:2745 Option#_write_opts().",
+        "source": "rv = [_write_opts(self.opts)]",
+        "stratum": "dev no node",
+        "v2": "name python::.::src/click/core.py::src/click/core/Option#get_help_record()._write_opts().#7d9f\u2026"
+      },
+      {
+        "dev": "no edge",
+        "file": "src/click/shell_completion.py",
+        "line": 49,
+        "miss": "",
+        "oracle": "src/click/utils.py:219 echo().",
+        "source": "echo(comp.complete())",
+        "stratum": "dev no edge",
+        "v2": "import python::.::src/click/utils.py::src/click/utils/echo().#e6dcab7f"
+      },
+      {
+        "dev": "function::src/click/decorators.py::argument",
+        "file": "tests/test_arguments.py",
+        "line": 129,
+        "miss": "",
+        "oracle": "src/click/types.py:768 Path#",
+        "source": "@click.argument(\"input\", type=click.Path(allow_dash=True))",
+        "stratum": "dev wrong edge",
+        "v2": "import python::.::src/click/types.py::src/click/types/Path#"
+      },
+      {
+        "dev": "function::src/click/decorators.py::argument",
+        "file": "tests/test_arguments.py",
+        "line": 160,
+        "miss": "",
+        "oracle": "src/click/types.py:643 File#",
+        "source": "@click.argument(\"output\", type=click.File(\"w\"), default=\"-\")",
+        "stratum": "dev wrong edge",
+        "v2": "import python::.::src/click/types.py::src/click/types/File#"
+      },
+      {
+        "dev": "function::src/click/decorators.py::option",
+        "file": "tests/test_basic.py",
+        "line": 264,
+        "miss": "",
+        "oracle": "src/click/types.py:643 File#",
+        "source": "@click.option(\"--file\", type=click.File(\"r\"))",
+        "stratum": "dev wrong edge",
+        "v2": "import python::.::src/click/types.py::src/click/types/File#"
+      },
+      {
+        "dev": "function::src/click/decorators.py::argument",
+        "file": "tests/test_basic.py",
+        "line": 387,
+        "miss": "",
+        "oracle": "src/click/types.py:227 Choice#",
+        "source": "@click.argument(\"method\", type=click.Choice([\"foo\", \"bar\", \"baz\"]))",
+        "stratum": "dev wrong edge",
+        "v2": "import python::.::src/click/types.py::src/click/types/Choice#"
+      },
+      {
+        "dev": "no edge",
+        "file": "tests/test_defaults.py",
+        "line": 17,
+        "miss": "",
+        "oracle": "src/click/decorators.py:137 command().",
+        "source": "@click.command()",
+        "stratum": "dev no edge",
+        "v2": "import python::.::src/click/decorators.py::src/click/decorators/command().#afa412d0"
+      },
+      {
+        "dev": "function::src/click/decorators.py::option",
+        "file": "tests/test_normalization.py",
+        "line": 20,
+        "miss": "",
+        "oracle": "src/click/types.py:227 Choice#",
+        "source": "@click.option(\"--choice\", type=click.Choice([\"Foo\", \"Bar\"]))",
+        "stratum": "dev wrong edge",
+        "v2": "import python::.::src/click/types.py::src/click/types/Choice#"
+      },
+      {
+        "dev": "no edge",
+        "file": "tests/test_options.py",
+        "line": 354,
+        "miss": "",
+        "oracle": "src/click/types.py:643 File#",
+        "source": "[\"--in\"], type=click.File(), default=__file__, show_default=True",
+        "stratum": "dev no edge",
+        "v2": "import python::.::src/click/types.py::src/click/types/File#"
+      },
+      {
+        "dev": "no edge",
+        "file": "tests/test_options.py",
+        "line": 548,
+        "miss": "",
+        "oracle": "src/click/decorators.py:137 command().",
+        "source": "@click.command()",
+        "stratum": "dev no edge",
+        "v2": "import python::.::src/click/decorators.py::src/click/decorators/command().#afa412d0"
+      },
+      {
+        "dev": "function::src/click/decorators.py::option",
+        "file": "tests/test_options.py",
+        "line": 549,
+        "miss": "",
+        "oracle": "src/click/types.py:227 Choice#",
+        "source": "@click.option(\"--foo\", type=click.Choice([\"Orange\", \"Apple\"]))",
+        "stratum": "dev wrong edge",
+        "v2": "import python::.::src/click/types.py::src/click/types/Choice#"
+      },
+      {
+        "dev": "no edge",
+        "file": "tests/test_options.py",
+        "line": 649,
+        "miss": "",
+        "oracle": "src/click/decorators.py:137 command().",
+        "source": "@click.command()",
+        "stratum": "dev no edge",
+        "v2": "import python::.::src/click/decorators.py::src/click/decorators/command().#afa412d0"
+      },
+      {
+        "dev": "no edge",
+        "file": "tests/test_options.py",
+        "line": 857,
+        "miss": "",
+        "oracle": "src/click/decorators.py:137 command().",
+        "source": "@click.command()",
+        "stratum": "dev no edge",
+        "v2": "import python::.::src/click/decorators.py::src/click/decorators/command().#afa412d0"
+      },
+      {
+        "dev": "no edge",
+        "file": "tests/test_shell_completion.py",
+        "line": 58,
+        "miss": "",
+        "oracle": "src/click/core.py:1790 Group#",
+        "source": "Group(\"get\", commands=[Command(\"full\")]),",
+        "stratum": "dev no edge",
+        "v2": "import python::.::src/click/core.py::src/click/core/Group#"
+      },
+      {
+        "dev": "class::src/click/types.py::Choice; method::src/click/types.py::Choice::__init__",
+        "file": "tests/test_shell_completion.py",
+        "line": 267,
+        "miss": "",
+        "oracle": "src/click/core.py:2452 Option#",
+        "source": "Option([\"-b\"], type=Choice([\"a\", \"b\"]), hidden=True),",
+        "stratum": "dev wrong edge",
+        "v2": "import python::.::src/click/core.py::src/click/core/Option#"
+      },
+      {
+        "dev": "function::src/click/decorators.py::option",
+        "file": "tests/test_termui.py",
+        "line": 229,
+        "miss": "",
+        "oracle": "src/click/types.py:643 File#",
+        "source": "@click.option(\"-f\", default=__file__, prompt=\"file\", type=click.File(**file_kwargs))",
+        "stratum": "dev wrong edge",
+        "v2": "import python::.::src/click/types.py::src/click/types/File#"
+      },
+      {
+        "dev": "no edge",
+        "file": "tests/test_testing.py",
+        "line": 295,
+        "miss": "",
+        "oracle": "src/click/testing.py:353 CliRunner#invoke().",
+        "source": "result = runner.invoke(cli_float_ctx_exit)",
+        "stratum": "dev no edge",
+        "v2": "import python::.::src/click/testing.py::src/click/testing/CliRunner#invoke().#19d1892b"
+      }
+    ],
+    "v2_unscored": [
+      {
+        "dev": "no edge",
+        "file": "src/click/_termui_impl.py",
+        "line": 651,
+        "miss": "",
+        "oracle": "no oracle call with a target",
+        "source": "url = _unquote_file(url)",
+        "stratum": "at call site: yes)",
+        "v2": "name python::.::src/click/_termui_impl.py::src/click/_termui_impl/open_url()._unquote_file().#\u2026 (at call site: yes)"
+      },
+      {
+        "dev": "no edge",
+        "file": "src/click/_winconsole.py",
+        "line": 50,
+        "miss": "",
+        "oracle": "no oracle call with a target",
+        "source": "STDOUT_HANDLE = GetStdHandle(-11)",
+        "stratum": "at call site: yes)",
+        "v2": "name python::.::src/click/_winconsole.py::src/click/_winconsole/GetStdHandle. (at call site: yes)"
+      },
+      {
+        "dev": "class::src/click/_winconsole.py::Py_buffer",
+        "file": "src/click/_winconsole.py",
+        "line": 94,
+        "miss": "",
+        "oracle": "no oracle call with a target",
+        "source": "buf = Py_buffer()",
+        "stratum": "at call site: yes)",
+        "v2": "name python::.::src/click/_winconsole.py::src/click/_winconsole/Py_buffer# (at call site: yes)"
+      },
+      {
+        "dev": "no edge",
+        "file": "src/click/_winconsole.py",
+        "line": 167,
+        "miss": "",
+        "oracle": "no oracle call with a target",
+        "source": "WriteConsoleW(",
+        "stratum": "at call site: yes)",
+        "v2": "name python::.::src/click/_winconsole.py::src/click/_winconsole/WriteConsoleW. (at call site: yes)"
+      },
+      {
+        "dev": "function::src/click/_winconsole.py::_is_console",
+        "file": "src/click/_winconsole.py",
+        "line": 270,
+        "miss": "",
+        "oracle": "no oracle call with a target",
+        "source": "and _is_console(f)",
+        "stratum": "at call site: yes)",
+        "v2": "name python::.::src/click/_winconsole.py::src/click/_winconsole/_is_console().#84b923d0 (at call site: yes)"
+      },
+      {
+        "dev": "method::src/click/testing.py::CliRunner::invoke",
+        "file": "tests/test_basic.py",
+        "line": 67,
+        "miss": "",
+        "oracle": "no oracle call with a target",
+        "source": "result = runner.invoke(cli, [\"--help\"])",
+        "stratum": "at call site: no)",
+        "v2": "name python::.::src/click/testing.py::src/click/testing/CliRunner#invoke().#19d1892b (at call site: no)"
+      },
+      {
+        "dev": "method::src/click/testing.py::CliRunner::isolated_filesystem",
+        "file": "tests/test_basic.py",
+        "line": 292,
+        "miss": "",
+        "oracle": "no oracle call with a target",
+        "source": "with runner.isolated_filesystem():",
+        "stratum": "at call site: no)",
+        "v2": "name python::.::src/click/testing.py::src/click/testing/CliRunner#isolated_filesystem().#8f422\u2026 (at call site: no)"
+      },
+      {
+        "dev": "no edge",
+        "file": "tests/test_basic.py",
+        "line": 347,
+        "miss": "",
+        "oracle": "no oracle call with a target",
+        "source": "result = runner.invoke(showtype, [\"-f\", \".\"])",
+        "stratum": "at call site: no)",
+        "v2": "name python::.::src/click/testing.py::src/click/testing/CliRunner#invoke().#19d1892b (at call site: no)"
+      },
+      {
+        "dev": "method::src/click/testing.py::CliRunner::invoke",
+        "file": "tests/test_normalization.py",
+        "line": 37,
+        "miss": "",
+        "oracle": "no oracle call with a target",
+        "source": "result = runner.invoke(cli, [\"FOO\"])",
+        "stratum": "at call site: no)",
+        "v2": "name python::.::src/click/testing.py::src/click/testing/CliRunner#invoke().#19d1892b (at call site: no)"
+      },
+      {
+        "dev": "no edge",
+        "file": "tests/test_options.py",
+        "line": 492,
+        "miss": "",
+        "oracle": "no oracle call with a target",
+        "source": "assert result.output == \"42\\n\"",
+        "stratum": "at call site: no)",
+        "v2": "name python::.::src/click/testing.py::src/click/testing/Result#output().#f9065fa7 (at call site: no)"
+      }
+    ],
+    "v2_wrong": [
+      {
+        "dev": "no edge",
+        "file": "examples/aliases/aliases.py",
+        "line": 119,
+        "miss": "",
+        "oracle": "src/click/core.py:1855 Group#command().",
+        "source": "@cli.command()",
+        "stratum": "at call site: no)",
+        "v2": "exact python::.::examples/aliases/aliases.py::examples/aliases/aliases/commit().#f9065fa7 (at call site: no)"
+      },
+      {
+        "dev": "function::src/click/decorators.py::argument",
+        "file": "examples/naval/naval.py",
+        "line": 52,
+        "miss": "",
+        "oracle": "src/click/decorators.py:315 argument().",
+        "source": "@click.argument(\"x\", type=float)",
+        "stratum": "at call site: no)",
+        "v2": "import python::.::src/click/decorators.py::src/click/decorators/argument().decorator().#58c0ebbe (at call site: no)"
+      },
+      {
+        "dev": "no edge",
+        "file": "tests/test_basic.py",
+        "line": 29,
+        "miss": "",
+        "oracle": "src/click/decorators.py:137 command().",
+        "source": "@click.command()",
+        "stratum": "at call site: no)",
+        "v2": "exact python::.::tests/test_basic.py::tests/test_basic/test_repr().command().#f9065fa7 (at call site: no)"
+      },
+      {
+        "dev": "no edge",
+        "file": "tests/test_basic.py",
+        "line": 57,
+        "miss": "",
+        "oracle": "src/click/decorators.py:254 group().",
+        "source": "@click.group()",
+        "stratum": "at call site: no)",
+        "v2": "exact python::.::tests/test_basic.py::tests/test_basic/test_basic_group().cli().#f9065fa7 (at call site: no)"
+      },
+      {
+        "dev": "no edge",
+        "file": "tests/test_basic.py",
+        "line": 117,
+        "miss": "",
+        "oracle": "src/click/decorators.py:137 command().",
+        "source": "@click.command()",
+        "stratum": "at call site: no)",
+        "v2": "exact python::.::tests/test_basic.py::tests/test_basic/test_string_option().cli().#ff92409d (at call site: no)"
+      },
+      {
+        "dev": "no edge",
+        "file": "tests/test_basic.py",
+        "line": 210,
+        "miss": "",
+        "oracle": "src/click/decorators.py:137 command().",
+        "source": "@click.command()",
+        "stratum": "at call site: no)",
+        "v2": "exact python::.::tests/test_basic.py::tests/test_basic/test_boolean_switch().cli().#ff92409d (at call site: no)"
+      },
+      {
+        "dev": "function::src/click/decorators.py::option",
+        "file": "tests/test_basic.py",
+        "line": 408,
+        "miss": "",
+        "oracle": "src/click/decorators.py:343 option().; src/click/types.py:334 DateTime#",
+        "source": "@click.option(\"--start_date\", type=click.DateTime())",
+        "stratum": "at call site: no)",
+        "v2": "import python::.::src/click/decorators.py::src/click/decorators/option().decorator().#58c0ebbe (at call site: no)"
+      },
+      {
+        "dev": "no edge",
+        "file": "tests/test_chain.py",
+        "line": 95,
+        "miss": "",
+        "oracle": "src/click/decorators.py:254 group().",
+        "source": "@click.group(invoke_without_command=True, chain=chain)",
+        "stratum": "at call site: no)",
+        "v2": "exact python::.::tests/test_chain.py::tests/test_chain/test_no_command_result_callback().cli().\u2026 (at call site: no)"
+      },
+      {
+        "dev": "no edge",
+        "file": "tests/test_chain.py",
+        "line": 136,
+        "miss": "",
+        "oracle": "src/click/decorators.py:254 group().",
+        "source": "@click.group(chain=True, invoke_without_command=True)",
+        "stratum": "at call site: no)",
+        "v2": "exact python::.::tests/test_chain.py::tests/test_chain/test_pipeline().cli().#ff92409d (at call site: no)"
+      },
+      {
+        "dev": "no edge",
+        "file": "tests/test_chain.py",
+        "line": 207,
+        "miss": "",
+        "oracle": "src/click/decorators.py:254 group().",
+        "source": "@click.group(chain=True)",
+        "stratum": "at call site: no)",
+        "v2": "exact python::.::tests/test_chain.py::tests/test_chain/test_multicommand_arg_behavior().cli().#\u2026 (at call site: no)"
+      },
+      {
+        "dev": "no edge",
+        "file": "tests/test_command_decorators.py",
+        "line": 5,
+        "miss": "",
+        "oracle": "src/click/decorators.py:137 command().",
+        "source": "@click.command",
+        "stratum": "at call site: yes)",
+        "v2": "exact python::.::tests/test_command_decorators.py::tests/test_command_decorators/test_command_n\u2026 (at call site: yes)"
+      },
+      {
+        "dev": "no edge",
+        "file": "tests/test_command_decorators.py",
+        "line": 35,
+        "miss": "",
+        "oracle": "src/click/decorators.py:254 group().",
+        "source": "@click.group",
+        "stratum": "at call site: yes)",
+        "v2": "exact python::.::tests/test_command_decorators.py::tests/test_command_decorators/test_group_no_\u2026 (at call site: yes)"
+      },
+      {
+        "dev": "function::src/click/decorators.py::argument",
+        "file": "tests/test_command_decorators.py",
+        "line": 64,
+        "miss": "",
+        "oracle": "src/click/decorators.py:315 argument().",
+        "source": "@click.argument(\"b\")",
+        "stratum": "at call site: no)",
+        "v2": "import python::.::src/click/decorators.py::src/click/decorators/argument().decorator().#58c0ebbe (at call site: no)"
+      },
+      {
+        "dev": "function::src/click/decorators.py::option",
+        "file": "tests/test_defaults.py",
+        "line": 18,
+        "miss": "",
+        "oracle": "src/click/decorators.py:343 option().",
+        "source": "@click.option(\"--foo\", default=[23, 42], type=click.FLOAT, multiple=True)",
+        "stratum": "at call site: no)",
+        "v2": "import python::.::src/click/decorators.py::src/click/decorators/option().decorator().#58c0ebbe (at call site: no)"
+      },
+      {
+        "dev": "no edge",
+        "file": "tests/test_defaults.py",
+        "line": 46,
+        "miss": "",
+        "oracle": "src/click/decorators.py:137 command().",
+        "source": "@click.command",
+        "stratum": "at call site: yes)",
+        "v2": "exact python::.::tests/test_defaults.py::tests/test_defaults/test_multiple_flag_default().cli()\u2026 (at call site: yes)"
+      },
+      {
+        "dev": "no edge",
+        "file": "tests/test_formatting.py",
+        "line": 234,
+        "miss": "",
+        "oracle": "src/click/decorators.py:137 command().",
+        "source": "@click.command(context_settings=dict(help_option_names=[\"--man\"]))",
+        "stratum": "at call site: no)",
+        "v2": "exact python::.::tests/test_formatting.py::tests/test_formatting/test_formatting_usage_custom_h\u2026 (at call site: no)"
+      },
+      {
+        "dev": "function::src/click/decorators.py::option",
+        "file": "tests/test_formatting.py",
+        "line": 340,
+        "miss": "",
+        "oracle": "src/click/decorators.py:343 option().",
+        "source": "@click.option(\"-f\", \"in_file\", default=\"out.txt\", help=\"Output file name\")",
+        "stratum": "at call site: no)",
+        "v2": "import python::.::src/click/decorators.py::src/click/decorators/option().decorator().#58c0ebbe (at call site: no)"
+      },
+      {
+        "dev": "function::src/click/decorators.py::argument",
+        "file": "tests/test_options.py",
+        "line": 860,
+        "miss": "",
+        "oracle": "src/click/decorators.py:315 argument().",
+        "source": "@click.argument(\"b\", nargs=-1)",
+        "stratum": "at call site: no)",
+        "v2": "import python::.::src/click/decorators.py::src/click/decorators/argument().decorator().#58c0ebbe (at call site: no)"
+      },
+      {
+        "dev": "function::tests/test_termui.py::_create_progress",
+        "file": "tests/test_termui.py",
+        "line": 116,
+        "miss": "",
+        "oracle": "tests/test_termui.py:21 _create_progress().",
+        "source": "with _create_progress(length, pos=pos) as progress:",
+        "stratum": "at call site: no)",
+        "v2": "name python::.::src/click/_termui_impl.py::src/click/_termui_impl/ProgressBar#__exit__().#0699\u2026 (at call site: no)"
+      },
+      {
+        "dev": "no edge",
+        "file": "tests/test_termui.py",
+        "line": 433,
+        "miss": "",
+        "oracle": "src/click/decorators.py:137 command().",
+        "source": "@click.command()",
+        "stratum": "at call site: no)",
+        "v2": "exact python::.::tests/test_termui.py::tests/test_termui/test_confirmation_prompt().cli().#ff92\u2026 (at call site: no)"
+      },
+      {
+        "dev": "no edge",
+        "file": "tests/test_testing.py",
+        "line": 247,
+        "miss": "",
+        "oracle": "src/click/decorators.py:137 command().",
+        "source": "@click.command()",
+        "stratum": "at call site: no)",
+        "v2": "exact python::.::tests/test_testing.py::tests/test_testing/test_exit_code_and_output_from_sys_e\u2026 (at call site: no)"
+      },
+      {
+        "dev": "no edge",
+        "file": "tests/test_types.py",
+        "line": 38,
+        "miss": "",
+        "oracle": "src/click/types.py:517 IntRange#",
+        "source": "(click.IntRange(0, 5), \"6\", \"6 is not in the range 0<=x<=5.\"),",
+        "stratum": "at call site: no)",
+        "v2": "name python::.::src/click/types.py::src/click/types/_NumberRangeBase#__init__().#aa077a00 (at call site: no)"
+      },
+      {
+        "dev": "no edge",
+        "file": "tests/test_utils.py",
+        "line": 394,
+        "miss": "",
+        "oracle": "src/click/decorators.py:137 command().",
+        "source": "@click.command()",
+        "stratum": "at call site: no)",
+        "v2": "exact python::.::tests/test_utils.py::tests/test_utils/test_open_file_atomic_permissions_existi\u2026 (at call site: no)"
+      },
+      {
+        "dev": "no edge",
+        "file": "tests/typing/typing_help_option.py",
+        "line": 6,
+        "miss": "",
+        "oracle": "src/click/decorators.py:137 command().",
+        "source": "@click.command()",
+        "stratum": "at call site: no)",
+        "v2": "exact python::.::tests/typing/typing_help_option.py::tests/typing/typing_help_option/hello().#f\u2026 (at call site: no)"
+      },
+      {
+        "dev": "function::src/click/decorators.py::version_option",
+        "file": "tests/typing/typing_version_option.py",
+        "line": 11,
+        "miss": "",
+        "oracle": "src/click/decorators.py:412 version_option().",
+        "source": "@click.version_option(\"0.1\")",
+        "stratum": "at call site: no)",
+        "v2": "name python::.::src/click/decorators.py::src/click/decorators/option().decorator().#58c0ebbe (at call site: no)"
+      }
+    ]
+  },
+  "scorer_notes": {
+    "dev_calls_without_site_line": 0,
+    "dev_edges_with_file_source_never_scored": 16
+  },
+  "strata": {
+    "both_miss": {
+      "no_node": 8,
+      "reported (dynamic_dispatch)": 211,
+      "reported (many_candidates)": 3,
+      "silent": 41
+    },
+    "both_right": {
+      "-": 990
+    },
+    "dev_unscored": {
+      "-": 383
+    },
+    "dev_wrong": {
+      "-": 88
+    },
+    "gap": {
+      "reported (dynamic_dispatch)": 134,
+      "reported (many_candidates)": 3,
+      "silent": 10
+    },
+    "v2_gain": {
+      "dev no edge": 825,
+      "dev no node": 10,
+      "dev wrong edge": 48
+    },
+    "v2_unscored": {
+      "at call site: no)": 614,
+      "at call site: yes)": 30
+    },
+    "v2_wrong": {
+      "at call site: no)": 565,
+      "at call site: yes)": 3
+    }
+  },
+  "url": "https://github.com/pallets/click",
+  "v2_misses": [
+    [
+      "both_miss",
+      "reported",
+      "dynamic_dispatch",
+      211
+    ],
+    [
+      "gap",
+      "reported",
+      "dynamic_dispatch",
+      134
+    ],
+    [
+      "both_miss",
+      "silent",
+      "-",
+      41
+    ],
+    [
+      "gap",
+      "silent",
+      "-",
+      10
+    ],
+    [
+      "both_miss",
+      "no_node",
+      "-",
+      8
+    ],
+    [
+      "gap",
+      "reported",
+      "many_candidates",
+      3
+    ],
+    [
+      "both_miss",
+      "reported",
+      "many_candidates",
+      3
+    ]
+  ],
+  "verdicts_carried": 0
+}

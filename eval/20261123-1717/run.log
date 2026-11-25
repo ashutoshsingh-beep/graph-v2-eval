@@ -1,0 +1,4 @@
+== taiga-back
+taiga-back: written
+== difference sheets (oracle vs old engine vs graph v2)
+taiga-back: calls 12573: both right 4415, gap 480, v2 gain 7027, both miss 651; wrong edges v2 716, dev 388; check OK -> /Users/ashutosh/graph-v2-qa/eval/20261123-1717/out/taiga-back-differences.md

@@ -1,0 +1,833 @@
+{
+  "commit": "88b30ab89da2d0d0abb153818746c5a2d30eccec",
+  "disagreement_sample": [
+    {
+      "file": "bash_completions.go",
+      "kind": "v2_unresolved_or_absent",
+      "line": 602,
+      "oracle": [
+        "external github.com/spf13/pflag:github.com/spf13/pflag"
+      ],
+      "source": "if flag.Value.Type() != \"bool\" {",
+      "v2": "unresolved R8 dynamic_dispatch unresolved::go::flag.Value.Type"
+    },
+    {
+      "file": "bash_completions_test.go",
+      "kind": "v2_unresolved_or_absent",
+      "line": 68,
+      "oracle": [
+        "external go-stdlib:io"
+      ],
+      "source": "_, err := stdin.Write([]byte(s))",
+      "v2": "unresolved R8 no_candidate unresolved::go::stdin.Write"
+    },
+    {
+      "file": "bash_completions_test.go",
+      "kind": "v2_unresolved_or_absent",
+      "line": 71,
+      "oracle": [
+        "external go-stdlib:io"
+      ],
+      "source": "stdin.Close()",
+      "v2": "unresolved R8 no_candidate unresolved::go::stdin.Close"
+    },
+    {
+      "file": "cobra.go",
+      "kind": "v2_unresolved_or_absent",
+      "line": 244,
+      "oracle": [
+        "external go-stdlib:io"
+      ],
+      "source": "_, err := b.WriteString(s)",
+      "v2": "unresolved R8 no_candidate unresolved::go::b.WriteString"
+    },
+    {
+      "file": "command.go",
+      "kind": "v2_unresolved_or_absent",
+      "line": 1329,
+      "oracle": [
+        "command.go:1541 Command#Name()."
+      ],
+      "source": "func (c commandSorterByName) Less(i, j int) bool { return c[i].Name() < c[j].Name() }",
+      "v2": "no CALLS edge at this site"
+    },
+    {
+      "file": "command.go",
+      "kind": "v2_unresolved_or_absent",
+      "line": 1329,
+      "oracle": [
+        "command.go:1541 Command#Name()."
+      ],
+      "source": "func (c commandSorterByName) Less(i, j int) bool { return c[i].Name() < c[j].Name() }",
+      "v2": "no CALLS edge at this site"
+    },
+    {
+      "file": "command_test.go",
+      "kind": "v2_unresolved_or_absent",
+      "line": 2609,
+      "oracle": [
+        "external go-stdlib:context"
+      ],
+      "source": "key := cmd.Context().Value(key{})",
+      "v2": "unresolved R8 no_candidate unresolved::go::cmd.Context().Value"
+    },
+    {
+      "file": "command_test.go",
+      "kind": "v2_unresolved_or_absent",
+      "line": 2638,
+      "oracle": [
+        "external go-stdlib:context"
+      ],
+      "source": "val := cmd.Context().Value(key{})",
+      "v2": "unresolved R8 no_candidate unresolved::go::cmd.Context().Value"
+    },
+    {
+      "file": "command_test.go",
+      "kind": "v2_unresolved_or_absent",
+      "line": 2660,
+      "oracle": [
+        "external go-stdlib:context"
+      ],
+      "source": "key := cmd.Context().Value(key{})",
+      "v2": "unresolved R8 no_candidate unresolved::go::cmd.Context().Value"
+    },
+    {
+      "file": "command_test.go",
+      "kind": "v2_unresolved_or_absent",
+      "line": 2688,
+      "oracle": [
+        "external go-stdlib:context"
+      ],
+      "source": "key := cmd.Context().Value(key{})",
+      "v2": "unresolved R8 no_candidate unresolved::go::cmd.Context().Value"
+    },
+    {
+      "file": "command_test.go",
+      "kind": "v2_unresolved_or_absent",
+      "line": 2934,
+      "oracle": [
+        "external go-stdlib:io"
+      ],
+      "source": "_, err := cmd.OutOrStdout().Write([]byte(helpText))",
+      "v2": "unresolved R8 no_candidate unresolved::go::cmd.OutOrStdout().Write"
+    },
+    {
+      "file": "completions.go",
+      "kind": "v2_unresolved_or_absent",
+      "line": 447,
+      "oracle": [
+        "external github.com/spf13/pflag:github.com/spf13/pflag"
+      ],
+      "source": "strings.Contains(flag.Value.Type(), \"Slice\") ||",
+      "v2": "unresolved R8 dynamic_dispatch unresolved::go::flag.Value.Type"
+    },
+    {
+      "file": "completions.go",
+      "kind": "v2_unresolved_or_absent",
+      "line": 448,
+      "oracle": [
+        "external github.com/spf13/pflag:github.com/spf13/pflag"
+      ],
+      "source": "strings.Contains(flag.Value.Type(), \"Array\") ||",
+      "v2": "unresolved R8 dynamic_dispatch unresolved::go::flag.Value.Type"
+    },
+    {
+      "file": "completions.go",
+      "kind": "v2_unresolved_or_absent",
+      "line": 449,
+      "oracle": [
+        "external github.com/spf13/pflag:github.com/spf13/pflag"
+      ],
+      "source": "strings.HasPrefix(flag.Value.Type(), \"stringTo\")",
+      "v2": "unresolved R8 dynamic_dispatch unresolved::go::flag.Value.Type"
+    },
+    {
+      "file": "completions_test.go",
+      "kind": "v2_unresolved_or_absent",
+      "line": 1282,
+      "oracle": [
+        "external go-stdlib:context"
+      ],
+      "source": "} else if ctx.Value(\"testKey\") != \"123\" {",
+      "v2": "unresolved R8 no_candidate unresolved::go::ctx.Value"
+    },
+    {
+      "file": "doc/man_docs.go",
+      "kind": "v2_unresolved_or_absent",
+      "line": 114,
+      "oracle": [
+        "external go-stdlib:io"
+      ],
+      "source": "_, err := w.Write(md2man.Render(b))",
+      "v2": "unresolved R8 no_candidate unresolved::go::w.Write"
+    },
+    {
+      "file": "doc/man_docs.go",
+      "kind": "v2_unresolved_or_absent",
+      "line": 173,
+      "oracle": [
+        "external github.com/spf13/pflag:github.com/spf13/pflag"
+      ],
+      "source": "if flag.Value.Type() == \"string\" {",
+      "v2": "unresolved R8 dynamic_dispatch unresolved::go::flag.Value.Type"
+    },
+    {
+      "file": "doc/util.go",
+      "kind": "v2_unresolved_or_absent",
+      "line": 52,
+      "oracle": [
+        "command.go:1541 Command#Name()."
+      ],
+      "source": "func (s byName) Less(i, j int) bool { return s[i].Name() < s[j].Name() }",
+      "v2": "no CALLS edge at this site"
+    },
+    {
+      "file": "doc/util.go",
+      "kind": "v2_unresolved_or_absent",
+      "line": 52,
+      "oracle": [
+        "command.go:1541 Command#Name()."
+      ],
+      "source": "func (s byName) Less(i, j int) bool { return s[i].Name() < s[j].Name() }",
+      "v2": "no CALLS edge at this site"
+    },
+    {
+      "file": "doc/yaml_docs.go",
+      "kind": "v2_unresolved_or_absent",
+      "line": 143,
+      "oracle": [
+        "external go-stdlib:io"
+      ],
+      "source": "if _, err := w.Write(final); err != nil {",
+      "v2": "unresolved R8 no_candidate unresolved::go::w.Write"
+    }
+  ],
+  "engines": {
+    "legacy_commit": "25ae40bf8662fb8c89c39684b1d942e235b3656a",
+    "v2_commit": "b3cd5e698314f2c67de5f1f64b5df4a61d5a5ab2"
+  },
+  "language": "go",
+  "legacy": {
+    "calls": {
+      "calls": 1502,
+      "calls_without_site_line": 0,
+      "edges_on_lines_without_oracle_site": 0,
+      "judged_edges_not_at_an_oracle_call_site": null,
+      "oracle_sites_with_some_alternatives_without_engine_node": 0,
+      "oracle_sites_without_engine_node": 0,
+      "oracle_targets_on_lines_without_any_engine_edge_share": 0.2901,
+      "overall": {
+        "edges_on_lines_without_oracle_site": 0,
+        "external_edges": 0,
+        "oracle_targets_on_lines_without_any_engine_edge_share": 0.5474,
+        "precision": {
+          "by_tier": {
+            "resolved": {
+              "ci95": [
+                0.9974,
+                1.0
+              ],
+              "k": 1502,
+              "n": 1502,
+              "population": 1502,
+              "value": 1.0
+            }
+          },
+          "ci95": [
+            0.9974,
+            1.0
+          ],
+          "k": 1502,
+          "n": 1502,
+          "population": 1502,
+          "value": 1.0
+        },
+        "recall": {
+          "ci95": [
+            0.365,
+            0.3952
+          ],
+          "k": 1502,
+          "n": 3953,
+          "population": 3953,
+          "value": 0.38
+        },
+        "recall_external": {
+          "ci95": [
+            0.0,
+            0.0022
+          ],
+          "k": 0,
+          "n": 1761,
+          "population": 1761,
+          "value": 0.0
+        }
+      },
+      "precision": {
+        "by_tier": {
+          "resolved": {
+            "ci95": [
+              0.9974,
+              1.0
+            ],
+            "k": 1502,
+            "n": 1502,
+            "population": 1502,
+            "value": 1.0
+          }
+        },
+        "ci95": [
+          0.9974,
+          1.0
+        ],
+        "k": 1502,
+        "n": 1502,
+        "population": 1502,
+        "value": 1.0
+      },
+      "recall": {
+        "ci95": [
+          0.6655,
+          0.7043
+        ],
+        "k": 1502,
+        "n": 2192,
+        "population": 2192,
+        "value": 0.6852
+      },
+      "recall_over_mapped_targets_only": {
+        "ci95": [
+          0.6655,
+          0.7043
+        ],
+        "k": 1502,
+        "n": 2192,
+        "population": 2192,
+        "value": 0.6852
+      }
+    },
+    "determinism": {
+      "export_hashes": [
+        "9573f0c8bf29961e95d8bdec646ee9658f962bff45fbdb6ac9a512d77ff55446",
+        "9573f0c8bf29961e95d8bdec646ee9658f962bff45fbdb6ac9a512d77ff55446"
+      ],
+      "identical": true
+    },
+    "imports": {
+      "edges": 0,
+      "external": {
+        "entries": {
+          "own_module_path": 12,
+          "read_as_external": 174
+        },
+        "precision": {
+          "ci95": [
+            0.9784,
+            1.0
+          ],
+          "k": 174,
+          "n": 174,
+          "value": 1.0
+        },
+        "recall": {
+          "ci95": [
+            0.9784,
+            1.0
+          ],
+          "k": 174,
+          "n": 174,
+          "value": 1.0
+        }
+      },
+      "in_repo": {
+        "precision": {
+          "ci95": null,
+          "k": 0,
+          "n": 0,
+          "value": null
+        },
+        "recall": {
+          "ci95": [
+            0.0,
+            0.2425
+          ],
+          "k": 0,
+          "n": 12,
+          "value": 0.0
+        }
+      }
+    },
+    "perf": {
+      "export_bytes": 375233,
+      "peak_rss_bytes": [
+        336429056,
+        336871424
+      ],
+      "peak_rss_scope": "wait4 ru_maxrss: largest single process of the tree",
+      "store_scope": "no on-disk store in in-process mode; size of the exported JSON lines",
+      "wall_s": [
+        1.53,
+        0.51
+      ]
+    },
+    "u12_accounting": "not applicable: no raw-fact ledger",
+    "unresolved": {
+      "note": "not measurable: the old engine keeps no unresolved call rows; compare calls.oracle_targets_on_lines_without_any_engine_edge_share",
+      "share": null
+    }
+  },
+  "oracle": {
+    "argv": [
+      "--quiet",
+      "--output",
+      "<cache>/cobra@88b30ab89da2d0d0abb153818746c5a2d30eccec@scip-go-0.1.24.scip"
+    ],
+    "bytes": 1399536,
+    "cache": "miss",
+    "call_sites": 4052,
+    "call_sites_by_target": {
+      "external": 1804,
+      "local_or_unknown": 42,
+      "repo": 2206
+    },
+    "counts": {
+      "documents_outside_checkout": 2,
+      "occurrences_outside_checkout": 632
+    },
+    "dependencies": null,
+    "documents": 35,
+    "import_pairs": 186,
+    "peak_rss_bytes": 356122624,
+    "pyrightconfig": null,
+    "tool": "scip-go",
+    "tool_info": {
+      "arguments": [],
+      "name": "scip-go",
+      "version": "0.1.24"
+    },
+    "version": "0.1.24",
+    "wall_s": 1.01
+  },
+  "repo": "cobra",
+  "sampling": {
+    "per_stratum": 1000,
+    "seed": "20261031:cobra",
+    "threshold_call_sites": 50000
+  },
+  "url": "https://github.com/spf13/cobra",
+  "v2": {
+    "calls": {
+      "line_level": {
+        "edges_on_lines_without_oracle_site": 25,
+        "judged_edges_not_at_an_oracle_call_site": {},
+        "oracle_sites_with_some_alternatives_without_engine_node": 0,
+        "oracle_sites_without_engine_node": 0,
+        "oracle_targets_on_lines_without_any_engine_edge_share": 0.0009,
+        "overall": {
+          "edges_on_lines_without_oracle_site": 29,
+          "external_edges": 1793,
+          "oracle_targets_on_lines_without_any_engine_edge_share": 0.0023,
+          "precision": {
+            "by_tier": {
+              "exact": {
+                "ci95": [
+                  0.9983,
+                  1.0
+                ],
+                "k": 2202,
+                "n": 2202,
+                "population": 2202,
+                "value": 1.0
+              },
+              "external": {
+                "ci95": [
+                  0.9979,
+                  1.0
+                ],
+                "k": 1789,
+                "n": 1789,
+                "population": 1789,
+                "value": 1.0
+              }
+            },
+            "ci95": [
+              0.999,
+              1.0
+            ],
+            "k": 3991,
+            "n": 3991,
+            "population": 3991,
+            "value": 1.0
+          },
+          "recall": {
+            "ci95": [
+              0.9928,
+              0.9971
+            ],
+            "k": 3935,
+            "n": 3953,
+            "population": 3953,
+            "value": 0.9954
+          },
+          "recall_external": {
+            "ci95": [
+              0.9853,
+              0.9944
+            ],
+            "k": 1745,
+            "n": 1761,
+            "population": 1761,
+            "value": 0.9909
+          }
+        },
+        "precision": {
+          "by_tier": {
+            "exact": {
+              "ci95": [
+                0.9983,
+                1.0
+              ],
+              "k": 2202,
+              "n": 2202,
+              "population": 2202,
+              "value": 1.0
+            }
+          },
+          "ci95": [
+            0.9983,
+            1.0
+          ],
+          "k": 2202,
+          "n": 2202,
+          "population": 2202,
+          "value": 1.0
+        },
+        "recall": {
+          "ci95": [
+            0.9967,
+            0.9997
+          ],
+          "k": 2190,
+          "n": 2192,
+          "population": 2192,
+          "value": 0.9991
+        },
+        "recall_over_mapped_targets_only": {
+          "ci95": [
+            0.9967,
+            0.9997
+          ],
+          "k": 2190,
+          "n": 2192,
+          "population": 2192,
+          "value": 0.9991
+        }
+      },
+      "mode": "all",
+      "precision": {
+        "exact": {
+          "ci95": [
+            0.9983,
+            1.0
+          ],
+          "k": 2202,
+          "n": 2202,
+          "population": 2202,
+          "value": 1.0
+        },
+        "external": {
+          "ci95": [
+            0.9979,
+            1.0
+          ],
+          "k": 1788,
+          "n": 1788,
+          "population": 1788,
+          "value": 1.0
+        },
+        "external_module": {
+          "ci95": [
+            0.9979,
+            1.0
+          ],
+          "k": 1788,
+          "n": 1788,
+          "population": 1788,
+          "value": 1.0
+        },
+        "import": {
+          "ci95": null,
+          "k": 0,
+          "n": 0,
+          "population": 0,
+          "value": null
+        },
+        "name": {
+          "ci95": null,
+          "k": 0,
+          "n": 0,
+          "population": 0,
+          "value": null
+        },
+        "overall": {
+          "ci95": [
+            0.999,
+            1.0
+          ],
+          "k": 3990,
+          "n": 3990,
+          "population": 3990,
+          "value": 1.0
+        }
+      },
+      "recall": {
+        "by_tier": {
+          "exact": {
+            "ci95": [
+              0.5337,
+              0.5645
+            ],
+            "k": 2202,
+            "n": 4010,
+            "population": 4010,
+            "value": 0.5491
+          },
+          "external": {
+            "ci95": [
+              0.4306,
+              0.4613
+            ],
+            "k": 1788,
+            "n": 4010,
+            "population": 4010,
+            "value": 0.4459
+          },
+          "import": {
+            "ci95": [
+              0.0,
+              0.001
+            ],
+            "k": 0,
+            "n": 4010,
+            "population": 4010,
+            "value": 0.0
+          },
+          "name": {
+            "ci95": [
+              0.0,
+              0.001
+            ],
+            "k": 0,
+            "n": 4010,
+            "population": 4010,
+            "value": 0.0
+          }
+        },
+        "external": {
+          "ci95": [
+            0.9856,
+            0.9945
+          ],
+          "k": 1788,
+          "n": 1804,
+          "population": 1804,
+          "value": 0.9911
+        },
+        "oracle_sites_without_v2_node": 0,
+        "overall": {
+          "ci95": [
+            0.9923,
+            0.9968
+          ],
+          "k": 3990,
+          "n": 4010,
+          "population": 4010,
+          "value": 0.995
+        },
+        "repo": {
+          "ci95": [
+            0.9953,
+            0.9993
+          ],
+          "k": 2202,
+          "n": 2206,
+          "population": 2206,
+          "value": 0.9982
+        },
+        "repo_over_mapped_targets_only": {
+          "ci95": [
+            0.9953,
+            0.9993
+          ],
+          "k": 2202,
+          "n": 2206,
+          "population": 2206,
+          "value": 0.9982
+        },
+        "repo_sites_with_external_alternatives": 0
+      },
+      "unjudged": {
+        "no_oracle_site": 8,
+        "oracle_target_local_or_unknown": 22
+      }
+    },
+    "determinism": {
+      "graph_hashes": [
+        "8e3acb679462dd7a8aa73c4a16abeaea4090c33c9f3adb6ba98bcb23ebdb28a2",
+        "8e3acb679462dd7a8aa73c4a16abeaea4090c33c9f3adb6ba98bcb23ebdb28a2"
+      ],
+      "identical": true
+    },
+    "files": {
+      "failed": 0,
+      "parse_failures_by_shape": {},
+      "parsed": 36
+    },
+    "imports": {
+      "external": {
+        "precision": {
+          "ci95": [
+            0.9784,
+            1.0
+          ],
+          "k": 174,
+          "n": 174,
+          "value": 1.0
+        },
+        "recall": {
+          "ci95": [
+            0.9784,
+            1.0
+          ],
+          "k": 174,
+          "n": 174,
+          "value": 1.0
+        }
+      },
+      "in_repo": {
+        "by_tier": {
+          "exact": {
+            "ci95": [
+              0.0149,
+              0.3539
+            ],
+            "k": 1,
+            "n": 12,
+            "value": 0.0833
+          },
+          "import": {
+            "ci95": null,
+            "k": 0,
+            "n": 0,
+            "value": null
+          },
+          "name": {
+            "ci95": null,
+            "k": 0,
+            "n": 0,
+            "value": null
+          }
+        },
+        "precision": {
+          "ci95": [
+            0.0149,
+            0.3539
+          ],
+          "k": 1,
+          "n": 12,
+          "value": 0.0833
+        },
+        "recall": {
+          "ci95": [
+            0.0149,
+            0.3539
+          ],
+          "k": 1,
+          "n": 12,
+          "value": 0.0833
+        }
+      },
+      "resolved_edges_without_a_file_or_package_target": 0
+    },
+    "perf": {
+      "facts_bytes": 3473423,
+      "peak_rss_bytes": [
+        172376064,
+        172769280
+      ],
+      "peak_rss_scope": "wait4 ru_maxrss: largest single process of the tree",
+      "store_bytes": 30720980,
+      "store_scope": "cov-graph build --out directory (graph.jsonl, ledger, accounting, metrics)",
+      "wall_s": [
+        2.54,
+        1.54
+      ]
+    },
+    "u12_accounting": {
+      "kinds": 8,
+      "mismatched_kinds": {},
+      "mismatched_kinds_by_run": [
+        {},
+        {}
+      ],
+      "ok": true,
+      "runs_ok": [
+        true,
+        true
+      ],
+      "totals": {
+        "emitted": 9512,
+        "ledgered": 599,
+        "lost": 0,
+        "placed": 8913
+      }
+    },
+    "unresolved": {
+      "by_tier": {
+        "exact": 2225,
+        "external": 1793,
+        "name": 2,
+        "unresolved": 76
+      },
+      "calls": 4096,
+      "share": 0.0186,
+      "top_ledger_kinds": [
+        [
+          "fact_unused",
+          393
+        ],
+        [
+          "unresolved_edge",
+          192
+        ],
+        [
+          "assert_fatality_unproven",
+          24
+        ],
+        [
+          "fact_unplaced",
+          14
+        ],
+        [
+          "rules_unsupported_language",
+          1
+        ]
+      ],
+      "top_unresolved_call_reasons": [
+        [
+          "dynamic_dispatch",
+          42
+        ],
+        [
+          "no_candidate",
+          31
+        ],
+        [
+          "depth_cap",
+          3
+        ]
+      ],
+      "unresolved": 76
+    }
+  }
+}

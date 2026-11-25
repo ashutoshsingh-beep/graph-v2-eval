@@ -1,0 +1,590 @@
+{
+  "check": {
+    "mismatches": {},
+    "mode": "full",
+    "ok": true,
+    "v2_site_precision": {
+      "ci95": [
+        0.999,
+        1.0
+      ],
+      "k": 3990,
+      "n": 3990,
+      "population": 3990,
+      "value": 1.0
+    }
+  },
+  "commit": "88b30ab89da2d0d0abb153818746c5a2d30eccec",
+  "counts": {
+    "both_miss": 0,
+    "both_right": 1500,
+    "dev_unscored": 0,
+    "dev_wrong": 0,
+    "gap": 2,
+    "v2_gain": 690,
+    "v2_unscored": 25,
+    "v2_wrong": 0
+  },
+  "engines": {
+    "legacy": "25ae40bf8662fb8c89c39684b1d942e235b3656a",
+    "v2": "b3cd5e698314f2c67de5f1f64b5df4a61d5a5ab2"
+  },
+  "flags": {
+    "dev_multi_both_right": 269
+  },
+  "fractions": {
+    "dev_precision": [
+      1502,
+      1502
+    ],
+    "dev_recall": [
+      1502,
+      2192
+    ],
+    "v2_precision": [
+      2202,
+      2202
+    ],
+    "v2_recall": [
+      2190,
+      2192
+    ]
+  },
+  "language": "go",
+  "obligations": 2192,
+  "rates": {
+    "dev_precision": 1.0,
+    "dev_recall": 0.6852,
+    "v2_precision": 1.0,
+    "v2_recall": 0.9991
+  },
+  "repo": "cobra",
+  "rows": {
+    "both_miss": 0,
+    "both_right": 1500,
+    "dev_unscored": 0,
+    "dev_wrong": 0,
+    "gap": 2,
+    "v2_gain": 690,
+    "v2_unscored": 25,
+    "v2_wrong": 0
+  },
+  "samples": {
+    "both_miss": [],
+    "both_right": [
+      {
+        "dev": "function::cobra.go::WriteStringAndCheck",
+        "file": "bash_completions.go",
+        "line": 594,
+        "miss": "",
+        "oracle": "cobra.go:243 WriteStringAndCheck().",
+        "source": "WriteStringAndCheck(buf, \"    must_have_one_flag=()\\n\")",
+        "stratum": "-",
+        "v2": "exact go::.::cobra.go::WriteStringAndCheck().#cf7e9380"
+      },
+      {
+        "dev": "method::command.go::Command::DisplayName",
+        "file": "command.go",
+        "line": 1690,
+        "miss": "",
+        "oracle": "command.go:1474 Command#DisplayName().",
+        "source": "c.flags = flag.NewFlagSet(c.DisplayName(), flag.ContinueOnError)",
+        "stratum": "-",
+        "v2": "exact go::.::command.go::Command#DisplayName().#f9065fa7"
+      },
+      {
+        "dev": "method::command.go::Command::updateParentsPflags",
+        "file": "command.go",
+        "line": 1899,
+        "miss": "",
+        "oracle": "command.go:1907 Command#updateParentsPflags().",
+        "source": "c.updateParentsPflags()",
+        "stratum": "-",
+        "v2": "exact go::.::command.go::Command#updateParentsPflags().#f9065fa7"
+      },
+      {
+        "dev": "method::command.go::Command::AddCommand",
+        "file": "command_test.go",
+        "line": 246,
+        "miss": "",
+        "oracle": "command.go:1342 Command#AddCommand().",
+        "source": "childCmd.AddCommand(granchildCmd)",
+        "stratum": "-",
+        "v2": "exact go::.::command.go::Command#AddCommand().#018ed86d"
+      },
+      {
+        "dev": "function::command_test.go::executeCommand",
+        "file": "command_test.go",
+        "line": 1098,
+        "miss": "",
+        "oracle": "command_test.go:32 executeCommand().",
+        "source": "output, err := executeCommand(parentCmd, \"help\", \"child\")",
+        "stratum": "-",
+        "v2": "exact go::.::command_test.go::executeCommand().#937a0262"
+      },
+      {
+        "dev": "method::command.go::Command::Find",
+        "file": "completions.go",
+        "line": 297,
+        "miss": "",
+        "oracle": "command.go:757 Command#Find().",
+        "source": "subCmd, _, err := c.Find(args)",
+        "stratum": "-",
+        "v2": "exact go::.::command.go::Command#Find().#36227eb4"
+      },
+      {
+        "dev": "method::command.go::Command::Flags",
+        "file": "completions_test.go",
+        "line": 1629,
+        "miss": "",
+        "oracle": "command.go:1688 Command#Flags().",
+        "source": "rootCmd.Flags().IntP(\"introot\", \"i\", -1, \"help message for flag introot\")",
+        "stratum": "-",
+        "v2": "exact go::.::command.go::Command#Flags().#f9065fa7"
+      },
+      {
+        "dev": "method::command.go::Command::IsAdditionalHelpTopicCommand; method::command.go::Command::IsAvailableCommand",
+        "file": "doc/rest_docs.go",
+        "line": 116,
+        "miss": "dev has 2 targets on this line",
+        "oracle": "command.go:1628 Command#IsAdditionalHelpTopicCommand().",
+        "source": "if !child.IsAvailableCommand() || child.IsAdditionalHelpTopicCommand() {",
+        "stratum": "-",
+        "v2": "exact go::.::command.go::Command#IsAdditionalHelpTopicCommand().#f9065fa7"
+      },
+      {
+        "dev": "function::doc/util.go::forceMultiLine",
+        "file": "doc/yaml_docs.go",
+        "line": 161,
+        "miss": "",
+        "oracle": "doc/util.go:41 forceMultiLine().",
+        "source": "forceMultiLine(flag.Usage),",
+        "stratum": "-",
+        "v2": "exact go::.::doc/util.go::doc/forceMultiLine().#fb4e25e4"
+      },
+      {
+        "dev": "function::cobra_test.go::assertNoErr; method::fish_completions.go::Command::GenFishCompletion",
+        "file": "fish_completions_test.go",
+        "line": 52,
+        "miss": "dev has 2 targets on this line",
+        "oracle": "cobra_test.go:27 assertNoErr().",
+        "source": "assertNoErr(t, rootCmd.GenFishCompletion(buf, true))",
+        "stratum": "-",
+        "v2": "exact go::.::cobra_test.go::assertNoErr().#a5a1273a"
+      }
+    ],
+    "dev_unscored": [],
+    "dev_wrong": [],
+    "gap": [
+      {
+        "dev": "method::command.go::Command::Name",
+        "file": "command.go",
+        "line": 1329,
+        "miss": "silent",
+        "oracle": "command.go:1541 Command#Name().",
+        "source": "func (c commandSorterByName) Less(i, j int) bool { return c[i].Name() < c[j].Name() }",
+        "stratum": "silent",
+        "v2": "no edge"
+      },
+      {
+        "dev": "method::command.go::Command::Name",
+        "file": "doc/util.go",
+        "line": 52,
+        "miss": "silent",
+        "oracle": "command.go:1541 Command#Name().",
+        "source": "func (s byName) Less(i, j int) bool { return s[i].Name() < s[j].Name() }",
+        "stratum": "silent",
+        "v2": "no edge"
+      }
+    ],
+    "v2_gain": [
+      {
+        "dev": "no edge",
+        "file": "active_help_test.go",
+        "line": 185,
+        "miss": "",
+        "oracle": "active_help.go:38 AppendActiveHelp().",
+        "source": "comps = AppendActiveHelp(comps, activeHelpMessage2)",
+        "stratum": "dev no edge",
+        "v2": "exact go::.::active_help.go::AppendActiveHelp().#6e9dcefe"
+      },
+      {
+        "dev": "no edge",
+        "file": "active_help_test.go",
+        "line": 207,
+        "miss": "",
+        "oracle": "active_help.go:38 AppendActiveHelp().",
+        "source": "comps = AppendActiveHelp(comps, activeHelpMessage)",
+        "stratum": "dev no edge",
+        "v2": "exact go::.::active_help.go::AppendActiveHelp().#6e9dcefe"
+      },
+      {
+        "dev": "method::command.go::Command::Name",
+        "file": "bash_completions.go",
+        "line": 453,
+        "miss": "",
+        "oracle": "cobra.go:243 WriteStringAndCheck().",
+        "source": "WriteStringAndCheck(buf, fmt.Sprintf(\"    commands+=(%q)\\n\", c.Name()))",
+        "stratum": "dev wrong edge",
+        "v2": "exact go::.::cobra.go::WriteStringAndCheck().#cf7e9380"
+      },
+      {
+        "dev": "method::shell_completions.go::Command::MarkFlagFilename",
+        "file": "bash_completions_test.go",
+        "line": 96,
+        "miss": "",
+        "oracle": "cobra_test.go:27 assertNoErr().",
+        "source": "assertNoErr(t, rootCmd.MarkFlagFilename(\"filename\", \"json\", \"yaml\", \"yml\"))",
+        "stratum": "dev wrong edge",
+        "v2": "exact go::.::cobra_test.go::assertNoErr().#a5a1273a"
+      },
+      {
+        "dev": "method::shell_completions.go::Command::MarkFlagCustom",
+        "file": "bash_completions_test.go",
+        "line": 107,
+        "miss": "",
+        "oracle": "cobra_test.go:27 assertNoErr().",
+        "source": "assertNoErr(t, rootCmd.MarkFlagCustom(\"custom\", \"__complete_custom\"))",
+        "stratum": "dev wrong edge",
+        "v2": "exact go::.::cobra_test.go::assertNoErr().#a5a1273a"
+      },
+      {
+        "dev": "function::bash_completions_test.go::checkRegex",
+        "file": "bash_completions_test.go",
+        "line": 197,
+        "miss": "",
+        "oracle": "command.go:1541 Command#Name().",
+        "source": "checkRegex(t, output, fmt.Sprintf(`_root_echo\\(\\)\\n{[^}]*flags_completion\\+=\\(\"__%s_handle_filename_extension_flag json\\",
+        "stratum": "dev wrong edge",
+        "v2": "exact go::.::command.go::Command#Name().#f9065fa7"
+      },
+      {
+        "dev": "no edge",
+        "file": "bash_completions_test.go",
+        "line": 213,
+        "miss": "",
+        "oracle": "bash_completions_test.go:33 check().",
+        "source": "check(t, output, `local_nonpersistent_flags+=(\"--two=\")`)",
+        "stratum": "dev no edge",
+        "v2": "exact go::.::bash_completions_test.go::check().#b9381bad"
+      },
+      {
+        "dev": "method::command.go::Command::Parent",
+        "file": "command.go",
+        "line": 489,
+        "miss": "",
+        "oracle": "command.go:484 Command#HelpFunc().",
+        "source": "return c.Parent().HelpFunc()",
+        "stratum": "dev wrong edge",
+        "v2": "exact go::.::command.go::Command#HelpFunc().#f9065fa7"
+      },
+      {
+        "dev": "method::command.go::Command::Help",
+        "file": "command.go",
+        "line": 1306,
+        "miss": "",
+        "oracle": "cobra.go:235 CheckErr().",
+        "source": "CheckErr(cmd.Help())",
+        "stratum": "dev wrong edge",
+        "v2": "exact go::.::cobra.go::CheckErr().#ec1078cf"
+      },
+      {
+        "dev": "no edge",
+        "file": "command.go",
+        "line": 1512,
+        "miss": "",
+        "oracle": "command.go:1440 Command#Println().",
+        "source": "c.Println(\"  -\"+f.Shorthand+\",\", \"--\"+f.Name, \"[\"+f.DefValue+\"]\", \"\", f.Value, \"  [LP]\")",
+        "stratum": "dev no edge",
+        "v2": "exact go::.::command.go::Command#Println().#79140da9"
+      },
+      {
+        "dev": "no edge",
+        "file": "command.go",
+        "line": 1991,
+        "miss": "",
+        "oracle": "command.go:1662 Command#HasAvailableSubCommands().",
+        "source": "if c.HasAvailableSubCommands() {",
+        "stratum": "dev no edge",
+        "v2": "exact go::.::command.go::Command#HasAvailableSubCommands().#f9065fa7"
+      },
+      {
+        "dev": "method::command.go::Command::CommandPathPadding",
+        "file": "command.go",
+        "line": 2031,
+        "miss": "",
+        "oracle": "command.go:1465 Command#CommandPath().",
+        "source": "fmt.Fprintf(w, \"\\n  %s %s\", rpad(subcmd.CommandPath(), subcmd.CommandPathPadding()), subcmd.Short)",
+        "stratum": "dev wrong edge",
+        "v2": "exact go::.::command.go::Command#CommandPath().#f9065fa7"
+      },
+      {
+        "dev": "no edge",
+        "file": "command_test.go",
+        "line": 859,
+        "miss": "",
+        "oracle": "command.go:1688 Command#Flags().",
+        "source": "c.Flags().String(\"bar\", \"\", \"\")",
+        "stratum": "dev no edge",
+        "v2": "exact go::.::command.go::Command#Flags().#f9065fa7"
+      },
+      {
+        "dev": "method::shell_completions.go::Command::MarkFlagRequired",
+        "file": "command_test.go",
+        "line": 881,
+        "miss": "",
+        "oracle": "cobra_test.go:27 assertNoErr().",
+        "source": "assertNoErr(t, child.MarkFlagRequired(\"bar1\"))",
+        "stratum": "dev wrong edge",
+        "v2": "exact go::.::cobra_test.go::assertNoErr().#a5a1273a"
+      },
+      {
+        "dev": "no edge",
+        "file": "command_test.go",
+        "line": 2325,
+        "miss": "",
+        "oracle": "command.go:1688 Command#Flags().",
+        "source": "rootCmd.Flags().BoolP(\"bool\", \"b\", false, \"\")",
+        "stratum": "dev no edge",
+        "v2": "exact go::.::command.go::Command#Flags().#f9065fa7"
+      },
+      {
+        "dev": "no edge",
+        "file": "completions.go",
+        "line": 399,
+        "miss": "",
+        "oracle": "command.go:1688 Command#Flags().",
+        "source": "finalArgs = finalCmd.Flags().Args()",
+        "stratum": "dev no edge",
+        "v2": "exact go::.::command.go::Command#Flags().#f9065fa7"
+      },
+      {
+        "dev": "method::fish_completions.go::Command::GenFishCompletion",
+        "file": "completions.go",
+        "line": 893,
+        "miss": "",
+        "oracle": "command.go:892 Command#Root().",
+        "source": "return cmd.Root().GenFishCompletion(out, !noDesc)",
+        "stratum": "dev wrong edge",
+        "v2": "exact go::.::command.go::Command#Root().#f9065fa7"
+      },
+      {
+        "dev": "method::powershell_completions.go::Command::GenPowerShellCompletionWithDesc",
+        "file": "completions.go",
+        "line": 918,
+        "miss": "",
+        "oracle": "command.go:892 Command#Root().",
+        "source": "return cmd.Root().GenPowerShellCompletionWithDesc(out)",
+        "stratum": "dev wrong edge",
+        "v2": "exact go::.::command.go::Command#Root().#f9065fa7"
+      },
+      {
+        "dev": "no edge",
+        "file": "completions_test.go",
+        "line": 2547,
+        "miss": "",
+        "oracle": "cobra_test.go:27 assertNoErr().",
+        "source": "assertNoErr(t, rootCmd.Execute())",
+        "stratum": "dev no edge",
+        "v2": "exact go::.::cobra_test.go::assertNoErr().#a5a1273a"
+      },
+      {
+        "dev": "function::completions.go::CompletionWithDesc",
+        "file": "completions_test.go",
+        "line": 3010,
+        "miss": "",
+        "oracle": "completions.go:136 Completion#",
+        "source": "choices := []string{\"apple\", Completion(\"banana\"), CompletionWithDesc(\"orange\", \"orange are orange\")}",
+        "stratum": "dev wrong edge",
+        "v2": "exact go::.::completions.go::Completion#"
+      },
+      {
+        "dev": "no edge",
+        "file": "doc/cmd_test.go",
+        "line": 31,
+        "miss": "",
+        "oracle": "command.go:1775 Command#PersistentFlags().",
+        "source": "echoCmd.PersistentFlags().BoolP(\"persistentbool\", \"p\", false, \"help message for flag persistentbool\")",
+        "stratum": "dev no edge",
+        "v2": "exact go::.::command.go::Command#PersistentFlags().#f9065fa7"
+      },
+      {
+        "dev": "method::command.go::Command::Name",
+        "file": "doc/man_docs_test.go",
+        "line": 59,
+        "miss": "",
+        "oracle": "doc/cmd_test.go:95 checkStringContains().",
+        "source": "checkStringContains(t, output, translate(echoCmd.Name()))",
+        "stratum": "dev wrong edge",
+        "v2": "exact go::.::doc/cmd_test.go::doc/checkStringContains().#b9381bad"
+      },
+      {
+        "dev": "no edge",
+        "file": "doc/man_docs_test.go",
+        "line": 95,
+        "miss": "",
+        "oracle": "doc/cmd_test.go:95 checkStringContains().",
+        "source": "checkStringContains(t, output, translate(echoCmd.Name()))",
+        "stratum": "dev no edge",
+        "v2": "exact go::.::doc/cmd_test.go::doc/checkStringContains().#b9381bad"
+      },
+      {
+        "dev": "no edge",
+        "file": "doc/md_docs_test.go",
+        "line": 78,
+        "miss": "",
+        "oracle": "doc/cmd_test.go:101 checkStringOmits().",
+        "source": "checkStringOmits(t, output, \"Options inherited from parent commands\")",
+        "stratum": "dev no edge",
+        "v2": "exact go::.::doc/cmd_test.go::doc/checkStringOmits().#b9381bad"
+      },
+      {
+        "dev": "no edge",
+        "file": "fish_completions_test.go",
+        "line": 86,
+        "miss": "",
+        "oracle": "bash_completions_test.go:27 checkOmit().",
+        "source": "checkOmit(t, output, \"-c root_colon\")",
+        "stratum": "dev no edge",
+        "v2": "exact go::.::bash_completions_test.go::checkOmit().#b9381bad"
+      }
+    ],
+    "v2_unscored": [
+      {
+        "dev": "no edge",
+        "file": "command_test.go",
+        "line": 1733,
+        "miss": "",
+        "oracle": "no oracle call with a target",
+        "source": "validateHook(args, \"parent PersistentPreRun\")",
+        "stratum": "at call site: yes)",
+        "v2": "exact go::.::command_test.go::testPersistentHooks().validateHook().#49ae76b5 (at call site: yes)"
+      },
+      {
+        "dev": "no edge",
+        "file": "command_test.go",
+        "line": 1745,
+        "miss": "",
+        "oracle": "no oracle call with a target",
+        "source": "validateHook(args, \"parent PersistentPostRun\")",
+        "stratum": "at call site: yes)",
+        "v2": "exact go::.::command_test.go::testPersistentHooks().validateHook().#49ae76b5 (at call site: yes)"
+      },
+      {
+        "dev": "no edge",
+        "file": "command_test.go",
+        "line": 1758,
+        "miss": "",
+        "oracle": "no oracle call with a target",
+        "source": "validateHook(args, \"child Run\")",
+        "stratum": "at call site: yes)",
+        "v2": "exact go::.::command_test.go::testPersistentHooks().validateHook().#49ae76b5 (at call site: yes)"
+      },
+      {
+        "dev": "no edge",
+        "file": "command_win.go",
+        "line": 32,
+        "miss": "",
+        "oracle": "no oracle call with a target",
+        "source": "c.Print(MousetrapHelpText)",
+        "stratum": "at call site: no)",
+        "v2": "name go::.::command.go::Command#Print().#79140da9 (at call site: no)"
+      },
+      {
+        "dev": "no edge",
+        "file": "command_win.go",
+        "line": 36,
+        "miss": "",
+        "oracle": "no oracle call with a target",
+        "source": "c.Println(\"Press return to continue...\")",
+        "stratum": "at call site: no)",
+        "v2": "name go::.::command.go::Command#Println().#79140da9 (at call site: no)"
+      },
+      {
+        "dev": "no edge",
+        "file": "completions_test.go",
+        "line": 678,
+        "miss": "",
+        "oracle": "no oracle call with a target",
+        "source": "var _ SliceValue = (*customMultiString)(nil)",
+        "stratum": "at call site: no)",
+        "v2": "exact go::.::completions_test.go::customMultiString# (at call site: no)"
+      },
+      {
+        "dev": "no edge",
+        "file": "completions_test.go",
+        "line": 3241,
+        "miss": "",
+        "oracle": "no oracle call with a target",
+        "source": "c := getCmd()",
+        "stratum": "at call site: yes)",
+        "v2": "exact go::.::completions_test.go::TestCompletionForOneRequiredGroupFlags().getCmd().#f9065fa7 (at call site: yes)"
+      },
+      {
+        "dev": "no edge",
+        "file": "completions_test.go",
+        "line": 3335,
+        "miss": "",
+        "oracle": "no oracle call with a target",
+        "source": "c := getCmd()",
+        "stratum": "at call site: yes)",
+        "v2": "exact go::.::completions_test.go::TestCompletionForMutuallyExclusiveFlags().getCmd().#f9065fa7 (at call site: yes)"
+      },
+      {
+        "dev": "no edge",
+        "file": "completions_test.go",
+        "line": 3916,
+        "miss": "",
+        "oracle": "no oracle call with a target",
+        "source": "run()",
+        "stratum": "at call site: yes)",
+        "v2": "exact go::.::completions_test.go::TestDisableDescriptions().run().#f9065fa7 (at call site: yes)"
+      },
+      {
+        "dev": "no edge",
+        "file": "flag_groups_test.go",
+        "line": 165,
+        "miss": "",
+        "oracle": "no oracle call with a target",
+        "source": "c := getCmd()",
+        "stratum": "at call site: yes)",
+        "v2": "exact go::.::flag_groups_test.go::TestValidateFlagGroups().getCmd().#f9065fa7 (at call site: yes)"
+      }
+    ],
+    "v2_wrong": []
+  },
+  "scorer_notes": {
+    "dev_calls_without_site_line": 0,
+    "dev_edges_with_file_source_never_scored": 0
+  },
+  "strata": {
+    "both_miss": {},
+    "both_right": {
+      "-": 1500
+    },
+    "dev_unscored": {},
+    "dev_wrong": {},
+    "gap": {
+      "silent": 2
+    },
+    "v2_gain": {
+      "dev no edge": 636,
+      "dev wrong edge": 54
+    },
+    "v2_unscored": {
+      "at call site: no)": 3,
+      "at call site: yes)": 22
+    },
+    "v2_wrong": {}
+  },
+  "url": "https://github.com/spf13/cobra",
+  "v2_misses": [
+    [
+      "gap",
+      "silent",
+      "-",
+      2
+    ]
+  ],
+  "verdicts_carried": 0
+}

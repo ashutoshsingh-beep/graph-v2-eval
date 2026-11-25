@@ -1,0 +1,1277 @@
+{
+  "commit": "8ab6a4e3b5f6fbbfcbf108a6449011f07b7308aa",
+  "disagreement_sample": [
+    {
+      "file": "taiga/base/api/fields.py",
+      "kind": "v2_target_differs",
+      "line": 1068,
+      "oracle": [
+        "external taiga-back:io"
+      ],
+      "source": "file = six.BytesIO(data.read())",
+      "v2": "external R11 pkg::pypi/six/1.17.0"
+    },
+    {
+      "file": "taiga/base/api/serializers.py",
+      "kind": "v2_unresolved_or_absent",
+      "line": 196,
+      "oracle": [
+        "external python-stdlib:builtins"
+      ],
+      "source": "return super(SerializerMetaclass, cls).__new__(cls, name, bases, attrs)",
+      "v2": "unresolved R8 dynamic_dispatch unresolved::python::super().__new__"
+    },
+    {
+      "file": "taiga/base/api/serializers.py",
+      "kind": "v2_unresolved_or_absent",
+      "line": 316,
+      "oracle": [
+        "external python-stdlib:collections"
+      ],
+      "source": "for field_name, field in self.fields.items():",
+      "v2": "unresolved R8 dynamic_dispatch unresolved::python::self.fields.items"
+    },
+    {
+      "file": "taiga/base/api/serializers.py",
+      "kind": "v2_target_differs",
+      "line": 977,
+      "oracle": [
+        "taiga/base/api/fields.py:495 CharField#"
+      ],
+      "source": "return ModelField(model_field=model_field, **kwargs)",
+      "v2": "import R2 python::.::taiga/base/api/fields.py::taiga/base/api/fields/ModelField#"
+    },
+    {
+      "file": "taiga/base/filters.py",
+      "kind": "v2_unresolved_or_absent",
+      "line": 573,
+      "oracle": [
+        "taiga/base/filters.py:576 BaseCompareFilter#_get_value()."
+      ],
+      "source": "constraints[filter_name] = self._get_value(raw_value)",
+      "v2": "unresolved R8 dynamic_dispatch unresolved::python::self._get_value"
+    },
+    {
+      "file": "taiga/base/management/commands/test_emails.py",
+      "kind": "v2_unresolved_or_absent",
+      "line": 39,
+      "oracle": [
+        "external python-stdlib:builtins"
+      ],
+      "source": "locale = options.get('locale')",
+      "v2": "unresolved R8 dynamic_dispatch unresolved::python::options.get"
+    },
+    {
+      "file": "taiga/base/routers.py",
+      "kind": "v2_unresolved_or_absent",
+      "line": 118,
+      "oracle": [
+        "taiga/base/routers.py:47 BaseRouter#__init__()."
+      ],
+      "source": "super(SimpleRouter, self).__init__()",
+      "v2": "unresolved R8 dynamic_dispatch unresolved::python::super().__init__"
+    },
+    {
+      "file": "taiga/export_import/validators/mixins.py",
+      "kind": "v2_target_differs",
+      "line": 30,
+      "oracle": [
+        "taiga/base/api/fields.py:495 CharField#"
+      ],
+      "source": "delete_comment_date = serializers.DateTimeField(required=False)",
+      "v2": "import R3 python::.::taiga/base/api/fields.py::taiga/base/api/fields/DateTimeField#"
+    },
+    {
+      "file": "taiga/export_import/validators/validators.py",
+      "kind": "v2_target_differs",
+      "line": 127,
+      "oracle": [
+        "taiga/base/api/fields.py:495 CharField#"
+      ],
+      "source": "modified_date = serializers.DateTimeField(required=False)",
+      "v2": "import R3 python::.::taiga/base/api/fields.py::taiga/base/api/fields/DateTimeField#"
+    },
+    {
+      "file": "taiga/export_import/validators/validators.py",
+      "kind": "v2_target_differs",
+      "line": 151,
+      "oracle": [
+        "taiga/base/api/fields.py:495 CharField#"
+      ],
+      "source": "modified_date = serializers.DateTimeField(required=False)",
+      "v2": "import R3 python::.::taiga/base/api/fields.py::taiga/base/api/fields/DateTimeField#"
+    },
+    {
+      "file": "taiga/export_import/validators/validators.py",
+      "kind": "v2_target_differs",
+      "line": 253,
+      "oracle": [
+        "taiga/base/api/fields.py:495 CharField#"
+      ],
+      "source": "estimated_finish = serializers.DateField(required=False)",
+      "v2": "import R3 python::.::taiga/base/api/fields.py::taiga/base/api/fields/DateField#"
+    },
+    {
+      "file": "taiga/export_import/validators/validators.py",
+      "kind": "v2_target_differs",
+      "line": 283,
+      "oracle": [
+        "taiga/base/api/fields.py:495 CharField#"
+      ],
+      "source": "modified_date = serializers.DateTimeField(required=False)",
+      "v2": "import R3 python::.::taiga/base/api/fields.py::taiga/base/api/fields/DateTimeField#"
+    },
+    {
+      "file": "taiga/export_import/validators/validators.py",
+      "kind": "v2_target_differs",
+      "line": 298,
+      "oracle": [
+        "taiga/base/api/fields.py:495 CharField#"
+      ],
+      "source": "order = serializers.IntegerField()",
+      "v2": "import R3 python::.::taiga/base/api/fields.py::taiga/base/api/fields/IntegerField#"
+    },
+    {
+      "file": "taiga/export_import/validators/validators.py",
+      "kind": "v2_target_differs",
+      "line": 370,
+      "oracle": [
+        "taiga/base/api/fields.py:495 CharField#"
+      ],
+      "source": "due_date = serializers.DateTimeField(required=False)",
+      "v2": "import R3 python::.::taiga/base/api/fields.py::taiga/base/api/fields/DateTimeField#"
+    },
+    {
+      "file": "taiga/export_import/validators/validators.py",
+      "kind": "v2_target_differs",
+      "line": 424,
+      "oracle": [
+        "taiga/base/api/fields.py:276 WritableField#"
+      ],
+      "source": "creation_template = serializers.SlugRelatedField(slug_field=\"slug\", required=False)",
+      "v2": "import R3 python::.::taiga/base/api/relations.py::taiga/base/api/relations/SlugRelatedField#"
+    },
+    {
+      "file": "taiga/export_import/validators/validators.py",
+      "kind": "v2_target_differs",
+      "line": 431,
+      "oracle": [
+        "taiga/base/api/fields.py:276 WritableField#"
+      ],
+      "source": "default_issue_type = serializers.SlugRelatedField(slug_field=\"name\", required=False)",
+      "v2": "import R3 python::.::taiga/base/api/relations.py::taiga/base/api/relations/SlugRelatedField#"
+    },
+    {
+      "file": "taiga/mdrender/extensions/autolink.py",
+      "kind": "v2_unresolved_or_absent",
+      "line": 29,
+      "oracle": [
+        "external python-stdlib:re"
+      ],
+      "source": "el.text = AtomicString(m.group(2))",
+      "v2": "unresolved R8 no_candidate unresolved::python::m.group"
+    },
+    {
+      "file": "taiga/projects/api.py",
+      "kind": "v2_unresolved_or_absent",
+      "line": 284,
+      "oracle": [
+        "taiga/base/api/generics.py:199 GenericAPIView#get_object()."
+      ],
+      "source": "project = self.get_object()",
+      "v2": "unresolved R8 dynamic_dispatch unresolved::python::self.get_object"
+    },
+    {
+      "file": "taiga/projects/epics/validators.py",
+      "kind": "v2_target_differs",
+      "line": 43,
+      "oracle": [
+        "taiga/base/api/fields.py:495 CharField#"
+      ],
+      "source": "project_id = serializers.IntegerField()",
+      "v2": "import R3 python::.::taiga/base/api/fields.py::taiga/base/api/fields/IntegerField#"
+    },
+    {
+      "file": "taiga/projects/milestones/validators.py",
+      "kind": "v2_target_differs",
+      "line": 38,
+      "oracle": [
+        "taiga/base/api/fields.py:495 CharField#"
+      ],
+      "source": "order = serializers.IntegerField()",
+      "v2": "import R3 python::.::taiga/base/api/fields.py::taiga/base/api/fields/IntegerField#"
+    },
+    {
+      "file": "taiga/projects/milestones/validators.py",
+      "kind": "v2_target_differs",
+      "line": 44,
+      "oracle": [
+        "taiga/base/api/fields.py:495 CharField#"
+      ],
+      "source": "project_id = serializers.IntegerField()",
+      "v2": "import R3 python::.::taiga/base/api/fields.py::taiga/base/api/fields/IntegerField#"
+    },
+    {
+      "file": "taiga/projects/milestones/validators.py",
+      "kind": "v2_target_differs",
+      "line": 45,
+      "oracle": [
+        "taiga/base/api/fields.py:495 CharField#"
+      ],
+      "source": "milestone_id = serializers.IntegerField()",
+      "v2": "import R3 python::.::taiga/base/api/fields.py::taiga/base/api/fields/IntegerField#"
+    },
+    {
+      "file": "taiga/projects/notifications/serializers.py",
+      "kind": "v2_target_differs",
+      "line": 20,
+      "oracle": [
+        "taiga/base/api/fields.py:495 CharField#"
+      ],
+      "source": "project_name = serializers.SerializerMethodField(\"get_project_name\")",
+      "v2": "import R3 python::.::taiga/base/api/fields.py::taiga/base/api/fields/SerializerMethodField#"
+    },
+    {
+      "file": "taiga/projects/tasks/validators.py",
+      "kind": "v2_target_differs",
+      "line": 38,
+      "oracle": [
+        "taiga/base/api/fields.py:495 CharField#"
+      ],
+      "source": "milestone_id = serializers.IntegerField()",
+      "v2": "import R3 python::.::taiga/base/api/fields.py::taiga/base/api/fields/IntegerField#"
+    },
+    {
+      "file": "taiga/projects/tasks/validators.py",
+      "kind": "v2_target_differs",
+      "line": 40,
+      "oracle": [
+        "taiga/base/api/fields.py:495 CharField#"
+      ],
+      "source": "us_id = serializers.IntegerField(required=False)",
+      "v2": "import R3 python::.::taiga/base/api/fields.py::taiga/base/api/fields/IntegerField#"
+    },
+    {
+      "file": "taiga/projects/tasks/validators.py",
+      "kind": "v2_target_differs",
+      "line": 82,
+      "oracle": [
+        "taiga/base/api/fields.py:495 CharField#"
+      ],
+      "source": "task_id = serializers.IntegerField()",
+      "v2": "import R3 python::.::taiga/base/api/fields.py::taiga/base/api/fields/IntegerField#"
+    },
+    {
+      "file": "taiga/projects/validators.py",
+      "kind": "v2_target_differs",
+      "line": 268,
+      "oracle": [
+        "taiga/base/api/fields.py:495 CharField#"
+      ],
+      "source": "project_id = serializers.IntegerField()",
+      "v2": "import R3 python::.::taiga/base/api/fields.py::taiga/base/api/fields/IntegerField#"
+    },
+    {
+      "file": "tests/integration/test_importers_asana_api.py",
+      "kind": "v2_unresolved_or_absent",
+      "line": 233,
+      "oracle": [
+        "taiga/base/utils/json.py:15 dumps()."
+      ],
+      "source": "response = client.post(url, content_type=\"application/json\", data=json.dumps({\"token\": \"token\", \"project\": 1}))",
+      "v2": "unresolved R8 dynamic_dispatch unresolved::python::json.dumps"
+    },
+    {
+      "file": "tests/integration/test_importers_trello_api.py",
+      "kind": "v2_unresolved_or_absent",
+      "line": 181,
+      "oracle": [
+        "taiga/base/utils/json.py:15 dumps()."
+      ],
+      "source": "response = client.post(url, content_type=\"application/json\", data=json.dumps({\"token\": \"token\"}))",
+      "v2": "unresolved R8 dynamic_dispatch unresolved::python::json.dumps"
+    },
+    {
+      "file": "tests/integration/test_projects.py",
+      "kind": "v2_unresolved_or_absent",
+      "line": 2226,
+      "oracle": [
+        "external python-stdlib:builtins"
+      ],
+      "source": "assert set(dict(project.tags_colors).keys()) == set(dict(new_project.tags_colors).keys())",
+      "v2": "unresolved R8 no_candidate unresolved::python::dict().keys"
+    }
+  ],
+  "engines": {
+    "legacy_commit": "43d92add3d58106c463526ccc51d9daffb33c5df",
+    "v2_commit": "8e6c33b35a2d2b93485ae1e9fd7b868be053c188"
+  },
+  "language": "python",
+  "legacy": {
+    "calls": {
+      "calls": 7564,
+      "calls_without_site_line": 0,
+      "edges_on_lines_without_oracle_site": 2079,
+      "judged_edges_not_at_an_oracle_call_site": null,
+      "oracle_sites_with_some_alternatives_without_engine_node": 0,
+      "oracle_sites_without_engine_node": 67,
+      "oracle_targets_on_lines_without_any_engine_edge_share": 0.6031,
+      "overall": {
+        "edges_on_lines_without_oracle_site": 1808,
+        "external_edges": 0,
+        "oracle_targets_on_lines_without_any_engine_edge_share": 0.6666,
+        "precision": {
+          "by_tier": {
+            "resolved": {
+              "ci95": [
+                0.877,
+                0.8935
+              ],
+              "k": 5097,
+              "n": 5756,
+              "population": 5756,
+              "value": 0.8855
+            }
+          },
+          "ci95": [
+            0.877,
+            0.8935
+          ],
+          "k": 5097,
+          "n": 5756,
+          "population": 5756,
+          "value": 0.8855
+        },
+        "recall": {
+          "ci95": [
+            0.2944,
+            0.3085
+          ],
+          "k": 4895,
+          "n": 16241,
+          "population": 16241,
+          "value": 0.3014
+        },
+        "recall_external": {
+          "ci95": [
+            0.0,
+            0.001
+          ],
+          "k": 0,
+          "n": 3668,
+          "population": 3668,
+          "value": 0.0
+        }
+      },
+      "precision": {
+        "by_tier": {
+          "resolved": {
+            "ci95": [
+              0.9222,
+              0.9358
+            ],
+            "k": 5097,
+            "n": 5485,
+            "population": 5485,
+            "value": 0.9293
+          }
+        },
+        "ci95": [
+          0.9222,
+          0.9358
+        ],
+        "k": 5097,
+        "n": 5485,
+        "population": 5485,
+        "value": 0.9293
+      },
+      "recall": {
+        "ci95": [
+          0.3808,
+          0.3979
+        ],
+        "k": 4895,
+        "n": 12573,
+        "population": 12573,
+        "value": 0.3893
+      },
+      "recall_over_mapped_targets_only": {
+        "ci95": [
+          0.3829,
+          0.4
+        ],
+        "k": 4895,
+        "n": 12506,
+        "population": 12506,
+        "value": 0.3914
+      }
+    },
+    "determinism": {
+      "export_hashes": [
+        "2206d27ce67f97de6b77ee9ac77cbf47fe781db8dadf8bc8f8f733ccbad3966a",
+        "2206d27ce67f97de6b77ee9ac77cbf47fe781db8dadf8bc8f8f733ccbad3966a"
+      ],
+      "identical": true
+    },
+    "imports": {
+      "edges": 1967,
+      "external": {
+        "entries": {
+          "read_as_external": 2545,
+          "relative_or_empty_module": 5,
+          "resolved_to_a_file": 2948
+        },
+        "precision": {
+          "ci95": [
+            0.378,
+            0.427
+          ],
+          "k": 617,
+          "n": 1534,
+          "value": 0.4022
+        },
+        "recall": {
+          "ci95": [
+            0.6915,
+            0.7515
+          ],
+          "k": 617,
+          "n": 854,
+          "value": 0.7225
+        }
+      },
+      "in_repo": {
+        "precision": {
+          "ci95": [
+            0.9587,
+            0.9775
+          ],
+          "k": 1271,
+          "n": 1311,
+          "value": 0.9695
+        },
+        "recall": {
+          "ci95": [
+            0.7177,
+            0.7592
+          ],
+          "k": 1271,
+          "n": 1720,
+          "value": 0.739
+        }
+      }
+    },
+    "perf": {
+      "export_bytes": 11713167,
+      "peak_rss_bytes": [
+        318406656,
+        316915712
+      ],
+      "peak_rss_scope": "wait4 ru_maxrss: largest single process of the tree",
+      "store_scope": "no on-disk store in in-process mode; size of the exported JSON lines",
+      "wall_s": [
+        6.56,
+        6.05
+      ]
+    },
+    "references": {
+      "edges": 811,
+      "edges_on_lines_without_oracle_site": 142,
+      "edges_without_line": 0,
+      "judged_edges_not_at_an_oracle_call_site": null,
+      "oracle_sites_with_some_alternatives_without_engine_node": 0,
+      "oracle_sites_without_engine_node": 1035,
+      "oracle_targets_on_lines_without_any_engine_edge_share": 0.9184,
+      "overall": {
+        "edges_on_lines_without_oracle_site": 140,
+        "external_edges": 0,
+        "oracle_targets_on_lines_without_any_engine_edge_share": 0.9261,
+        "precision": {
+          "by_tier": {
+            "resolved": {
+              "ci95": [
+                0.8866,
+                0.9299
+              ],
+              "k": 611,
+              "n": 671,
+              "population": 671,
+              "value": 0.9106
+            }
+          },
+          "ci95": [
+            0.8866,
+            0.9299
+          ],
+          "k": 611,
+          "n": 671,
+          "population": 671,
+          "value": 0.9106
+        },
+        "recall": {
+          "ci95": [
+            0.0469,
+            0.0765
+          ],
+          "k": 60,
+          "n": 1000,
+          "population": 10164,
+          "value": 0.06
+        },
+        "recall_external": {
+          "ci95": [
+            0.0,
+            0.0038
+          ],
+          "k": 0,
+          "n": 1000,
+          "population": 1001,
+          "value": 0.0
+        }
+      },
+      "precision": {
+        "by_tier": {
+          "resolved": {
+            "ci95": [
+              0.8896,
+              0.9323
+            ],
+            "k": 611,
+            "n": 669,
+            "population": 669,
+            "value": 0.9133
+          }
+        },
+        "ci95": [
+          0.8896,
+          0.9323
+        ],
+        "k": 611,
+        "n": 669,
+        "population": 669,
+        "value": 0.9133
+      },
+      "recall": {
+        "ci95": [
+          0.0585,
+          0.0908
+        ],
+        "k": 73,
+        "n": 1000,
+        "population": 9163,
+        "value": 0.073
+      },
+      "recall_over_mapped_targets_only": {
+        "ci95": [
+          0.0478,
+          0.0776
+        ],
+        "k": 61,
+        "n": 1000,
+        "population": 8128,
+        "value": 0.061
+      },
+      "scope": "READS / WRITES of module-level variables only"
+    },
+    "u12_accounting": "not applicable: no raw-fact ledger",
+    "unresolved": {
+      "note": "not measurable: the old engine keeps no unresolved call rows; compare calls.oracle_targets_on_lines_without_any_engine_edge_share",
+      "share": null
+    }
+  },
+  "oracle": {
+    "argv": [
+      "index",
+      "--quiet",
+      "--project-name",
+      "taiga-back",
+      "--project-version",
+      "8ab6a4e3b5f6",
+      "--output",
+      "<cache>/taiga-back@8ab6a4e3b5f6fbbfcbf108a6449011f07b7308aa@scip-python-0.6.6.scip"
+    ],
+    "bytes": 16462030,
+    "cache": "hit",
+    "call_sites": 22014,
+    "call_sites_by_target": {
+      "external": 4347,
+      "local_or_unknown": 5072,
+      "repo": 12595
+    },
+    "counts": {
+      "documents_outside_checkout": 0,
+      "import_name_without_symbol": 2152,
+      "occurrences_outside_checkout": 0,
+      "reference_in_import_or_base_list": 11700
+    },
+    "dependencies": null,
+    "documents": 933,
+    "import_pairs": 2574,
+    "peak_rss_bytes": 1219526656,
+    "pyrightconfig": "{\"exclude\": [\"**/node_modules\", \"**/.*\"], \"include\": [\".\"]}",
+    "reference_sites": 109054,
+    "tool": "scip-python",
+    "tool_info": {
+      "arguments": [],
+      "name": "scip-python",
+      "version": "0.6.6"
+    },
+    "version": "0.6.6",
+    "wall_s": 17.68
+  },
+  "repo": "taiga-back",
+  "sampling": {
+    "per_stratum": 1000,
+    "seed": "20261031:taiga-back",
+    "threshold_call_sites": 50000
+  },
+  "url": "https://github.com/taigaio/taiga-back",
+  "v2": {
+    "calls": {
+      "line_level": {
+        "edges_on_lines_without_oracle_site": 149,
+        "judged_edges_not_at_an_oracle_call_site": {
+          "right": 168,
+          "wrong": 614
+        },
+        "oracle_sites_with_some_alternatives_without_engine_node": 0,
+        "oracle_sites_without_engine_node": 2,
+        "oracle_targets_on_lines_without_any_engine_edge_share": 0.0684,
+        "overall": {
+          "edges_on_lines_without_oracle_site": 7500,
+          "external_edges": 11073,
+          "oracle_targets_on_lines_without_any_engine_edge_share": 0.1054,
+          "precision": {
+            "by_tier": {
+              "exact": {
+                "ci95": [
+                  0.8754,
+                  1.0
+                ],
+                "k": 27,
+                "n": 27,
+                "population": 27,
+                "value": 1.0
+              },
+              "external": {
+                "ci95": [
+                  0.8452,
+                  0.8678
+                ],
+                "k": 3179,
+                "n": 3710,
+                "population": 3710,
+                "value": 0.8569
+              },
+              "import": {
+                "ci95": [
+                  0.9595,
+                  0.9667
+                ],
+                "k": 10153,
+                "n": 10540,
+                "population": 10540,
+                "value": 0.9633
+              },
+              "name": {
+                "ci95": [
+                  0.7904,
+                  0.8268
+                ],
+                "k": 1447,
+                "n": 1788,
+                "population": 1788,
+                "value": 0.8093
+              }
+            },
+            "ci95": [
+              0.9174,
+              0.9257
+            ],
+            "k": 14806,
+            "n": 16065,
+            "population": 16065,
+            "value": 0.9216
+          },
+          "recall": {
+            "ci95": [
+              0.8586,
+              0.8692
+            ],
+            "k": 14032,
+            "n": 16241,
+            "population": 16241,
+            "value": 0.864
+          },
+          "recall_external": {
+            "ci95": [
+              0.6912,
+              0.7206
+            ],
+            "k": 2590,
+            "n": 3668,
+            "population": 3668,
+            "value": 0.7061
+          }
+        },
+        "precision": {
+          "by_tier": {
+            "exact": {
+              "ci95": [
+                0.8754,
+                1.0
+              ],
+              "k": 27,
+              "n": 27,
+              "population": 27,
+              "value": 1.0
+            },
+            "import": {
+              "ci95": [
+                0.9597,
+                0.9669
+              ],
+              "k": 10153,
+              "n": 10538,
+              "population": 10538,
+              "value": 0.9635
+            },
+            "name": {
+              "ci95": [
+                0.7951,
+                0.8312
+              ],
+              "k": 1447,
+              "n": 1778,
+              "population": 1778,
+              "value": 0.8138
+            }
+          },
+          "ci95": [
+            0.9377,
+            0.946
+          ],
+          "k": 11627,
+          "n": 12343,
+          "population": 12343,
+          "value": 0.942
+        },
+        "recall": {
+          "ci95": [
+            0.9049,
+            0.9149
+          ],
+          "k": 11442,
+          "n": 12573,
+          "population": 12573,
+          "value": 0.91
+        },
+        "recall_over_mapped_targets_only": {
+          "ci95": [
+            0.9051,
+            0.9151
+          ],
+          "k": 11442,
+          "n": 12571,
+          "population": 12571,
+          "value": 0.9102
+        }
+      },
+      "mode": "all",
+      "precision": {
+        "exact": {
+          "ci95": [
+            0.8713,
+            1.0
+          ],
+          "k": 26,
+          "n": 26,
+          "population": 26,
+          "value": 1.0
+        },
+        "external": {
+          "ci95": [
+            0.9925,
+            0.9973
+          ],
+          "k": 3120,
+          "n": 3134,
+          "population": 3134,
+          "value": 0.9955
+        },
+        "external_module": {
+          "ci95": [
+            0.9349,
+            0.9511
+          ],
+          "k": 2957,
+          "n": 3134,
+          "population": 3134,
+          "value": 0.9435
+        },
+        "import": {
+          "ci95": [
+            0.9878,
+            0.9917
+          ],
+          "k": 10006,
+          "n": 10108,
+          "population": 10108,
+          "value": 0.9899
+        },
+        "name": {
+          "ci95": [
+            0.99,
+            0.9976
+          ],
+          "k": 1427,
+          "n": 1434,
+          "population": 1434,
+          "value": 0.9951
+        },
+        "overall": {
+          "ci95": [
+            0.99,
+            0.993
+          ],
+          "k": 14579,
+          "n": 14702,
+          "population": 14702,
+          "value": 0.9916
+        }
+      },
+      "recall": {
+        "by_tier": {
+          "exact": {
+            "ci95": [
+              0.001,
+              0.0022
+            ],
+            "k": 26,
+            "n": 16942,
+            "population": 16942,
+            "value": 0.0015
+          },
+          "external": {
+            "ci95": [
+              0.1784,
+              0.1901
+            ],
+            "k": 3120,
+            "n": 16942,
+            "population": 16942,
+            "value": 0.1842
+          },
+          "import": {
+            "ci95": [
+              0.5832,
+              0.598
+            ],
+            "k": 10006,
+            "n": 16942,
+            "population": 16942,
+            "value": 0.5906
+          },
+          "name": {
+            "ci95": [
+              0.0801,
+              0.0885
+            ],
+            "k": 1427,
+            "n": 16942,
+            "population": 16942,
+            "value": 0.0842
+          }
+        },
+        "external": {
+          "ci95": [
+            0.7042,
+            0.7309
+          ],
+          "k": 3120,
+          "n": 4347,
+          "population": 4347,
+          "value": 0.7177
+        },
+        "oracle_sites_without_v2_node": 2,
+        "overall": {
+          "ci95": [
+            0.8552,
+            0.8657
+          ],
+          "k": 14579,
+          "n": 16942,
+          "population": 16942,
+          "value": 0.8605
+        },
+        "repo": {
+          "ci95": [
+            0.9047,
+            0.9147
+          ],
+          "k": 11459,
+          "n": 12595,
+          "population": 12595,
+          "value": 0.9098
+        },
+        "repo_over_mapped_targets_only": {
+          "ci95": [
+            0.9048,
+            0.9148
+          ],
+          "k": 11459,
+          "n": 12593,
+          "population": 12593,
+          "value": 0.9099
+        },
+        "repo_sites_with_external_alternatives": 0
+      },
+      "unjudged": {
+        "no_oracle_site": 4856,
+        "oracle_target_local_or_unknown": 4007
+      }
+    },
+    "determinism": {
+      "graph_hashes": [
+        "0fbdc4650078ab597f0dff4d9719d60e565219db8571b455770802766633727d",
+        "0fbdc4650078ab597f0dff4d9719d60e565219db8571b455770802766633727d"
+      ],
+      "identical": true
+    },
+    "files": {
+      "failed": 0,
+      "parse_failures_by_shape": {},
+      "parsed": 933
+    },
+    "imports": {
+      "external": {
+        "precision": {
+          "ci95": [
+            0.3788,
+            0.428
+          ],
+          "k": 614,
+          "n": 1523,
+          "value": 0.4032
+        },
+        "recall": {
+          "ci95": [
+            0.6879,
+            0.7481
+          ],
+          "k": 614,
+          "n": 854,
+          "value": 0.719
+        }
+      },
+      "in_repo": {
+        "by_tier": {
+          "exact": {
+            "ci95": [
+              0.7557,
+              0.7906
+            ],
+            "k": 1712,
+            "n": 2213,
+            "value": 0.7736
+          },
+          "import": {
+            "ci95": null,
+            "k": 0,
+            "n": 0,
+            "value": null
+          },
+          "name": {
+            "ci95": null,
+            "k": 0,
+            "n": 0,
+            "value": null
+          }
+        },
+        "precision": {
+          "ci95": [
+            0.7557,
+            0.7906
+          ],
+          "k": 1712,
+          "n": 2213,
+          "value": 0.7736
+        },
+        "recall": {
+          "ci95": [
+            0.9908,
+            0.9976
+          ],
+          "k": 1712,
+          "n": 1720,
+          "value": 0.9953
+        }
+      },
+      "resolved_edges_without_a_file_or_package_target": 0
+    },
+    "perf": {
+      "facts_bytes": 108958045,
+      "peak_rss_bytes": [
+        1252114432,
+        1167638528
+      ],
+      "peak_rss_scope": "wait4 ru_maxrss: largest single process of the tree",
+      "store_bytes": 104918033,
+      "store_scope": "cov-graph build --out directory (graph.jsonl, ledger, accounting, metrics)",
+      "wall_s": [
+        30.74,
+        31.73
+      ]
+    },
+    "references": {
+      "mode": "seeded stratified sample, 1000 per stratum",
+      "oracle_sites": 109054,
+      "precision": {
+        "by_access": {
+          "read": {
+            "ci95": [
+              0.9843,
+              0.9959
+            ],
+            "k": 992,
+            "n": 1000,
+            "population": 2554,
+            "value": 0.992
+          },
+          "type": {
+            "ci95": [
+              0.8754,
+              1.0
+            ],
+            "k": 27,
+            "n": 27,
+            "population": 27,
+            "value": 1.0
+          },
+          "write": {
+            "ci95": [
+              0.9637,
+              0.9988
+            ],
+            "k": 151,
+            "n": 152,
+            "population": 152,
+            "value": 0.9934
+          }
+        },
+        "by_tier": {
+          "exact": {
+            "ci95": [
+              0.9287,
+              1.0
+            ],
+            "k": 50,
+            "n": 50,
+            "population": 50,
+            "value": 1.0
+          },
+          "external": {
+            "ci95": [
+              0.9573,
+              0.9909
+            ],
+            "k": 296,
+            "n": 302,
+            "population": 302,
+            "value": 0.9801
+          },
+          "import": {
+            "ci95": [
+              0.9766,
+              0.9916
+            ],
+            "k": 986,
+            "n": 1000,
+            "population": 1588,
+            "value": 0.986
+          },
+          "name": {
+            "ci95": [
+              0.9909,
+              0.9993
+            ],
+            "k": 791,
+            "n": 793,
+            "population": 793,
+            "value": 0.9975
+          }
+        },
+        "external": {
+          "ci95": [
+            0.9573,
+            0.9909
+          ],
+          "k": 296,
+          "n": 302,
+          "population": 302,
+          "value": 0.9801
+        },
+        "overall": {
+          "ci95": [
+            0.9791,
+            0.9931
+          ],
+          "k": 988,
+          "n": 1000,
+          "population": 2733,
+          "value": 0.988
+        },
+        "repo": {
+          "ci95": [
+            0.9817,
+            0.9946
+          ],
+          "k": 990,
+          "n": 1000,
+          "population": 2431,
+          "value": 0.99
+        }
+      },
+      "recall": {
+        "external": {
+          "ci95": [
+            0.2203,
+            0.2736
+          ],
+          "k": 246,
+          "n": 1000,
+          "population": 1193,
+          "value": 0.246
+        },
+        "found_only_as_a_calls_edge": 5,
+        "oracle_sites_without_v2_node": 1040,
+        "overall": {
+          "ci95": [
+            0.2261,
+            0.2798
+          ],
+          "k": 252,
+          "n": 1000,
+          "population": 10537,
+          "value": 0.252
+        },
+        "repo": {
+          "ci95": [
+            0.2618,
+            0.3179
+          ],
+          "k": 289,
+          "n": 1000,
+          "population": 9344,
+          "value": 0.289
+        }
+      },
+      "unjudged": {
+        "fixture_or_data_rule": 506,
+        "no_oracle_site": 1061,
+        "oracle_target_local_or_unknown": 534,
+        "unresolved": 12620
+      },
+      "v2_edges": 16948
+    },
+    "u12_accounting": {
+      "kinds": 12,
+      "mismatched_kinds": {},
+      "mismatched_kinds_by_run": [
+        {},
+        {}
+      ],
+      "ok": true,
+      "runs_ok": [
+        true,
+        true
+      ],
+      "totals": {
+        "emitted": 247091,
+        "ledgered": 129681,
+        "lost": 0,
+        "placed": 117410
+      }
+    },
+    "unresolved": {
+      "by_tier": {
+        "exact": 103,
+        "external": 11073,
+        "import": 10548,
+        "name": 1841,
+        "unresolved": 18968
+      },
+      "calls": 42533,
+      "share": 0.446,
+      "top_ledger_kinds": [
+        [
+          "fact_unplaced",
+          103763
+        ],
+        [
+          "unresolved_edge",
+          32629
+        ],
+        [
+          "fact_unused",
+          32435
+        ],
+        [
+          "unhandled_node",
+          30160
+        ],
+        [
+          "layer_abstain",
+          3059
+        ],
+        [
+          "unresolved_graphql_registration",
+          42
+        ],
+        [
+          "assert_fatality_unproven",
+          32
+        ],
+        [
+          "prefix_not_read",
+          30
+        ],
+        [
+          "unknown_test_marker",
+          24
+        ],
+        [
+          "handler_outside_repo",
+          16
+        ]
+      ],
+      "top_unresolved_call_reasons": [
+        [
+          "dynamic_dispatch",
+          11111
+        ],
+        [
+          "no_candidate",
+          7443
+        ],
+        [
+          "reflection",
+          373
+        ],
+        [
+          "many_candidates",
+          26
+        ],
+        [
+          "external_not_indexed",
+          9
+        ],
+        [
+          "depth_cap",
+          6
+        ]
+      ],
+      "unresolved": 18968
+    }
+  }
+}

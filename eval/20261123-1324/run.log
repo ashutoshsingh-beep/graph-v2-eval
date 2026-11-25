@@ -1,0 +1,7 @@
+== click
+click: written
+== cobra
+cobra: written
+== difference sheets (oracle vs old engine vs graph v2)
+click: calls 2283: both right 990, gap 147, v2 gain 883, both miss 263; wrong edges v2 568, dev 96; check OK -> /Users/ashutosh/graph-v2-qa/eval/20261123-1324/out/click-differences.md
+cobra: calls 2192: both right 1500, gap 2, v2 gain 690, both miss 0; wrong edges v2 0, dev 0; check OK -> /Users/ashutosh/graph-v2-qa/eval/20261123-1324/out/cobra-differences.md

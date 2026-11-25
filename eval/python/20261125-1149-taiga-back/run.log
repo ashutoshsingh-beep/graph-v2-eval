@@ -1,0 +1,6 @@
+== taiga-back
+taiga-back: written
+== difference sheets (oracle vs old engine vs graph v2)
+taiga-back: calls 12573: both right 4415, gap 480, v2 gain 7027, both miss 651; wrong edges v2 716, dev 388; check OK -> /Users/ashutosh/graph-v2-qa/eval/python/20261125-1149-taiga-back/out/taiga-back-differences.md
+taiga-back: references 9163: both right 538, gap 73, v2 gain 1850, both miss 6702; wrong edges v2 24, dev 58; check OK -> /Users/ashutosh/graph-v2-qa/eval/python/20261125-1149-taiga-back/out/taiga-back-references-differences.md
+taiga-back: relations v2/dev/both: CALLS 7438/7480/4486, IMPORTS 2931/1962/1894, REFERENCES 2826/5711/422, EXTENDS 1288/997/938, CONTAINS 20/6800/20, TESTS 7929/0/0, ASSERTS 1570/0/0, MOCKS 56/0/0, HANDLES 3/449/0, ACCESSES 1083/1069/0, INVOKES 1/16/0 -> /Users/ashutosh/graph-v2-qa/eval/python/20261125-1149-taiga-back/out/taiga-back-relations.md

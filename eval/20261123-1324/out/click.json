@@ -1,0 +1,1025 @@
+{
+  "commit": "934813e4d421071a1b3db3973c02fe2721359a6e",
+  "disagreement_sample": [
+    {
+      "file": "examples/imagepipe/imagepipe.py",
+      "kind": "v2_unresolved_or_absent",
+      "line": 146,
+      "oracle": [
+        "src/click/core.py:1855 Group#command()."
+      ],
+      "source": "@cli.command(\"crop\")",
+      "v2": "unresolved R8 dynamic_dispatch unresolved::python::cli.command"
+    },
+    {
+      "file": "examples/naval/naval.py",
+      "kind": "v2_unresolved_or_absent",
+      "line": 37,
+      "oracle": [
+        "src/click/core.py:1855 Group#command()."
+      ],
+      "source": "@ship.command(\"shoot\")",
+      "v2": "unresolved R8 dynamic_dispatch unresolved::python::ship.command"
+    },
+    {
+      "file": "src/click/_compat.py",
+      "kind": "v2_unresolved_or_absent",
+      "line": 46,
+      "oracle": [
+        "external python-stdlib:builtins"
+      ],
+      "source": "rv = getattr(stream, \"encoding\", None) or sys.getdefaultencoding()",
+      "v2": "unresolved R8 reflection unresolved::python::getattr"
+    },
+    {
+      "file": "src/click/_compat.py",
+      "kind": "v2_unresolved_or_absent",
+      "line": 75,
+      "oracle": [
+        "external python-stdlib:typing"
+      ],
+      "source": "return self._stream.isatty()",
+      "v2": "unresolved R8 dynamic_dispatch unresolved::python::self._stream.isatty"
+    },
+    {
+      "file": "src/click/_compat.py",
+      "kind": "v2_unresolved_or_absent",
+      "line": 468,
+      "oracle": [
+        "external python-stdlib:typing"
+      ],
+      "source": "self._f.close()",
+      "v2": "unresolved R8 dynamic_dispatch unresolved::python::self._f.close"
+    },
+    {
+      "file": "src/click/_compat.py",
+      "kind": "v2_unresolved_or_absent",
+      "line": 519,
+      "oracle": [
+        "src/click/_compat.py:11 auto_wrap_for_ansi.auto_wrap_for_ansi."
+      ],
+      "source": "def auto_wrap_for_ansi(",
+      "v2": "no CALLS edge at this site"
+    },
+    {
+      "file": "src/click/_compat.py",
+      "kind": "v2_unresolved_or_absent",
+      "line": 559,
+      "oracle": [
+        "external python-stdlib:builtins"
+      ],
+      "source": "return getattr(sys.stdin, \"encoding\", None) or sys.getfilesystemencoding()",
+      "v2": "unresolved R8 reflection unresolved::python::getattr"
+    },
+    {
+      "file": "src/click/_termui_impl.py",
+      "kind": "v2_unresolved_or_absent",
+      "line": 491,
+      "oracle": [
+        "external python-stdlib:typing"
+      ],
+      "source": "f.write(text.encode(encoding))",
+      "v2": "unresolved R8 dynamic_dispatch unresolved::python::f.write"
+    },
+    {
+      "file": "src/click/_termui_impl.py",
+      "kind": "v2_unresolved_or_absent",
+      "line": 776,
+      "oracle": [
+        "external python-stdlib:io"
+      ],
+      "source": "f.close()",
+      "v2": "unresolved R8 dynamic_dispatch unresolved::python::f.close"
+    },
+    {
+      "file": "src/click/core.py",
+      "kind": "v2_unresolved_or_absent",
+      "line": 1939,
+      "oracle": [
+        "external python-stdlib:builtins"
+      ],
+      "source": "if self.group_class is not None and kwargs.get(\"cls\") is None:",
+      "v2": "unresolved R8 no_candidate unresolved::python::kwargs.get"
+    },
+    {
+      "file": "src/click/core.py",
+      "kind": "v2_unresolved_or_absent",
+      "line": 2426,
+      "oracle": [
+        "external python-stdlib:builtins"
+      ],
+      "source": "return \" / \".join(f\"'{x}'\" for x in hint_list)",
+      "v2": "unresolved R8 no_candidate unresolved::python::\"/\".join"
+    },
+    {
+      "file": "src/click/core.py",
+      "kind": "v2_unresolved_or_absent",
+      "line": 2666,
+      "oracle": [
+        "external python-stdlib:builtins"
+      ],
+      "source": "second = second.lstrip()",
+      "v2": "unresolved R8 no_candidate unresolved::python::second.lstrip"
+    },
+    {
+      "file": "src/click/core.py",
+      "kind": "v2_unresolved_or_absent",
+      "line": 2999,
+      "oracle": [
+        "src/click/core.py:2093 Parameter#__init__()."
+      ],
+      "source": "super().__init__(param_decls, required=required, **attrs)",
+      "v2": "unresolved R8 dynamic_dispatch unresolved::python::super().__init__"
+    },
+    {
+      "file": "src/click/decorators.py",
+      "kind": "v2_unresolved_or_absent",
+      "line": 407,
+      "oracle": [
+        "external python-stdlib:typing"
+      ],
+      "source": "kwargs.setdefault(\"confirmation_prompt\", True)",
+      "v2": "unresolved R8 no_candidate unresolved::python::kwargs.setdefault"
+    },
+    {
+      "file": "src/click/exceptions.py",
+      "kind": "v2_unresolved_or_absent",
+      "line": 88,
+      "oracle": [
+        "src/click/exceptions.py:38 ClickException#format_message()."
+      ],
+      "source": "_(\"Error: {message}\").format(message=self.format_message()),",
+      "v2": "unresolved R8 dynamic_dispatch unresolved::python::self.format_message"
+    },
+    {
+      "file": "src/click/formatting.py",
+      "kind": "v2_unresolved_or_absent",
+      "line": 262,
+      "oracle": [
+        "src/click/formatting.py:185 HelpFormatter#write_heading()."
+      ],
+      "source": "self.write_heading(name)",
+      "v2": "unresolved R8 dynamic_dispatch unresolved::python::self.write_heading"
+    },
+    {
+      "file": "src/click/types.py",
+      "kind": "v2_unresolved_or_absent",
+      "line": 467,
+      "oracle": [
+        "src/click/types.py:480 _NumberRangeBase#_clamp()."
+      ],
+      "source": "return self._clamp(self.max, -1, self.max_open)  # type: ignore",
+      "v2": "unresolved R8 dynamic_dispatch unresolved::python::self._clamp"
+    },
+    {
+      "file": "src/click/types.py",
+      "kind": "v2_unresolved_or_absent",
+      "line": 853,
+      "oracle": [
+        "external python-stdlib:builtins"
+      ],
+      "source": "return t.cast(\"os.PathLike[str]\", self.type(value))",
+      "v2": "unresolved R8 no_candidate unresolved::python::self.type"
+    },
+    {
+      "file": "src/click/utils.py",
+      "kind": "v2_target_differs",
+      "line": 136,
+      "oracle": [
+        "external python-stdlib:builtins"
+      ],
+      "source": "open(filename, mode).close()",
+      "v2": "name R4 python::.::src/click/utils.py::src/click/utils/LazyFile#open().#f9065fa7"
+    },
+    {
+      "file": "tests/test_arguments.py",
+      "kind": "v2_unresolved_or_absent",
+      "line": 196,
+      "oracle": [
+        "src/click/exceptions.py:123 BadParameter#format_message()."
+      ],
+      "source": "assert expect in result.exception.format_message()",
+      "v2": "unresolved R8 dynamic_dispatch unresolved::python::result.exception.format_message"
+    },
+    {
+      "file": "tests/test_chain.py",
+      "kind": "v2_unresolved_or_absent",
+      "line": 231,
+      "oracle": [
+        "src/click/core.py:1855 Group#command()."
+      ],
+      "source": "@l1a.command()",
+      "v2": "unresolved R8 dynamic_dispatch unresolved::python::l1a.command"
+    },
+    {
+      "file": "tests/test_command_decorators.py",
+      "kind": "v2_target_differs",
+      "line": 5,
+      "oracle": [
+        "src/click/decorators.py:137 command()."
+      ],
+      "source": "@click.command",
+      "v2": "exact framework_calls:click:click.command python::.::tests/test_command_decorators.py::tests/test_command_decorators/test_command_no_parens().cli().#f9065fa7"
+    },
+    {
+      "file": "tests/test_command_decorators.py",
+      "kind": "v2_target_differs",
+      "line": 35,
+      "oracle": [
+        "src/click/decorators.py:254 group()."
+      ],
+      "source": "@click.group",
+      "v2": "exact framework_calls:click:click.group python::.::tests/test_command_decorators.py::tests/test_command_decorators/test_group_no_parens().grp().#f9065fa7"
+    },
+    {
+      "file": "tests/test_defaults.py",
+      "kind": "v2_target_differs",
+      "line": 46,
+      "oracle": [
+        "src/click/decorators.py:137 command()."
+      ],
+      "source": "@click.command",
+      "v2": "exact framework_calls:click:click.command python::.::tests/test_defaults.py::tests/test_defaults/test_multiple_flag_default().cli().#0ab2c236"
+    },
+    {
+      "file": "tests/test_shell_completion.py",
+      "kind": "v2_unresolved_or_absent",
+      "line": 351,
+      "oracle": [
+        "external python-stdlib:builtins"
+      ],
+      "source": "prev_available_shells = click.shell_completion._available_shells.copy()",
+      "v2": "unresolved R8 no_candidate unresolved::python::click.shell_completion._available_shells.copy"
+    },
+    {
+      "file": "tests/test_utils.py",
+      "kind": "v2_unresolved_or_absent",
+      "line": 100,
+      "oracle": [
+        "src/click/termui.py:591 unstyle()."
+      ],
+      "source": "assert click.unstyle(text) == expect",
+      "v2": "unresolved R8 dynamic_dispatch unresolved::python::click.unstyle"
+    },
+    {
+      "file": "tests/test_utils.py",
+      "kind": "v2_unresolved_or_absent",
+      "line": 261,
+      "oracle": [
+        "src/click/utils.py:219 echo()."
+      ],
+      "source": "click.echo(\"Echo to standard error\", err=True)",
+      "v2": "unresolved R8 dynamic_dispatch unresolved::python::click.echo"
+    },
+    {
+      "file": "tests/test_utils.py",
+      "kind": "v2_unresolved_or_absent",
+      "line": 293,
+      "oracle": [
+        "src/click/termui.py:753 pause()."
+      ],
+      "source": "click.pause(\"Pause to stdout\")",
+      "v2": "unresolved R8 dynamic_dispatch unresolved::python::click.pause"
+    },
+    {
+      "file": "tests/typing/typing_help_option.py",
+      "kind": "v2_unresolved_or_absent",
+      "line": 13,
+      "oracle": [
+        "external python-stdlib:typing"
+      ],
+      "source": "assert_type(hello, click.Command)",
+      "v2": "unresolved R8 external_not_indexed unresolved::python::assert_type"
+    },
+    {
+      "file": "tests/typing/typing_simple_example.py",
+      "kind": "v2_unresolved_or_absent",
+      "line": 17,
+      "oracle": [
+        "external python-stdlib:typing"
+      ],
+      "source": "assert_type(hello, click.Command)",
+      "v2": "unresolved R8 external_not_indexed unresolved::python::assert_type"
+    }
+  ],
+  "engines": {
+    "legacy_commit": "25ae40bf8662fb8c89c39684b1d942e235b3656a",
+    "v2_commit": "b3cd5e698314f2c67de5f1f64b5df4a61d5a5ab2"
+  },
+  "language": "python",
+  "legacy": {
+    "calls": {
+      "calls": 2096,
+      "calls_without_site_line": 0,
+      "edges_on_lines_without_oracle_site": 418,
+      "judged_edges_not_at_an_oracle_call_site": null,
+      "oracle_sites_with_some_alternatives_without_engine_node": 0,
+      "oracle_sites_without_engine_node": 25,
+      "oracle_targets_on_lines_without_any_engine_edge_share": 0.4735,
+      "overall": {
+        "edges_on_lines_without_oracle_site": 331,
+        "external_edges": 0,
+        "oracle_targets_on_lines_without_any_engine_edge_share": 0.5852,
+        "precision": {
+          "by_tier": {
+            "resolved": {
+              "ci95": [
+                0.8812,
+                0.9097
+              ],
+              "k": 1582,
+              "n": 1765,
+              "population": 1765,
+              "value": 0.8963
+            }
+          },
+          "ci95": [
+            0.8812,
+            0.9097
+          ],
+          "k": 1582,
+          "n": 1765,
+          "population": 1765,
+          "value": 0.8963
+        },
+        "recall": {
+          "ci95": [
+            0.3253,
+            0.3575
+          ],
+          "k": 1137,
+          "n": 3332,
+          "population": 3332,
+          "value": 0.3412
+        },
+        "recall_external": {
+          "ci95": [
+            0.0,
+            0.0036
+          ],
+          "k": 0,
+          "n": 1049,
+          "population": 1049,
+          "value": 0.0
+        }
+      },
+      "precision": {
+        "by_tier": {
+          "resolved": {
+            "ci95": [
+              0.9306,
+              0.9529
+            ],
+            "k": 1582,
+            "n": 1678,
+            "population": 1678,
+            "value": 0.9428
+          }
+        },
+        "ci95": [
+          0.9306,
+          0.9529
+        ],
+        "k": 1582,
+        "n": 1678,
+        "population": 1678,
+        "value": 0.9428
+      },
+      "recall": {
+        "ci95": [
+          0.4775,
+          0.5185
+        ],
+        "k": 1137,
+        "n": 2283,
+        "population": 2283,
+        "value": 0.498
+      },
+      "recall_over_mapped_targets_only": {
+        "ci95": [
+          0.4829,
+          0.5241
+        ],
+        "k": 1137,
+        "n": 2258,
+        "population": 2258,
+        "value": 0.5035
+      }
+    },
+    "determinism": {
+      "export_hashes": [
+        "a23ef54ed70608a83ade41c30546a7afb3497b923157af3d93760d89727c7479",
+        "a23ef54ed70608a83ade41c30546a7afb3497b923157af3d93760d89727c7479"
+      ],
+      "identical": true
+    },
+    "imports": {
+      "edges": 213,
+      "external": {
+        "entries": {
+          "read_as_external": 222,
+          "resolved_to_a_file": 259
+        },
+        "precision": {
+          "ci95": [
+            0.6994,
+            0.819
+          ],
+          "k": 146,
+          "n": 191,
+          "value": 0.7644
+        },
+        "recall": {
+          "ci95": [
+            0.8585,
+            0.9472
+          ],
+          "k": 146,
+          "n": 160,
+          "value": 0.9125
+        }
+      },
+      "in_repo": {
+        "precision": {
+          "ci95": [
+            0.9234,
+            0.9975
+          ],
+          "k": 69,
+          "n": 70,
+          "value": 0.9857
+        },
+        "recall": {
+          "ci95": [
+            0.5395,
+            0.7175
+          ],
+          "k": 69,
+          "n": 109,
+          "value": 0.633
+        }
+      }
+    },
+    "perf": {
+      "export_bytes": 702020,
+      "peak_rss_bytes": [
+        96976896,
+        96780288
+      ],
+      "peak_rss_scope": "wait4 ru_maxrss: largest single process of the tree",
+      "store_scope": "no on-disk store in in-process mode; size of the exported JSON lines",
+      "wall_s": [
+        2.03,
+        1.53
+      ]
+    },
+    "u12_accounting": "not applicable: no raw-fact ledger",
+    "unresolved": {
+      "note": "not measurable: the old engine keeps no unresolved call rows; compare calls.oracle_targets_on_lines_without_any_engine_edge_share",
+      "share": null
+    }
+  },
+  "oracle": {
+    "argv": [
+      "index",
+      "--quiet",
+      "--project-name",
+      "click",
+      "--project-version",
+      "934813e4d421",
+      "--output",
+      "<cache>/click@934813e4d421071a1b3db3973c02fe2721359a6e@scip-python-0.6.6.scip"
+    ],
+    "bytes": 2571466,
+    "cache": "hit",
+    "call_sites": 3794,
+    "call_sites_by_target": {
+      "external": 1124,
+      "local_or_unknown": 377,
+      "repo": 2293
+    },
+    "counts": {
+      "call_site_symbol_with_several_definitions": 2,
+      "documents_outside_checkout": 0,
+      "import_name_without_symbol": 45,
+      "occurrences_outside_checkout": 0
+    },
+    "dependencies": null,
+    "documents": 70,
+    "import_pairs": 269,
+    "peak_rss_bytes": 502956032,
+    "pyrightconfig": "{\"exclude\": [\"**/node_modules\", \"**/.*\"], \"extraPaths\": [\"src\"], \"include\": [\".\"]}",
+    "tool": "scip-python",
+    "tool_info": {
+      "arguments": [],
+      "name": "scip-python",
+      "version": "0.6.6"
+    },
+    "version": "0.6.6",
+    "wall_s": 5.67
+  },
+  "repo": "click",
+  "sampling": {
+    "per_stratum": 1000,
+    "seed": "20261031:click",
+    "threshold_call_sites": 50000
+  },
+  "url": "https://github.com/pallets/click",
+  "v2": {
+    "calls": {
+      "line_level": {
+        "edges_on_lines_without_oracle_site": 644,
+        "judged_edges_not_at_an_oracle_call_site": {
+          "right": 336,
+          "wrong": 565
+        },
+        "oracle_sites_with_some_alternatives_without_engine_node": 0,
+        "oracle_sites_without_engine_node": 8,
+        "oracle_targets_on_lines_without_any_engine_edge_share": 0.1572,
+        "overall": {
+          "edges_on_lines_without_oracle_site": 962,
+          "external_edges": 1029,
+          "oracle_targets_on_lines_without_any_engine_edge_share": 0.1951,
+          "precision": {
+            "by_tier": {
+              "exact": {
+                "ci95": [
+                  0.0,
+                  0.0134
+                ],
+                "k": 0,
+                "n": 283,
+                "population": 283,
+                "value": 0.0
+              },
+              "external": {
+                "ci95": [
+                  0.9583,
+                  0.9827
+                ],
+                "k": 686,
+                "n": 705,
+                "population": 705,
+                "value": 0.973
+              },
+              "import": {
+                "ci95": [
+                  0.8695,
+                  0.8975
+                ],
+                "k": 1779,
+                "n": 2012,
+                "population": 2012,
+                "value": 0.8842
+              },
+              "name": {
+                "ci95": [
+                  0.8524,
+                  0.9088
+                ],
+                "k": 440,
+                "n": 498,
+                "population": 498,
+                "value": 0.8835
+              }
+            },
+            "ci95": [
+              0.8177,
+              0.8425
+            ],
+            "k": 2905,
+            "n": 3498,
+            "population": 3498,
+            "value": 0.8305
+          },
+          "recall": {
+            "ci95": [
+              0.7454,
+              0.7744
+            ],
+            "k": 2533,
+            "n": 3332,
+            "population": 3332,
+            "value": 0.7602
+          },
+          "recall_external": {
+            "ci95": [
+              0.5995,
+              0.6579
+            ],
+            "k": 660,
+            "n": 1049,
+            "population": 1049,
+            "value": 0.6292
+          }
+        },
+        "precision": {
+          "by_tier": {
+            "exact": {
+              "ci95": [
+                0.0,
+                0.0134
+              ],
+              "k": 0,
+              "n": 283,
+              "population": 283,
+              "value": 0.0
+            },
+            "import": {
+              "ci95": [
+                0.8699,
+                0.8979
+              ],
+              "k": 1779,
+              "n": 2011,
+              "population": 2011,
+              "value": 0.8846
+            },
+            "name": {
+              "ci95": [
+                0.8621,
+                0.9169
+              ],
+              "k": 440,
+              "n": 493,
+              "population": 493,
+              "value": 0.8925
+            }
+          },
+          "ci95": [
+            0.7808,
+            0.8107
+          ],
+          "k": 2219,
+          "n": 2787,
+          "population": 2787,
+          "value": 0.7962
+        },
+        "recall": {
+          "ci95": [
+            0.8041,
+            0.8356
+          ],
+          "k": 1873,
+          "n": 2283,
+          "population": 2283,
+          "value": 0.8204
+        },
+        "recall_over_mapped_targets_only": {
+          "ci95": [
+            0.8071,
+            0.8384
+          ],
+          "k": 1873,
+          "n": 2275,
+          "population": 2275,
+          "value": 0.8233
+        }
+      },
+      "mode": "all",
+      "precision": {
+        "exact": {
+          "ci95": [
+            0.0,
+            0.5615
+          ],
+          "k": 0,
+          "n": 3,
+          "population": 3,
+          "value": 0.0
+        },
+        "external": {
+          "ci95": [
+            0.9943,
+            1.0
+          ],
+          "k": 666,
+          "n": 666,
+          "population": 666,
+          "value": 1.0
+        },
+        "external_module": {
+          "ci95": [
+            0.8368,
+            0.8887
+          ],
+          "k": 576,
+          "n": 666,
+          "population": 666,
+          "value": 0.8649
+        },
+        "import": {
+          "ci95": [
+            0.9974,
+            1.0
+          ],
+          "k": 1460,
+          "n": 1460,
+          "population": 1460,
+          "value": 1.0
+        },
+        "name": {
+          "ci95": [
+            0.9868,
+            0.9996
+          ],
+          "k": 423,
+          "n": 424,
+          "population": 424,
+          "value": 0.9976
+        },
+        "overall": {
+          "ci95": [
+            0.996,
+            0.9994
+          ],
+          "k": 2549,
+          "n": 2553,
+          "population": 2553,
+          "value": 0.9984
+        }
+      },
+      "recall": {
+        "by_tier": {
+          "exact": {
+            "ci95": [
+              0.0,
+              0.0011
+            ],
+            "k": 0,
+            "n": 3417,
+            "population": 3417,
+            "value": 0.0
+          },
+          "external": {
+            "ci95": [
+              0.182,
+              0.2085
+            ],
+            "k": 666,
+            "n": 3417,
+            "population": 3417,
+            "value": 0.1949
+          },
+          "import": {
+            "ci95": [
+              0.4108,
+              0.4439
+            ],
+            "k": 1460,
+            "n": 3417,
+            "population": 3417,
+            "value": 0.4273
+          },
+          "name": {
+            "ci95": [
+              0.1132,
+              0.1353
+            ],
+            "k": 423,
+            "n": 3417,
+            "population": 3417,
+            "value": 0.1238
+          }
+        },
+        "external": {
+          "ci95": [
+            0.5635,
+            0.6209
+          ],
+          "k": 666,
+          "n": 1124,
+          "population": 1124,
+          "value": 0.5925
+        },
+        "oracle_sites_without_v2_node": 8,
+        "overall": {
+          "ci95": [
+            0.7311,
+            0.7603
+          ],
+          "k": 2549,
+          "n": 3417,
+          "population": 3417,
+          "value": 0.746
+        },
+        "repo": {
+          "ci95": [
+            0.805,
+            0.8363
+          ],
+          "k": 1883,
+          "n": 2293,
+          "population": 2293,
+          "value": 0.8212
+        },
+        "repo_over_mapped_targets_only": {
+          "ci95": [
+            0.8079,
+            0.8391
+          ],
+          "k": 1883,
+          "n": 2285,
+          "population": 2285,
+          "value": 0.8241
+        },
+        "repo_sites_with_external_alternatives": 0
+      },
+      "unjudged": {
+        "no_oracle_site": 1641,
+        "oracle_target_local_or_unknown": 266
+      }
+    },
+    "determinism": {
+      "graph_hashes": [
+        "f6e93d2859d15b218a043cb43c82c31c8ffd27932a861b7908a5a78a215384c4",
+        "f6e93d2859d15b218a043cb43c82c31c8ffd27932a861b7908a5a78a215384c4"
+      ],
+      "identical": true
+    },
+    "files": {
+      "failed": 0,
+      "parse_failures_by_shape": {},
+      "parsed": 70
+    },
+    "imports": {
+      "external": {
+        "precision": {
+          "ci95": [
+            0.933,
+            0.9895
+          ],
+          "k": 145,
+          "n": 149,
+          "value": 0.9732
+        },
+        "recall": {
+          "ci95": [
+            0.8511,
+            0.9424
+          ],
+          "k": 145,
+          "n": 160,
+          "value": 0.9062
+        }
+      },
+      "in_repo": {
+        "by_tier": {
+          "exact": {
+            "ci95": [
+              0.9014,
+              0.9811
+            ],
+            "k": 109,
+            "n": 114,
+            "value": 0.9561
+          },
+          "import": {
+            "ci95": null,
+            "k": 0,
+            "n": 0,
+            "value": null
+          },
+          "name": {
+            "ci95": null,
+            "k": 0,
+            "n": 0,
+            "value": null
+          }
+        },
+        "precision": {
+          "ci95": [
+            0.9014,
+            0.9811
+          ],
+          "k": 109,
+          "n": 114,
+          "value": 0.9561
+        },
+        "recall": {
+          "ci95": [
+            0.966,
+            1.0
+          ],
+          "k": 109,
+          "n": 109,
+          "value": 1.0
+        }
+      },
+      "resolved_edges_without_a_file_or_package_target": 0
+    },
+    "perf": {
+      "facts_bytes": 8491517,
+      "peak_rss_bytes": [
+        224198656,
+        223690752
+      ],
+      "peak_rss_scope": "wait4 ru_maxrss: largest single process of the tree",
+      "store_bytes": 11929528,
+      "store_scope": "cov-graph build --out directory (graph.jsonl, ledger, accounting, metrics)",
+      "wall_s": [
+        3.05,
+        2.55
+      ]
+    },
+    "u12_accounting": {
+      "kinds": 11,
+      "mismatched_kinds": {},
+      "mismatched_kinds_by_run": [
+        {},
+        {}
+      ],
+      "ok": true,
+      "runs_ok": [
+        true,
+        true
+      ],
+      "totals": {
+        "emitted": 29308,
+        "ledgered": 11656,
+        "lost": 0,
+        "placed": 17652
+      }
+    },
+    "unresolved": {
+      "by_tier": {
+        "exact": 286,
+        "external": 1029,
+        "import": 2093,
+        "name": 1052,
+        "unresolved": 1538
+      },
+      "calls": 5998,
+      "share": 0.2564,
+      "top_ledger_kinds": [
+        [
+          "fact_unplaced",
+          8379
+        ],
+        [
+          "unhandled_node",
+          4633
+        ],
+        [
+          "fact_unused",
+          2802
+        ],
+        [
+          "unresolved_edge",
+          2561
+        ],
+        [
+          "assert_fatality_unproven",
+          67
+        ],
+        [
+          "layer_abstain",
+          35
+        ],
+        [
+          "unresolved_graphql_registration",
+          15
+        ],
+        [
+          "unknown_route_call",
+          4
+        ],
+        [
+          "framework_unmatched",
+          1
+        ],
+        [
+          "handler_outside_repo",
+          1
+        ]
+      ],
+      "top_unresolved_call_reasons": [
+        [
+          "no_candidate",
+          729
+        ],
+        [
+          "dynamic_dispatch",
+          675
+        ],
+        [
+          "external_not_indexed",
+          94
+        ],
+        [
+          "reflection",
+          29
+        ],
+        [
+          "many_candidates",
+          9
+        ],
+        [
+          "depth_cap",
+          2
+        ]
+      ],
+      "unresolved": 1538
+    }
+  }
+}
